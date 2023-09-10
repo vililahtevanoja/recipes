@@ -1,18 +1,18 @@
-import { readRecipes } from "@/recipe-data/recipe-reader";
-import { Recipe } from "@/recipe-data/recipe-model";
-import Link from "next/link";
+import { readRecipes } from '@/recipe-data/recipe-reader'
+import { Recipe } from '@/recipe-data/recipe-model'
+import Link from 'next/link'
 
 type Props = {
-  recipes: Recipe[];
-};
+  recipes: Recipe[]
+}
 
 export const getStaticProps = async () => {
   return {
     props: {
-      recipes: await readRecipes("recipes"),
+      recipes: await readRecipes('recipes'),
     },
-  };
-};
+  }
+}
 
 export default function Home({ recipes }: Props) {
   return (
@@ -20,10 +20,13 @@ export default function Home({ recipes }: Props) {
       <ul>
         {recipes.map(({ id, title, metadata }) => (
           <li key={id}>
-            <Link href={`/${id}`}>{metadata.lang?.toLowerCase() === "fi" ? "🇫🇮" : "🇬🇧" }{title}</Link>
+            <Link href={`/${id}`}>
+              {metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}
+              {title}
+            </Link>
           </li>
         ))}
       </ul>
     </main>
-  );
+  )
 }

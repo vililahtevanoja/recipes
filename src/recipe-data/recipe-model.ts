@@ -3,7 +3,7 @@ import cooklang, {
   Ingredient,
   Metadata,
   Step,
-} from "@cooklang/cooklang-ts";
+} from '@cooklang/cooklang-ts'
 
 export enum RecipeContentFormat {
   Markdown,
@@ -12,33 +12,33 @@ export enum RecipeContentFormat {
 }
 
 export type RecipeMetadata = {
-  title: string;
-  servings?: number;
-  lang?: "FI" | "fi" | "EN" | "en";
-  tags: string[];
-};
+  title: string
+  servings?: number
+  lang?: 'FI' | 'fi' | 'EN' | 'en'
+  tags: string[]
+}
 
 export type RecipeBase = {
-  id: string;
-  title: string;
-  path: string;
-  metadata: RecipeMetadata;
-  format: RecipeContentFormat;
-};
+  id: string
+  title: string
+  path: string
+  metadata: RecipeMetadata
+  format: RecipeContentFormat
+}
 
 export type MarkdownRecipe = RecipeBase & {
-  content: string;
-};
+  content: string
+}
 
 export type CooklangRecipeContent = {
-  ingredients: Array<Ingredient>;
-  cookwares: Array<Cookware>;
-  metadata: Metadata;
-  steps: Array<Step>;
-};
+  ingredients: Array<Ingredient>
+  cookwares: Array<Cookware>
+  metadata: Metadata
+  steps: Array<Step>
+}
 
 export type CooklangRecipe = RecipeBase & {
-  content: cooklang.Recipe;
-};
+  content: cooklang.Recipe
+}
 
-export type Recipe = MarkdownRecipe | CooklangRecipe;
+export type Recipe = MarkdownRecipe | CooklangRecipe
