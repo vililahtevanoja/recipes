@@ -1,5 +1,6 @@
 import { readRecipes } from "@/recipe-data/recipe-reader";
 import { Recipe } from "@/recipe-data/recipe-model";
+import Link from "next/link";
 
 type Props = {
   recipes: Recipe[];
@@ -19,7 +20,7 @@ export default function Home({ recipes }: Props) {
       <ul>
         {recipes.map(({ id, title }) => (
           <li key={id}>
-            <a href={`/personal-recipes/${id}`}>{title}</a>
+            <Link href={`/${id}`}>{title}</Link>
           </li>
         ))}
       </ul>
