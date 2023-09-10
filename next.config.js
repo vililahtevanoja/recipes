@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/personal-recipes",
+  basePath: "/recipes",
   reactStrictMode: true,
   images: {
     unoptimized: true,
