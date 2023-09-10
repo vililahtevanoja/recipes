@@ -1,8 +1,8 @@
 import path from "path";
 import { parse } from 'yaml'
 import { promises as fs } from "fs";
-import cooklang from '@cooklang/cooklang-ts';
-import { CooklangRecipe, MarkdownRecipe, Recipe, RecipeContentFormat, RecipeMetadata } from "./recipe-model";
+import { Recipe as _CooklangRecipe} from '@cooklang/cooklang-ts';
+import { CooklangRecipe, CooklangRecipeContent, MarkdownRecipe, Recipe, RecipeContentFormat, RecipeMetadata } from "./recipe-model";
 
 
 const postsContainer: Record<string, Recipe[]> = {};
@@ -49,9 +49,10 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe> => {
     const metadata = getMetadataFromMarkdownRecipe(content)
     return {id: name, title: metadata.title, format, content, path: filePath, metadata} as MarkdownRecipe;
   } else if (format === RecipeContentFormat.Cooklang) {
-    const recipe = new cooklang.Recipe(content)
+    const recipe = new _CooklangRecipe(content)
     const metadata = getMetadataFromCooklangRecipe(recipe)
-    return {id: name, title: metadata.title, format, content: recipe, path: filePath, metadata} as CooklangRecipe
+    const cooklangRecipeContent: CooklangRecipeContent = {ingredients: recipe.ingredients, cookwares: recipe.cookwares, metadata: recipe.metadata, steps: recipe.steps}
+    return {id: name, title: metadata.title, format, content: cooklangRecipeContent, path: filePath, metadata} as CooklangRecipe
   } else {
     throw new Error(`Unknown file format for ${filePath}`)
   }
@@ -59,10 +60,10 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe> => {
 
 const tagStrToList = (tags: string): string[] =>  tags.split(",").map((s) => s.trim())
 
-const getMetadataFromCooklangRecipe = (recipe: cooklang.Recipe): RecipeMetadata => {
+const getMetadataFromCooklangRecipe = (recipe: _CooklangRecipe): RecipeMetadata => {
   const tags = tagStrToList((recipe.metadata.tags ?? ""))
   if (!recipe.metadata.title || recipe.metadata.tags.length === 0) {
-    throw new Error(`Recipe title or metadata not defined: ${recipe}`)
+    throw new Error(`Recipe title or metadata not defined: ${JSON.stringify(recipe)}`)
   }
   return {title: recipe.metadata.title, tags, ...recipe.metadata} as RecipeMetadata
 }
@@ -96,12 +97,13 @@ const getRecipeFormat = (fileSuffix: string): RecipeContentFormat => {
   }
 }
 
+
 const isMarkdownRecipe = (recipe: Recipe): recipe is MarkdownRecipe => (typeof (recipe as MarkdownRecipe).content === "string")
 
 export const getRecipeMarkdown = (recipe: Recipe): string => {
   if (isMarkdownRecipe(recipe)) {
     return recipe.content 
   } else {
-    return JSON.stringify(recipe.content)
+    return JSON.stringify(recipe.content, undefined, 2).replace("\n", "\n\n")
   }
 } 

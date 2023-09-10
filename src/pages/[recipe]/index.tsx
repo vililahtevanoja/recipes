@@ -9,10 +9,9 @@ type Props = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await readRecipes("recipes");
-  console.log(JSON.stringify(posts));
+  const recipes = await readRecipes("recipes");
   return {
-    paths: posts.map(({ id }) => ({ params: { recipe: id } })),
+    paths: recipes.map(({ id }) => ({ params: { recipe: id } })),
     fallback: false,
   };
 };

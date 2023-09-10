@@ -18,9 +18,9 @@ export default function Home({ recipes }: Props) {
   return (
     <main className={`flex`}>
       <ul>
-        {recipes.map(({ id, title }) => (
+        {recipes.map(({ id, title, metadata }) => (
           <li key={id}>
-            <Link href={`/${id}`}>{title}</Link>
+            <Link href={`/${id}`}>{metadata.lang?.toLowerCase() === "fi" ? "🇫🇮" : "🇬🇧" }{title}</Link>
           </li>
         ))}
       </ul>
