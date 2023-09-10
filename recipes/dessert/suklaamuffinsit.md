@@ -1,24 +1,25 @@
 ---
-name: Suklaamuffinsit
+title: Suklaamuffinsit
 servings: 24
 tags: dessert, oven, baking
+lang: fi
 ---
 
 # Suklaamuffinsit (24)
 
 ## Ainesosat
 
-- 150g voita
-- 2dl sokeria
-- 2 kananmunaa
-- 3tl vanilliinisokeria
-- 50g suklaarouhetta
-- 2dl mantelirouhetta
-- 2tl leivinjauhetta
-- 2rkl kaakaojauhetta
-- 3dl vehnäjauhoja
-- 1dl maitoa
-- koristeluun tomusokeria
+* `150 g` voita
+* `2 dl` sokeria
+* `2` kananmunaa
+* `3 tl` vanilliinisokeria
+* `50 g` suklaarouhetta
+* `2 dl` mantelirouhetta
+* `2 tl` leivinjauhetta
+* `2 rkl` kaakaojauhetta
+* `3 dl` vehnäjauhoja
+* `1 dl` maitoa
+* koristeluun tomusokeria
 
 ## Ohjeet
 
