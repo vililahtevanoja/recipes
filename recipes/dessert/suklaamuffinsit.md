@@ -5,7 +5,7 @@ tags: dessert, oven, baking, tested
 lang: fi
 ---
 
-# Suklaamuffinsit (24)
+# Suklaamuffinsit
 
 ## Ainesosat
 

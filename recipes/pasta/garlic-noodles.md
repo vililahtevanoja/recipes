@@ -23,7 +23,7 @@ lang: en
 
 1. Cook the pasta according to package instructions in unsalted water (the sauce is very salty; if using fresh noodles, cook them after sauce ingredients have been combined).
 1. Meanwhile, melt the butter in a large skillet or saucepan over medium heat. Add the garlic and cook, stirring, until fragrant but not browned, about 2 minutes.
-1. Add the oyster sauce, soy sauce, and fish and stir to combine.
+1. Add the oyster sauce, soy sauce, and fish sauce and stir to combine.
 1. Using tongs, transfer the cooked noodles to the garlic sauce.
 1. Increase heat to high, add cheese and scallions, and stir and toss vigorously until the sauce is creamy and emulsified, about 30 seconds.
 1. If sauce looks too watery, let it keep reducing. If it looks greasy, splash some more pasta water into it and let it reemulsify. Serve immediately.

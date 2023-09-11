@@ -2,7 +2,7 @@
 title: Kenji's Oven Roasted Potatoes
 source: https://www.seriouseats.com/the-best-roast-potatoes-ever-recipe
 servings: 3
-tags: oven, potato
+tags: oven, potato, tested
 lang: en
 ---
 
