@@ -21,7 +21,6 @@ export const getStaticProps: GetStaticProps<{ recipe: Recipe }> = async ({
 }) => {
   const id = params?.recipe
   const recipes = await readRecipes('recipes')
-  console.log(`Finding ${id}`)
   const recipe = recipes.find((post) => post.id === id)!
   return {
     props: {

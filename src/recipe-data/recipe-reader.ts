@@ -19,12 +19,12 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
     const recipes = await Promise.all(
       files.flatMap(async (f) => {
         const filePath = path.join(dir, f)
-        console.log(filePath)
         const isDir = (await fs.lstat(filePath)).isDirectory()
         if (isDir) {
           return await readRecipesInner(filePath)
         }
         try {
+          console.log(filePath)
           return await readRecipeFile(filePath)
         } catch (err) {
           console.error(`Error while reading ${filePath}: `, err)
@@ -115,7 +115,6 @@ const getMetadataFromMarkdownRecipe = (content: string): RecipeMetadata => {
     throw new Error('Expected yaml section closer, but not found')
   }
   const yamlSection = content.slice(3, yamlCloserIdx)
-  console.log(`yaml section: \n${yamlSection}`)
   const parsed = parse(yamlSection)
   const tags = tagStrToList(parsed.tags)
   if (!parsed.title || !Array.isArray(tags) || tags.length === 0) {
