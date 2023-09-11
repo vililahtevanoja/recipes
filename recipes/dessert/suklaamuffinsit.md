@@ -1,7 +1,7 @@
 ---
 title: Suklaamuffinsit
 servings: 24
-tags: dessert, oven, baking
+tags: dessert, oven, baking, tested
 lang: fi
 ---
 

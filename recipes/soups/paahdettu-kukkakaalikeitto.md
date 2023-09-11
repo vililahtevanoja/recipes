@@ -1,7 +1,7 @@
 ---
 title: Paahdettu kukkakaalikeitto
 servings: 4
-tags: soup, oven, vegan
+tags: soup, oven, vegan, tested
 source: https://yhteishyva.fi/reseptit/paahdettu-kukkakaalikeitto/SUckkxmAUQ2cPlp6cTGlY
 lang: fi
 ---
