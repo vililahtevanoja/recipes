@@ -3,6 +3,7 @@ import { Recipe, RecipeContentFormat } from '@/recipe-data/recipe-model'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import ReactMarkdown from 'react-markdown'
 import remarkFrontmatter from 'remark-frontmatter'
+import RecipeHeader from './recipe-header'
 
 type Props = {
   recipe: Recipe
@@ -38,5 +39,10 @@ export default function Recipe({ recipe }: Props) {
     ) : (
       <div>{getRecipeMarkdown(recipe)}</div>
     )
-  return <div>{content}</div>
+  return (
+    <div>
+      <RecipeHeader />
+      <div>{content}</div>
+    </div>
+  )
 }
