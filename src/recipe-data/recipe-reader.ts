@@ -17,19 +17,16 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   const readRecipesInner = async (dir: string): Promise<Recipe[]> => {
     const files = await fs.readdir(dir, { encoding: 'utf-8' })
     const recipes = await Promise.all(
-      files.flatMap(async (f) => {
+      files.map(async (f) => {
         const filePath = path.join(dir, f)
         const isDir = (await fs.lstat(filePath)).isDirectory()
         if (isDir) {
-          return await readRecipesInner(filePath)
+          return readRecipesInner(filePath)
         }
-        try {
-          console.log(filePath)
-          return await readRecipeFile(filePath)
-        } catch (err) {
+        return readRecipeFile(filePath).catch((err) => {
           console.error(`Error while reading ${filePath}: `, err)
           return undefined
-        }
+        })
       }),
     )
     const allRecipes = recipes.flat().filter((item): item is Recipe => !!item)
