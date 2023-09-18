@@ -17,9 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<{ recipe: Recipe }> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<{ recipe: Recipe }> = async ({ params }) => {
   const id = params?.recipe
   const recipes = await readRecipes('recipes')
   const recipe = recipes.find((post) => post.id === id)!
@@ -33,9 +31,7 @@ export const getStaticProps: GetStaticProps<{ recipe: Recipe }> = async ({
 export default function Recipe({ recipe }: Props) {
   const content =
     recipe.format === RecipeContentFormat.Markdown ? (
-      <ReactMarkdown remarkPlugins={[remarkFrontmatter]}>
-        {getRecipeMarkdown(recipe)}
-      </ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkFrontmatter]}>{getRecipeMarkdown(recipe)}</ReactMarkdown>
     ) : (
       <div>{getRecipeMarkdown(recipe)}</div>
     )

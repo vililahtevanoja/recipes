@@ -84,17 +84,12 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
   }
 }
 
-const tagStrToList = (tags: string): string[] =>
-  tags.split(',').map((s) => s.trim())
+const tagStrToList = (tags: string): string[] => tags.split(',').map((s) => s.trim())
 
-const getMetadataFromCooklangRecipe = (
-  recipe: _CooklangRecipe,
-): RecipeMetadata => {
+const getMetadataFromCooklangRecipe = (recipe: _CooklangRecipe): RecipeMetadata => {
   const tags = tagStrToList(recipe.metadata.tags ?? '')
   if (!recipe.metadata.title || recipe.metadata.tags.length === 0) {
-    throw new Error(
-      `Recipe title or metadata not defined: ${JSON.stringify(recipe)}`,
-    )
+    throw new Error(`Recipe title or metadata not defined: ${JSON.stringify(recipe)}`)
   }
   return {
     title: recipe.metadata.title,
@@ -106,9 +101,7 @@ const getMetadataFromCooklangRecipe = (
 const getMetadataFromMarkdownRecipe = (content: string): RecipeMetadata => {
   if (!content.startsWith('---')) {
     throw new Error(
-      `Expecting Markdown file to start with "---" yaml section, but instead starts with ${
-        content.split('\n')[0]
-      }`,
+      `Expecting Markdown file to start with "---" yaml section, but instead starts with ${content.split('\n')[0]}`,
     )
   }
   const yamlCloserIdx = content.indexOf('---', 3)

@@ -1,9 +1,4 @@
-import cooklang, {
-  Cookware,
-  Ingredient,
-  Metadata,
-  Step,
-} from '@cooklang/cooklang-ts'
+import cooklang, { Cookware, Ingredient, Metadata, Step } from '@cooklang/cooklang-ts'
 
 export enum RecipeContentFormat {
   Markdown,
