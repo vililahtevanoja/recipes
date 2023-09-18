@@ -10,6 +10,7 @@ import {
   RecipeContentFormat,
   RecipeMetadata,
 } from './recipe-model'
+import { isDev } from '@/util/env'
 
 const postsContainer: Record<string, Recipe[]> = {}
 
@@ -43,7 +44,7 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   return recipes
 }
 
-export const readRecipeFile = async (filePath: string): Promise<Recipe> => {
+export const readRecipeFile = async (filePath: string): Promise<Recipe | undefined> => {
   const content = await fs.readFile(filePath, 'utf-8')
   const name = path.basename(filePath).split('.')[0]
   const fileType = filePath.split('.').at(-1)
@@ -59,6 +60,9 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe> => {
       metadata,
     } as MarkdownRecipe
   } else if (format === RecipeContentFormat.Cooklang) {
+    if (!isDev()) {
+      return undefined
+    }
     const recipe = new _CooklangRecipe(content)
     const metadata = getMetadataFromCooklangRecipe(recipe)
     const cooklangRecipeContent: CooklangRecipeContent = {
