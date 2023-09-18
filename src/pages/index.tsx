@@ -21,7 +21,7 @@ export default function Home({ recipes }: Props) {
         <Link
           key={id}
           href={`/${id}`}
-          className="no-underline content-center align-middle"
+          className="no-underline content-center align-middle text-blue-300"
         >
           <div className={`flex mb-4`}>
             <div className="w-1/12 text-xl content-top">
