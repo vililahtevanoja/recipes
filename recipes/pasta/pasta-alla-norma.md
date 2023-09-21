@@ -10,7 +10,7 @@ lang: en
 
 ## Ingredients
 
-* `2` small Italian or Japanese eggplents, split lengthwise cut and into half-inch half-moons 
+* `2` small Italian or Japanese eggplents, split lengthwise cut and into half-inch half-moons
 * Kosher salt
 * `6 tbsp` extra-virgin olive oil
 * `2 tbsp` unsalted butter
