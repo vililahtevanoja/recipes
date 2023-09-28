@@ -1,6 +1,6 @@
 ---
-title: Emeril Lagasses Cajun Spice Mix
-source: https://www.emerils.com/120057/emerils-essence-creole-seasoning
+title: Chinese Five-Spice Powder
+source: https://cooking.nytimes.com/recipes/10605-five-spice-powder
 tags: seasoning
 lang: en
 ---
