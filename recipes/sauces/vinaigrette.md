@@ -15,6 +15,10 @@ lang: en
 * `2-3 parts` neutral oil, or extra-virgin olive oil
 * `1 part` flavored oil (optional)
 
+## Instructions
+
+1. Combine everything, shake in a sealed container, and season with salt and pepper.
+
 ## Suggestions
 
 ### Acid
@@ -57,7 +61,3 @@ lang: en
 * Nut oils (walnut, hazelnut, pecan, pistachio, almond)
 * Toasted sesame oil
 * Pumpkin seed oil
-
-## Instructions
-
-1. Combine everything, shake in a sealed container, and season with salt and pepper.
