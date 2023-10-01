@@ -1,17 +1,17 @@
 ---
-title: Italian Soffritto
-tags: italian, misc
+title: Mirepoix/Soffritto
+tags: italian, french, misc
 lang: en
 ---
 
-# Italian Soffritto
+# Mirepoix/Soffritto
 
 ## Ingredients
 
 * `1 part` carrot
 * `1 part` celery
 * `2 part` onion
-* olive oil
+* olive oil or butter
 
 ## Instructions
 
