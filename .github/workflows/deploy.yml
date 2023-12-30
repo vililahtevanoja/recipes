@@ -48,6 +48,8 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+      - name: Enable corepack
+        run: corepack enable
       - name: Install dependencies
         run: yarn install
       # verify
