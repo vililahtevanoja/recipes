@@ -3,7 +3,7 @@ title: Uunijuuressalaatti sesongin appelsiineilla & fetajuustolla
 source: Ruokaboksi
 servings: 8
 tags: salad
-lang: en
+lang: fi
 ---
 
 # Uunijuuressalaatti sesongin appelsiineilla & fetajuustolla
