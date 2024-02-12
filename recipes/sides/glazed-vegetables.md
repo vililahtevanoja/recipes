@@ -10,7 +10,7 @@ lang: en
 
 ## Ingredients
 
-* `700 g` pounds vegetables (carrots, pearl onions, turnips, radishes, rutabaga), peeled and cut into 2.5cm pieces
+* `700 g` vegetables (carrots, pearl onions, turnips, radishes, rutabaga), peeled and cut into 2.5cm pieces
 * `0.5 tsp` cornstarch
 * `3.5 dl` homemade or low-sodium canned chicken stock
 * `2 tbsp` unsalted butter
