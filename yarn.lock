@@ -375,18 +375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.2.23
-  resolution: "@types/react@npm:18.2.23"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10/e915662870191ef5665fc93a2ad60a228c7a8f486a25d2a5c3619737ba24fb3791cce3f48d582087c6bf44143c903207b2fe0b006fb3a68b964d75e394fc4c6e
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.2.28":
+"@types/react@npm:*, @types/react@npm:18.2.28":
   version: 18.2.28
   resolution: "@types/react@npm:18.2.28"
   dependencies:
@@ -875,14 +864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001539":
-  version: 1.0.30001541
-  resolution: "caniuse-lite@npm:1.0.30001541"
-  checksum: 10/8ee7e004bcabdaaa218c9c745f976635f66f00a6a541fee65dc2b0ffc095210895eaaf53129fdbc7c03e40c5d2199df1662b23bc9de705aa565fe139e06b88d7
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001538":
+"caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001538, caniuse-lite@npm:^1.0.30001539":
   version: 1.0.30001549
   resolution: "caniuse-lite@npm:1.0.30001549"
   checksum: 10/515ea123e5249075566a602e2c6a3239e16283d3cd4b78daf4fa86569c450ea6eec8a1c2d2cc33e3d554fa37b3a203306dc8423fee635ec04a86b2a9164dbbf2
@@ -3578,7 +3560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.31":
+"postcss@npm:8.4.31, postcss@npm:^8.4.23":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
@@ -3586,17 +3568,6 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
   checksum: 10/1a6653e72105907377f9d4f2cd341d8d90e3fde823a5ddea1e2237aaa56933ea07853f0f2758c28892a1d70c53bbaca200eb8b80f8ed55f13093003dbec5afa0
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.4.23":
-  version: 8.4.30
-  resolution: "postcss@npm:8.4.30"
-  dependencies:
-    nanoid: "npm:^3.3.6"
-    picocolors: "npm:^1.0.0"
-    source-map-js: "npm:^1.0.2"
-  checksum: 10/e7c22d1d0511942f40d278e19f39a54d6e8c268f2119289fa488ed880800563a3946daf8e9c8694f4d8124d38b0061a3707f45cc8ae2a31a6e3f20cf44d3c436
   languageName: node
   linkType: hard
 
