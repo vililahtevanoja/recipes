@@ -1,5 +1,5 @@
 ---
-title: Basic Teriyaki
+title: Basic Teriyaki Sauce
 source: https://www.seriouseats.com/teriyaki-sauce-how-to-make-at-home-recipe
 servings: 8
 tags: sauce
