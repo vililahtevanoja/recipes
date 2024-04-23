@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps<{ recipe: Recipe }> = async ({ param
   }
 }
 
-export default function Recipe({ recipe }: Props) {
+export default function MarkdownRecipe({ recipe }: Props) {
   const content =
     recipe.format === RecipeContentFormat.Markdown ? (
       <ReactMarkdown remarkPlugins={[remarkFrontmatter]}>{getRecipeMarkdown(recipe)}</ReactMarkdown>
