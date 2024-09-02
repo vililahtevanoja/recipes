@@ -1,0 +1,26 @@
+Could I get this recipe parsed in raw markdown following this format:
+
+---
+title: <Recipe name>
+servings: <How many servings does the recipe make>
+tags: <Appropriate tags for the recipe>
+source: <Where the recipe is from>
+lang: fi
+---
+
+# <Recipe name>
+
+## Ingredients
+
+- <ingredient 1 in metric units, e.g.: '`1 kg` potatoes'>
+- <ingredient 2 in metric units, e.g. '`1 tbsp` honey'>
+- <ingredient 3 in metric units, e.g. '`1 tsp` salt'>
+- <jne>
+
+## Instructions
+
+1. <Instruction step 1>
+1. <Instruction step 2>
+1. <etc.>
+
+<At the end you can ad tipps and other useful additions from the recipe>

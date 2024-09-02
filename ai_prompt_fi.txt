@@ -1,0 +1,25 @@
+Saisinko tämän reseptin raakana markdownina tässä muodossa:
+
+---
+title: <Reseptin nimi>
+servings: <Kuinka monta annosta reseptistä tulee>
+tags: <Reseptille sopivat tagit>
+source: <Mistä resepti on>
+lang: fi
+---
+
+# <Reseptin nimi>
+
+## Ainekset
+
+- <ainesosa 1 muodossa esim: '`1 kg` perunoita'>
+- <ainesosa 2 muodossa esim: '`1 l` maitoa'>
+- <jne>
+
+## Valmistusohjeet
+
+1. <Reseptin askel 1>
+1. <Reseptin askel 2>
+1. <jne>
+
+<Loppuun voi lisätä vinkkejä ja muita hyödyllisiä asioita>
