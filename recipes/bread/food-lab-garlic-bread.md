@@ -10,15 +10,15 @@ lang: en
 
 ## Ingredients
 
-* `2 loaves` soft deli-style Italian bread, about 450g each
-* `60ml` extra-virgin olive oil
-* `8 tbsp` unsalted butter
-* `12 medium cloves` garlic, minced or microplaned
-* `2 tsp` dried oregano
-* `0.5 tsp` red pepper flakes
-* Kosher salt
-* `60 g` Parmigiano Reggiano (optional)
-* `1 tbsp` chopped fresh parsley leaves (optional)
+- `2 loaves` soft deli-style Italian bread, about 450g each
+- `60ml` extra-virgin olive oil
+- `8 tbsp` unsalted butter
+- `12 medium cloves` garlic, minced or microplaned
+- `2 tsp` dried oregano
+- `0.5 tsp` red pepper flakes
+- Kosher salt
+- `60 g` Parmigiano Reggiano (optional)
+- `1 tbsp` chopped fresh parsley leaves (optional)
 
 ## Instructions
 
