@@ -10,21 +10,21 @@ lang: fi
 
 ## Ingredients
 
-* `2.3 kg` beef short ribs
-* Kosher salt and freshly ground black pepper
-* `15 ml` vegetable or other neutral oil
-* `2 pcs` celery ribs (about 100g each), cut into 1cm dice
-* `2 pcs` large carrots (225g each), cut into 1cm dice
-* `1 pcs` large (400g) yellow onion, cut into 1cm dice
-* `5 cloves` garlic, smashed
-* `30 ml` tomato paste
-* `750 ml` dry red wine
-* `1 l` good-quality brown beef stock, brown chicken stock, white chicken stock, or store-bought chicken stock (see note)
-* `10 g` unflavored gelatin, only if using store-bought stock
-* `4 sprigs` fresh thyme
-* `2 pcs` bay leaves
-* `750 ml` ruby port wine
-* Slurry made from 1/2 teaspoon cornstarch mixed with 1 teaspoon water (optional)
+- `2.3 kg` beef short ribs
+- Kosher salt and freshly ground black pepper
+- `15 ml` vegetable or other neutral oil
+- `2 pcs` celery ribs (about 100g each), cut into 1cm dice
+- `2 pcs` large carrots (225g each), cut into 1cm dice
+- `1 pcs` large (400g) yellow onion, cut into 1cm dice
+- `5 cloves` garlic, smashed
+- `30 ml` tomato paste
+- `750 ml` dry red wine
+- `1 l` good-quality brown beef stock, brown chicken stock, white chicken stock, or store-bought chicken stock (see note)
+- `10 g` unflavored gelatin, only if using store-bought stock
+- `4 sprigs` fresh thyme
+- `2 pcs` bay leaves
+- `750 ml` ruby port wine
+- Slurry made from 1/2 teaspoon cornstarch mixed with 1 teaspoon water (optional)
 
 ## Instructions
 
@@ -41,8 +41,8 @@ lang: fi
 
 ### Notes
 
-* You can use English-cut or flanken-cut short ribs for this recipe. English-cut short ribs are cut such that one rib bone runs along the length of each portion; flanken-cut ribs slice across the ribs so that each piece has cross-sections of several rib bones in it. If using English-cut short ribs, try to find ones that are about 4 inches each in length. If using flanken-cut, make sure that each slab is about two inches thick (flanken-cut short ribs often come in thinner slabs). You can divide flanken-cut ribs between the bones so that you have more manageable pieces to work with. In all cases, look for well-marbled short ribs with a nice meaty portion on each (at least 1 1/2 inches of meat above the bones).
+- You can use English-cut or flanken-cut short ribs for this recipe. English-cut short ribs are cut such that one rib bone runs along the length of each portion; flanken-cut ribs slice across the ribs so that each piece has cross-sections of several rib bones in it. If using English-cut short ribs, try to find ones that are about 4 inches each in length. If using flanken-cut, make sure that each slab is about two inches thick (flanken-cut short ribs often come in thinner slabs). You can divide flanken-cut ribs between the bones so that you have more manageable pieces to work with. In all cases, look for well-marbled short ribs with a nice meaty portion on each (at least 1 1/2 inches of meat above the bones).
 
-* A good homemade stock will set like jelly when refrigerated; this natural gelatin helps give the sauce its final consistency; if you don't have good homemade stock, add 1 packet unflavored gelatin per recipe instructions.
+- A good homemade stock will set like jelly when refrigerated; this natural gelatin helps give the sauce its final consistency; if you don't have good homemade stock, add 1 packet unflavored gelatin per recipe instructions.
 
-* The braised beef short ribs can be refrigerated in their finished sauce in an airtight container for up to 5 days. Reheat gently before serving.
+- The braised beef short ribs can be refrigerated in their finished sauce in an airtight container for up to 5 days. Reheat gently before serving.

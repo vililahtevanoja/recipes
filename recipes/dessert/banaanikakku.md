@@ -12,25 +12,25 @@ lang: fi
 
 ### Kakku
 
-* `215 g` voita
-* `4 kpl` kypsiä banaaneja (keskikokoista)
-* `1,5 - 2 dl` ruokosokeria
-* `2 kpl` kananmunia
-* `1 tl` vaniljauutetta
-* `1 tl` kanelia
-* `1 tl` soodaa
-* `4,5 dl` vehnäjauhoja
-* suolaa
+- `215 g` voita
+- `4 kpl` kypsiä banaaneja (keskikokoista)
+- `1,5 - 2 dl` ruokosokeria
+- `2 kpl` kananmunia
+- `1 tl` vaniljauutetta
+- `1 tl` kanelia
+- `1 tl` soodaa
+- `4,5 dl` vehnäjauhoja
+- suolaa
 
 ### Chai-muru
 
-* `3 rkl` voita
-* `3 rkl` fariinisokeria
-* `3 rkl` ruokosokeria
-* `1 rkl` chai-maustetta
-* `3 rkl` vehnäjauhoa
-* `0,5 tl` sormisuolaa
-* (`1 kpl` banaania)
+- `3 rkl` voita
+- `3 rkl` fariinisokeria
+- `3 rkl` ruokosokeria
+- `1 rkl` chai-maustetta
+- `3 rkl` vehnäjauhoa
+- `0,5 tl` sormisuolaa
+- (`1 kpl` banaania)
 
 ## Ohjeet
 

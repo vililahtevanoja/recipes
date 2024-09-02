@@ -10,14 +10,14 @@ lang: en
 
 ## Ingredients
 
-* Kosher salt
-* `0.5 tsp (4 g)` baking soda
-* `2 kg` potatoes, cut into cut into very large chunks, at least 5 to 7.5 cm
-* `5 tbsp` extra-virgin olive oil, duck fat, goose fat, or beef fat
-* `small handful` finely chopped fresh rosemary leaves
-* `3 cloves` garlic, minced
-* ground black pepper
-* `handful` fresh parsley leaves, minced
+- Kosher salt
+- `0.5 tsp (4 g)` baking soda
+- `2 kg` potatoes, cut into cut into very large chunks, at least 5 to 7.5 cm
+- `5 tbsp` extra-virgin olive oil, duck fat, goose fat, or beef fat
+- `small handful` finely chopped fresh rosemary leaves
+- `3 cloves` garlic, minced
+- ground black pepper
+- `handful` fresh parsley leaves, minced
 
 ## Instructions
 

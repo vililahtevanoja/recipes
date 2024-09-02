@@ -10,10 +10,10 @@ lang: en
 
 ## Ingredients
 
-* `1 part` Japanese shoyu (soy sauce)
-* `0.5 part` dark brown sugar
-* `1 part` mirin
-* `0.5 part` sake
+- `1 part` Japanese shoyu (soy sauce)
+- `0.5 part` dark brown sugar
+- `1 part` mirin
+- `0.5 part` sake
 
 ## Instructions
 

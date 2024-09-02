@@ -10,12 +10,12 @@ lang: en
 
 ## Ingredients
 
-* `4 tbsp` extra-virgin olive oil, divided
-* `1 tsp` coarsely ground black pepper, to taste
-* salt, to taste
-* `225g` spaghetti
-* `2 tbsp` unsalted butter
-* `55g` very finely grated Pecorino Romano, plus more for serving
+- `4 tbsp` extra-virgin olive oil, divided
+- `1 tsp` coarsely ground black pepper, to taste
+- salt, to taste
+- `225g` spaghetti
+- `2 tbsp` unsalted butter
+- `55g` very finely grated Pecorino Romano, plus more for serving
 
 ## Instructions
 

@@ -9,11 +9,11 @@ lang: en
 
 ## Ingredients
 
-* `1 tbsp` Sichuan peppercorns
-* `6` star anise
-* `1.5 tsp` whole cloves
-* `1 stick` cinnamon
-* `2 tbsp` fennel seeds
+- `1 tbsp` Sichuan peppercorns
+- `6` star anise
+- `1.5 tsp` whole cloves
+- `1 stick` cinnamon
+- `2 tbsp` fennel seeds
 
 ## Instructions
 

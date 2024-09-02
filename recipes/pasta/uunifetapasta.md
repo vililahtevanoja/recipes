@@ -10,12 +10,12 @@ lang: fi
 
 ## Ainesosat
 
-* `250 g` hyvää pastaa
-* `250-500g` kirsikkatomaatteja
-* `200 g` fetajuustoa
-* `1 dl` oliiviöljyä
-* `0.5 kpl` punaista chiliä
-* `3 kynttä` valkosipulia
+- `250 g` hyvää pastaa
+- `250-500g` kirsikkatomaatteja
+- `200 g` fetajuustoa
+- `1 dl` oliiviöljyä
+- `0.5 kpl` punaista chiliä
+- `3 kynttä` valkosipulia
 
 ## Ohjeet
 

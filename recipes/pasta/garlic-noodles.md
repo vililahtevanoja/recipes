@@ -10,14 +10,14 @@ lang: en
 
 ## Ingredients
 
-* `250 g` dry spaghetti, or 150g fresh egg noodles
-* `2 tbsp` butter
-* `12 cloves` garlic, minced
-* `1 tbsp` oyster sauce
-* `2 tsp` soy sauce or Maggi seasoning
-* `2 tsp` fish sauce
-* `30 g` grated Parmesan or Pecorino
-* (optional) scallions
+- `250 g` dry spaghetti, or 150g fresh egg noodles
+- `2 tbsp` butter
+- `12 cloves` garlic, minced
+- `1 tbsp` oyster sauce
+- `2 tsp` soy sauce or Maggi seasoning
+- `2 tsp` fish sauce
+- `30 g` grated Parmesan or Pecorino
+- (optional) scallions
 
 ## Instructions
 

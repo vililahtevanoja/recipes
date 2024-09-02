@@ -8,10 +8,10 @@ lang: en
 
 ## Ingredients
 
-* `1 part` carrot
-* `1 part` celery
-* `2 part` onion
-* olive oil or butter
+- `1 part` carrot
+- `1 part` celery
+- `2 part` onion
+- olive oil or butter
 
 ## Instructions
 

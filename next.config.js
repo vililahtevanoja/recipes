@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  basePath: "/recipes",
+  output: 'export',
+  basePath: '/recipes',
   reactStrictMode: true,
   images: {
     unoptimized: true,
@@ -17,10 +17,10 @@ const nextConfig = {
           fs: false,
           request: false,
         },
-      };
+      }
     }
-    return config;
-  }
+    return config
+  },
 }
 
 module.exports = nextConfig

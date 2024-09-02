@@ -10,18 +10,18 @@ lang: en
 
 ## Ingredients
 
-* `800 g` canned whole tomatoes
-* `2,5 cm` knob of ginger, peele
-* `60 ml` extra-virgin olive oil
-* `1` medium onion, finely sliced
-* `4 cloves` garlic, finely sliced
-* `1 tsp` sweet or hot Spanish smoked paprika
-* `340 g` spinach, trimmed, washed, drained, and roughly chopped
-* `800 g` canned chickpeas, with their liquid
-* `2` bay leaves
-* `2 tsp` soy sayce
-* Kosher salt
-* Sherry vinegar (optional)
+- `800 g` canned whole tomatoes
+- `2,5 cm` knob of ginger, peele
+- `60 ml` extra-virgin olive oil
+- `1` medium onion, finely sliced
+- `4 cloves` garlic, finely sliced
+- `1 tsp` sweet or hot Spanish smoked paprika
+- `340 g` spinach, trimmed, washed, drained, and roughly chopped
+- `800 g` canned chickpeas, with their liquid
+- `2` bay leaves
+- `2 tsp` soy sayce
+- Kosher salt
+- Sherry vinegar (optional)
 
 ## Instructions
 

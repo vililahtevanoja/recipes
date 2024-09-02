@@ -10,14 +10,14 @@ lang: fi
 
 ## Ainesosat
 
-* `150-300 g` pakastepinaattia
-* `0,5 l` kevytmaitoa (tai kevyttä kaurajuomaa)
-* `3 dl` vehnäjauhoja
-* `2 kpl` kananmunia
-* `1 tl` suolaa
-* `1-2 tl` sokeria
-* `ripaus` mustapippuria
-* `0,25 dl` juoksevaa margariinia tai öljyä (+ lisää paistamiseen)
+- `150-300 g` pakastepinaattia
+- `0,5 l` kevytmaitoa (tai kevyttä kaurajuomaa)
+- `3 dl` vehnäjauhoja
+- `2 kpl` kananmunia
+- `1 tl` suolaa
+- `1-2 tl` sokeria
+- `ripaus` mustapippuria
+- `0,25 dl` juoksevaa margariinia tai öljyä (+ lisää paistamiseen)
 
 ## Valmistusohjeet
 

@@ -12,20 +12,20 @@ lang: fi
 
 ### Tofu
 
-* `200 g` (tai enemmänkin) kovaa tofua
-* `1 kpl` kanamuna
-* `0.5 dl` ruisjauhoja
-* `0.5 dl` seesaminsiemenia, vehnänalkioita tai kauraleseita
+- `200 g` (tai enemmänkin) kovaa tofua
+- `1 kpl` kanamuna
+- `0.5 dl` ruisjauhoja
+- `0.5 dl` seesaminsiemenia, vehnänalkioita tai kauraleseita
 
 ### Kastike
 
-* `0.5 dl` vettä
-* `0.5 rkl` soijakastiketta
-* `0.5 rkl` limetti- tai sitruunamehua
-* `1 rkl` viinietikkaa
-* `0.5 rkl` hunajaa
-* ripaus mustapippuna
-* muutama tippa tabaskoa
+- `0.5 dl` vettä
+- `0.5 rkl` soijakastiketta
+- `0.5 rkl` limetti- tai sitruunamehua
+- `1 rkl` viinietikkaa
+- `0.5 rkl` hunajaa
+- ripaus mustapippuna
+- muutama tippa tabaskoa
 
 ## Valmistusohjeet
 

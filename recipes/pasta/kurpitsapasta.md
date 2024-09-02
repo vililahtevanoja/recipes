@@ -9,19 +9,19 @@ lang: fi
 
 ## Ainesosat
 
-* `1 kg` kurpitsaa
-* `4-6 kpl` valkosipulinkynttä
-* `0.25 dl` oliiviöljyä
-* `2 rkl` vaahterasiirappia
-* suolaa
-* mustapippuria
-* `1 dl` maitoa, kermaa tai vettä
-* `400 g` hyvää pastaa
-* `2 rkl` voita
-* `1 tl` kuivattua oreganoa
-* `1 tl` kuivattua timjamia
-* `100 g` mascarponea
-* `50 g` parmesaania
+- `1 kg` kurpitsaa
+- `4-6 kpl` valkosipulinkynttä
+- `0.25 dl` oliiviöljyä
+- `2 rkl` vaahterasiirappia
+- suolaa
+- mustapippuria
+- `1 dl` maitoa, kermaa tai vettä
+- `400 g` hyvää pastaa
+- `2 rkl` voita
+- `1 tl` kuivattua oreganoa
+- `1 tl` kuivattua timjamia
+- `100 g` mascarponea
+- `50 g` parmesaania
 
 ## Ohjeet
 

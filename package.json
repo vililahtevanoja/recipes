@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --config .prettierrc --ignore-path .prettierignore src",
-    "format-check": "prettier --check --config .prettierrc --ignore-path .prettierignore src"
+    "format": "prettier --write --config .prettierrc --ignore-path .prettierignore .",
+    "format-check": "prettier --check --config .prettierrc --ignore-path .prettierignore ."
   },
   "dependencies": {
     "@cooklang/cooklang-ts": "1.2.6",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@types/node": "^20.12.7",
     "eslint": "8.57.0",
+    "eslint-plugin-markdown": "^5.1.0",
     "prettier": "3.2.5"
   }
 }

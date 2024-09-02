@@ -9,17 +9,17 @@ lang: fi
 
 ## Ainesosat
 
-* `150 g` voita
-* `2 dl` sokeria
-* `2` kananmunaa
-* `3 tl` vanilliinisokeria
-* `50 g` suklaarouhetta
-* `2 dl` mantelirouhetta
-* `2 tl` leivinjauhetta
-* `2 rkl` kaakaojauhetta
-* `3 dl` vehnäjauhoja
-* `1 dl` maitoa
-* koristeluun tomusokeria
+- `150 g` voita
+- `2 dl` sokeria
+- `2` kananmunaa
+- `3 tl` vanilliinisokeria
+- `50 g` suklaarouhetta
+- `2 dl` mantelirouhetta
+- `2 tl` leivinjauhetta
+- `2 rkl` kaakaojauhetta
+- `3 dl` vehnäjauhoja
+- `1 dl` maitoa
+- koristeluun tomusokeria
 
 ## Ohjeet
 

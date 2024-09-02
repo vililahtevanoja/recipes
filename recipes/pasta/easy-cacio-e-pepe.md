@@ -10,14 +10,14 @@ lang: en
 
 ## Ingredients
 
-* `224 g` spaghetti
-* `100 g` Parmigiano Reggiano or Grana Panado, finely grated
-* `150 g` pecorino, finely grated
-* `15 g` extra-virgin olive oil
-* toasted (or not?) black peppercorn
-* `10 g` cornstarch
-* `150 g` water
-* salt
+- `224 g` spaghetti
+- `100 g` Parmigiano Reggiano or Grana Panado, finely grated
+- `150 g` pecorino, finely grated
+- `15 g` extra-virgin olive oil
+- toasted (or not?) black peppercorn
+- `10 g` cornstarch
+- `150 g` water
+- salt
 
 ## Instructions
 

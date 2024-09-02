@@ -10,18 +10,18 @@ lang: en
 
 ## Ingredients
 
-* `30 g` unflavored gelatin (or agar agar for vegan)
-* `2` large onions, roughly chopped
-* `2` large carrots, peeled and roughly chopped
-* `4` stalks celery, roughly chopped
-* `1` large leek, trimmed
-* `250 g` mushroom stems and scraps and or whole mushrooms
-* `2` Granny Smith apples, quartered
-* `2` bay leaves
-* `2 tsp` whole black peppercorns
-* `1 tsp` fennel seeds
-* `1 tsp` coriander seeds
-* `6 sprigs` fresh parsley
+- `30 g` unflavored gelatin (or agar agar for vegan)
+- `2` large onions, roughly chopped
+- `2` large carrots, peeled and roughly chopped
+- `4` stalks celery, roughly chopped
+- `1` large leek, trimmed
+- `250 g` mushroom stems and scraps and or whole mushrooms
+- `2` Granny Smith apples, quartered
+- `2` bay leaves
+- `2 tsp` whole black peppercorns
+- `1 tsp` fennel seeds
+- `1 tsp` coriander seeds
+- `6 sprigs` fresh parsley
 
 ## Instructions
 

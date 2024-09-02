@@ -10,11 +10,11 @@ lang: fi
 
 ## Ainesosat
 
-* `2,5 dl (n. 250 g)` puuroriisiä
-* `3,5 dl` vettä
-* `1 l` + `1 dl` maitoa
-* `1,5 dl`  ruskistettua voita
-* `1 tl` suolaa
+- `2,5 dl (n. 250 g)` puuroriisiä
+- `3,5 dl` vettä
+- `1 l` + `1 dl` maitoa
+- `1,5 dl` ruskistettua voita
+- `1 tl` suolaa
 
 ## Ohjeet
 
@@ -31,7 +31,7 @@ lang: fi
 
 ### Ainesosat
 
-* `250g` voita (2dl sulaa voita)
+- `250g` voita (2dl sulaa voita)
 
 ### Ohjeet
 
@@ -42,10 +42,10 @@ lang: fi
 
 ### Ainesosat
 
-* `0,5 dl` vettä
-* `0,25 dl` miriniä
-* `75 g` vaaleaa misotahnaa
-* `50 g (n. 1 dl)` fariinisokeria
+- `0,5 dl` vettä
+- `0,25 dl` miriniä
+- `75 g` vaaleaa misotahnaa
+- `50 g (n. 1 dl)` fariinisokeria
 
 ### Ohjeet
 
@@ -56,8 +56,9 @@ Vinkki: Valmista kinuskia riittää viiteen annokseen. Yhteen annokseen misokinu
 ## Kanelisokeri
 
 ### Ainesosat
-* `1 osa` kanelia
-* `5 osaa` sokeria
+
+- `1 osa` kanelia
+- `5 osaa` sokeria
 
 ### Ohjeet
 

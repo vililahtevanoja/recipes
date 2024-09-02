@@ -12,25 +12,25 @@ lang: fi
 
 ### Juurekset
 
-* `n. 1 kg` punajuuria
-* `n. 500 g` porkkanoita
-* `2 kpl` valkosipulinkynttä
-* `1-2 rkl` öljyä
-* `1-2 rkl` hunajaa
-* `1-1,5 tl` suolaa
-* `0,5 tl` mustapippuria
-* `1 tl` kuivattua rosmariinia
-* `1 tl` kuivattua timjamia
-* `1 rs` pinaattia
-* `2 kpl` appelsiinia
-* `1 pkt` fetajuustoa
+- `n. 1 kg` punajuuria
+- `n. 500 g` porkkanoita
+- `2 kpl` valkosipulinkynttä
+- `1-2 rkl` öljyä
+- `1-2 rkl` hunajaa
+- `1-1,5 tl` suolaa
+- `0,5 tl` mustapippuria
+- `1 tl` kuivattua rosmariinia
+- `1 tl` kuivattua timjamia
+- `1 rs` pinaattia
+- `2 kpl` appelsiinia
+- `1 pkt` fetajuustoa
 
 ### Appelsiinivinegrette
 
-* `1 kpl` appelsiinin kuori + mehu
-* `4 rkl` öljyä
-* `1 rkl` valkoviinietikkaa
-* `1-2 tl` sokeria ripaus suolaa ja mustapippuria
+- `1 kpl` appelsiinin kuori + mehu
+- `4 rkl` öljyä
+- `1 rkl` valkoviinietikkaa
+- `1-2 tl` sokeria ripaus suolaa ja mustapippuria
 
 ## Valmistusohjeet
 

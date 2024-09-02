@@ -9,14 +9,14 @@ lang: en
 
 ## Ingredients
 
-* `2.5 tbsp` paprika
-* `2 tbsp` sea salt
-* `2 tbsp` garlic powder
-* `1 tbsp` black pepper
-* `1 tbsp` onion powder
-* `1 tbsp` cayenne pepper
-* `1 tbsp` dried leaf oregano
-* `1 tbsp` dried thyme
+- `2.5 tbsp` paprika
+- `2 tbsp` sea salt
+- `2 tbsp` garlic powder
+- `1 tbsp` black pepper
+- `1 tbsp` onion powder
+- `1 tbsp` cayenne pepper
+- `1 tbsp` dried leaf oregano
+- `1 tbsp` dried thyme
 
 ## Instructions
 

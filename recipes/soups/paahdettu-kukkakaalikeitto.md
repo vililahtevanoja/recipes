@@ -10,24 +10,24 @@ lang: fi
 
 ## Ainesosat
 
-* `1 dl` cashewpähkinöitä
-* `2 dl` vettä liotukseen
-* `600 g (1 kpl)` kukkakaali
-* `1.5 rkl` rypsiöljyä
-* `1 tl` kurkumaa
-* `1/4 tl` suolaa
-* `1 kpl` sipuli
-* `3 kpl` valkosipulinkynttä
-* `7 dl` vettä
-* `1 kpl` kasvisliemikuutio (vegaaninen ja gluteeniton)
-* `1 - 2 tl` valkoviinietikkaa
+- `1 dl` cashewpähkinöitä
+- `2 dl` vettä liotukseen
+- `600 g (1 kpl)` kukkakaali
+- `1.5 rkl` rypsiöljyä
+- `1 tl` kurkumaa
+- `1/4 tl` suolaa
+- `1 kpl` sipuli
+- `3 kpl` valkosipulinkynttä
+- `7 dl` vettä
+- `1 kpl` kasvisliemikuutio (vegaaninen ja gluteeniton)
+- `1 - 2 tl` valkoviinietikkaa
 
 ### Yrttiöljy
 
-* `1/2 kpl` ruukkua persiljaa, basilikaa tai rakuunaa
-* `1/2 dl` oliiviöljyä
-* `1 ripaus` suolaa
-* `1 ripaus` mustapippuria rouhittuna
+- `1/2 kpl` ruukkua persiljaa, basilikaa tai rakuunaa
+- `1/2 dl` oliiviöljyä
+- `1 ripaus` suolaa
+- `1 ripaus` mustapippuria rouhittuna
 
 ## Ohjeet
 
