@@ -20,6 +20,7 @@ lang: fi
 
 1. <Reseptin askel 1>
 1. <Reseptin askel 2>
+1. <Reseptin askel 3>
 1. <jne>
 
 <Loppuun voi lisätä vinkkejä ja muita hyödyllisiä asioita>
