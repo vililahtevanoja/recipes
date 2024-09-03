@@ -3,7 +3,7 @@ Saisinko tämän reseptin raakana markdownina tässä muodossa:
 ---
 title: <Reseptin nimi>
 servings: <Kuinka monta annosta reseptistä tulee>
-tags: <Reseptille sopivat tagit>
+tags: <Reseptille sopivat tagit englanniksi, pilkuin eroteltuna ilman hakasulkuja>
 source: <Mistä resepti on>
 lang: fi
 ---
