@@ -16,4 +16,4 @@ lang: en
 ## Instructions
 
 1. Finely mince the ingredients. Put the olive oil in the pot and add ingredients.
-2. Using low heat, let the vegetables cook until they are done. If desired, this can be done for a long while until the vegetables have almost disappeared into a mush.
+1. Using low heat, let the vegetables cook until they are done. If desired, this can be done for a long while until the vegetables have almost disappeared into a mush.

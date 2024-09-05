@@ -27,6 +27,6 @@ lang: fi
 ## Valmistusohjeet
 
 1. Yhdistä jauhot, leivinjauhe ja suola. Lisää jogurtti. Vaivaa sähkövatkaimen taikinakoukuilla viisi minuuttia.
-2. Laita unipelti kylmään uuniin. Kuumenna uuni 250 asteeseen.
-3. Kuopaise taikina nuolijalla kahdelle leivinpaperille 18 nokareeksi. Ripottele päälle jauhoja. Taputtele nokareet puolen sentin paksuisiksi, erimuotoisiksi leipäsiksi. Vetäise leipäset leivinpaperin avulla kuumalle pellille. Paista uunissa noin 8 minuuttia.
-4. Sekoita öljy ja mausteseos keskenäänn. Voitele kuumat leivät za'atar-öljyllä. Tarjoa lämpiminä.
+1. Laita unipelti kylmään uuniin. Kuumenna uuni 250 asteeseen.
+1. Kuopaise taikina nuolijalla kahdelle leivinpaperille 18 nokareeksi. Ripottele päälle jauhoja. Taputtele nokareet puolen sentin paksuisiksi, erimuotoisiksi leipäsiksi. Vetäise leipäset leivinpaperin avulla kuumalle pellille. Paista uunissa noin 8 minuuttia.
+1. Sekoita öljy ja mausteseos keskenäänn. Voitele kuumat leivät za'atar-öljyllä. Tarjoa lämpiminä.

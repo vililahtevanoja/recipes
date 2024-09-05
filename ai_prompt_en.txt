@@ -12,9 +12,9 @@ lang: fi
 
 ## Ingredients
 
-- <ingredient 1 in metric units, e.g.: '`1 kg` potatoes'>
-- <ingredient 2 in metric units, e.g. '`1 tbsp` honey'>
-- <ingredient 3 in metric units, e.g. '`1 tsp` salt'>
+- <ingredient 1 in metric units (except for tablespoons and teaspoons), e.g.: '`1 kg` potatoes'>
+- <ingredient 2 in metric units (except for tablespoons and teaspoons), e.g. '`1 tbsp` honey'>
+- <ingredient 3 in metric units (except for tablespoons and teaspoons), e.g. '`1 tsp` salt'>
 - <jne>
 
 ## Instructions

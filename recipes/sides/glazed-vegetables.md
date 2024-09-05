@@ -25,4 +25,4 @@ lang: en
 ## Instructions
 
 1. Toss the carrots with the cornstarch in a 30cm heavy-bottomed stainless steel skillet until no clumps of starch remain. Add the stock, butter, sugar, and 1 teaspoon salt and bring to a boil over high heat, then reduce to a simmer and cook, stirring occasionally, until the carrots are almost tender (they should show little resistance when poked with a cake tester or the tip of a knife), about 10 minutes.
-2. Increase the heat to high and boil, tossing occasionally, until the sauce is reduced to a shiny glaze. Remove from the heat, add the herbs, almonds, lemon zest and lemon juice, and toss to combine. Season to taste with salt and pepper and serve.
+1. Increase the heat to high and boil, tossing occasionally, until the sauce is reduced to a shiny glaze. Remove from the heat, add the herbs, almonds, lemon zest and lemon juice, and toss to combine. Season to taste with salt and pepper and serve.
