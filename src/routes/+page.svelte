@@ -31,7 +31,7 @@
   {#if searchTerm}
     {#each filteredRecipes as recipe}
       <div>
-        <a href="/recipes/{recipe.id}" class="no-underline content-center align-middle text-blue-300">
+        <a href={`/${recipe.id}`} class="no-underline content-center align-middle text-blue-300">
           <div class={`flex mb-4`}>
             <div class="w-1/12 text-xl content-top">{recipe.metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
             <div class="w-6/12 grow align-middle">{recipe.title}</div>
@@ -43,7 +43,7 @@
   {:else}
     {#each data.recipes as recipe}
       <div>
-        <a href="/recipes/{recipe.id}" class="no-underline content-center align-middle text-blue-300">
+        <a href={`/${recipe.id}`} class="no-underline content-center align-middle text-blue-300">
           <div class={`flex mb-4`}>
             <div class="w-1/12 text-xl content-top">{recipe.metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
             <div class="w-6/12 grow align-middle">{recipe.title}</div>
