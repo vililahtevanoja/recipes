@@ -14,7 +14,7 @@
 </script>
 
 <section id="query-section">
-  <div id="search-input-cont">
+  <div id="search-input-div">
     <input
       type="text"
       id="search-field"
@@ -31,7 +31,7 @@
   {#if searchTerm}
     {#each filteredRecipes as recipe}
       <div>
-        <a href="/recipes/{recipe.id}" class="no-underline content-center align-middle text-blue-300">
+        <a href="/{recipe.id}" class="no-underline content-center align-middle text-blue-300">
           <div class={`flex mb-4`}>
             <div class="w-1/12 text-xl content-top">{recipe.metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
             <div class="w-6/12 grow align-middle">{recipe.title}</div>
@@ -43,7 +43,7 @@
   {:else}
     {#each data.recipes as recipe}
       <div>
-        <a href="/recipes/{recipe.id}" class="no-underline content-center align-middle text-blue-300">
+        <a href="/{recipe.id}" class="no-underline content-center align-middle text-blue-300">
           <div class={`flex mb-4`}>
             <div class="w-1/12 text-xl content-top">{recipe.metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
             <div class="w-6/12 grow align-middle">{recipe.title}</div>
@@ -54,3 +54,22 @@
     {/each}
   {/if}
 </div>
+
+<style>
+  #search-input-div {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px;
+    margin-bottom: 15px;
+  }
+
+  #search-field {
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 0 10px 0;
+  }
+</style>
