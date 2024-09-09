@@ -6,9 +6,10 @@
   let searchTerm = ''
   let filteredRecipes: MarkdownRecipe[] = []
   const searchRecipes = () => {
-    return (filteredRecipes = data.recipes.filter((r) =>
-      `${r.title} ${r.metadata.tags.join(' ')}`.toLowerCase().includes(searchTerm.toLowerCase()),
-    ))
+    const filtered = data.recipes.filter((r) =>
+      `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
+    return (filteredRecipes = filtered)
   }
 </script>
 
@@ -21,6 +22,7 @@
       autocomplete="off"
       bind:value={searchTerm}
       on:change={searchRecipes}
+      on:input={searchRecipes}
     />
   </div>
 </section>
