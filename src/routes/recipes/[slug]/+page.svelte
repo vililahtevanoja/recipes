@@ -10,4 +10,5 @@
   <a href="/">Home</a>
 </nav>
 
+<!-- Safe @html as we are rendering static content from our own Markdown files -->
 <div>{@html markdownHtml}</div>

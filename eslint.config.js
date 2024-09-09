@@ -12,6 +12,11 @@ export default [
   prettier,
   ...svelte.configs['flat/prettier'],
   {
+    rules: {
+      'svelte/no-at-html-tags': 'off',
+    },
+  },
+  {
     languageOptions: {
       globals: {
         ...globals.browser,

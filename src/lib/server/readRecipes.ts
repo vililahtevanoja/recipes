@@ -99,6 +99,3 @@ const getRecipeFormat = (fileSuffix: string): RecipeContentFormat => {
       return RecipeContentFormat.Unknown
   }
 }
-
-const isMarkdownRecipe = (recipe: Recipe): recipe is MarkdownRecipe =>
-  typeof (recipe as MarkdownRecipe).content === 'string'
