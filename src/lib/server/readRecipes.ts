@@ -1,16 +1,7 @@
-import path from 'path'
+import path from 'node:path'
 import { parse } from 'yaml'
-import { promises as fs } from 'fs'
-import { Recipe as _CooklangRecipe } from '@cooklang/cooklang-ts'
-import {
-  CooklangRecipe,
-  CooklangRecipeContent,
-  MarkdownRecipe,
-  Recipe,
-  RecipeContentFormat,
-  RecipeMetadata,
-} from './recipe-model'
-import { isDev } from '@/util/env'
+import { promises as fs } from 'node:fs'
+import { type MarkdownRecipe, type Recipe, RecipeContentFormat, type RecipeMetadata } from './recipeModel'
 
 const postsContainer: Record<string, Recipe[]> = {}
 
@@ -45,40 +36,21 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
 }
 
 export const readRecipeFile = async (filePath: string): Promise<Recipe | undefined> => {
-  const content = await fs.readFile(filePath, 'utf-8')
+  const fileContent = await fs.readFile(filePath, 'utf-8')
   const name = path.basename(filePath).split('.')[0]
   const fileType = filePath.split('.').at(-1)
   const format = getRecipeFormat(fileType ?? '')
   if (format === RecipeContentFormat.Markdown) {
-    const metadata = getMetadataFromMarkdownRecipe(content)
+    const metadata = getMetadataFromMarkdownRecipe(fileContent)
+    const recipeContent = getRecipeMarkdownWithoutMetadataHeader(fileContent)
     return {
       id: name,
       title: metadata.title,
       format,
-      content,
+      content: recipeContent,
       path: filePath,
       metadata,
     } as MarkdownRecipe
-  } else if (format === RecipeContentFormat.Cooklang) {
-    if (!isDev()) {
-      return undefined
-    }
-    const recipe = new _CooklangRecipe(content)
-    const metadata = getMetadataFromCooklangRecipe(recipe)
-    const cooklangRecipeContent: CooklangRecipeContent = {
-      ingredients: recipe.ingredients,
-      cookwares: recipe.cookwares,
-      metadata: recipe.metadata,
-      steps: recipe.steps,
-    }
-    return {
-      id: name,
-      title: metadata.title,
-      format,
-      content: cooklangRecipeContent,
-      path: filePath,
-      metadata,
-    } as CooklangRecipe
   } else {
     throw new Error(`Unknown file format for ${filePath}`)
   }
@@ -86,16 +58,18 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
 
 const tagStrToList = (tags: string): string[] => tags.split(',').map((s) => s.trim())
 
-const getMetadataFromCooklangRecipe = (recipe: _CooklangRecipe): RecipeMetadata => {
-  const tags = tagStrToList(recipe.metadata.tags ?? '')
-  if (!recipe.metadata.title || recipe.metadata.tags.length === 0) {
-    throw new Error(`Recipe title or metadata not defined: ${JSON.stringify(recipe)}`)
+const getRecipeMarkdownWithoutMetadataHeader = (content: string): string => {
+  if (!content.startsWith('---')) {
+    throw new Error(
+      `Expecting Markdown file to start with "---" yaml section, but instead starts with ${content.split('\n')[0]}`,
+    )
   }
-  return {
-    title: recipe.metadata.title,
-    tags,
-    ...recipe.metadata,
-  } as RecipeMetadata
+  const yamlCloserIdx = content.indexOf('---', 3)
+  if (yamlCloserIdx < 0) {
+    throw new Error('Expected yaml section closer, but not found')
+  }
+  const recipeSection = content.slice(yamlCloserIdx)
+  return recipeSection
 }
 
 const getMetadataFromMarkdownRecipe = (content: string): RecipeMetadata => {
@@ -121,8 +95,6 @@ const getRecipeFormat = (fileSuffix: string): RecipeContentFormat => {
   switch (fileSuffix.toLowerCase()) {
     case 'md':
       return RecipeContentFormat.Markdown
-    case 'cook':
-      return RecipeContentFormat.Cooklang
     default:
       return RecipeContentFormat.Unknown
   }
@@ -130,11 +102,3 @@ const getRecipeFormat = (fileSuffix: string): RecipeContentFormat => {
 
 const isMarkdownRecipe = (recipe: Recipe): recipe is MarkdownRecipe =>
   typeof (recipe as MarkdownRecipe).content === 'string'
-
-export const getRecipeMarkdown = (recipe: Recipe): string => {
-  if (isMarkdownRecipe(recipe)) {
-    return recipe.content
-  } else {
-    return JSON.stringify(recipe.content, undefined, 2).replace('\n', '\n\n')
-  }
-}
