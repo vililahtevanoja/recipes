@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import type { PageServerData } from './$types'
+  import { base } from '$app/paths'
 
   export let data: PageServerData
   let searchTerm = ''
@@ -12,7 +13,7 @@
     return (filteredRecipes = filtered)
   }
   const getRecipeHref = (recipeId: string): string => {
-    return `/recipes/${recipeId}`
+    return `${base}/recipes/${recipeId}`
   }
 </script>
 

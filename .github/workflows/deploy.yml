@@ -46,7 +46,7 @@ jobs:
         run: pnpm check
       # build
       - name: Build with SvelteKit
-        run: GH_PAGES=true pnpm build
+        run: VITE_GH_PAGES=true pnpm build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
