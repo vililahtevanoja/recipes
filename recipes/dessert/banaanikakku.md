@@ -1,5 +1,5 @@
 ---
-title: Banaaanikakku
+title: Banaanikakku
 source: \@bellatable @ Instagram
 servings: 8
 tags: dessert, tested
