@@ -1,7 +1,7 @@
 ---
 title: Perinteinen makkarakeitto
 servings: 4
-tags: soup, tested
+tags: soup, weekday, tested
 source: Ruokaboksi
 lang: fi
 ---

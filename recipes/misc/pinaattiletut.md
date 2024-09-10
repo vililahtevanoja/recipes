@@ -2,7 +2,7 @@
 title: Pinaattiletut
 source: https://www.k-ruoka.fi/reseptit/pinaattiletut
 servings: 4
-tags: vegetarian
+tags: vegetarian, weekday
 lang: fi
 ---
 

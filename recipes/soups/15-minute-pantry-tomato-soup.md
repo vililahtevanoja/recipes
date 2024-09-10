@@ -1,7 +1,7 @@
 ---
 title: 15-Minute Pantry Tomato Soup
 servings: 4
-tags: soup, quick, vegetarian
+tags: soup, quick, weekday, vegetarian
 source: The Food Lab by J. Kenji López-Alt
 lang: en
 ---

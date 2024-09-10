@@ -2,7 +2,7 @@
 title: Gnocchivuoka
 source: \@bellatable @ Instagram
 servings: 4
-tags: pasta, tested
+tags: pasta, weekday, tested
 lang: fi
 ---
 

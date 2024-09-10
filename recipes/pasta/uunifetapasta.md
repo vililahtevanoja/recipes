@@ -2,7 +2,7 @@
 title: Uunifetapasta
 source: https://liemessa.fi/2019/02/uunifetapasta/
 servings: 4
-tags: pasta, mediterranean
+tags: pasta, mediterranean, weekday
 lang: fi
 ---
 
