@@ -1,3 +1,6 @@
-.next/
-.yarn/
 out/
+.pnpm-store/
+.svelte-kit/
+build/
+node_modules/
+pnpm-lock.yaml
