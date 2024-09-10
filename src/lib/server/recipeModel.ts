@@ -3,10 +3,12 @@ export enum RecipeContentFormat {
   Unknown,
 }
 
+export type RecipeLanguage = 'fi' | 'en'
+
 export type RecipeMetadata = {
   title: string
   servings?: number
-  lang?: 'FI' | 'fi' | 'EN' | 'en'
+  lang: RecipeLanguage
   tags: string[]
 }
 

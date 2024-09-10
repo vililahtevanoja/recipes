@@ -1,19 +1,28 @@
 <script lang="ts">
-  import type { MarkdownRecipe } from '$lib/server/recipeModel'
+  import type { MarkdownRecipe, RecipeLanguage } from '$lib/server/recipeModel'
   import type { PageServerData } from './$types'
   import { base } from '$app/paths'
+  import RecipeListItem from './RecipeListItem.svelte'
 
   export let data: PageServerData
-  let searchTerm = ''
+  let searchTerm: string = ''
   let filteredRecipes: MarkdownRecipe[] = []
-  const searchRecipes = () => {
-    const filtered = data.recipes.filter((r) =>
-      `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()),
-    )
+  let onlyQuickWeekday: boolean = false
+  const filterRecipes = () => {
+    const filtered = data.recipes
+      .filter((r) => `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()))
+      .filter((r) => (onlyQuickWeekday ? r.metadata.tags.some((t) => t === 'quick' || t === 'weekday') : true))
+    console.log(`Was: ${data.recipes.length} is: ${filtered.length}`)
     return (filteredRecipes = filtered)
   }
   const getRecipeHref = (recipeId: string): string => {
     return `${base}/recipes/${recipeId}`
+  }
+  const toggleQuickWeekdayFilter = () => {
+    onlyQuickWeekday = !onlyQuickWeekday
+    console.log(`onlyQuickWeekday=${onlyQuickWeekday}`)
+    filterRecipes()
+    return (onlyQuickWeekday = onlyQuickWeekday)
   }
 </script>
 
@@ -25,36 +34,35 @@
       placeholder="Search recipe names and tags"
       autocomplete="off"
       bind:value={searchTerm}
-      on:change={searchRecipes}
-      on:input={searchRecipes}
+      on:change={() => filterRecipes()}
+      on:input={() => filterRecipes()}
     />
+  </div>
+  <div id="quick-weekday-button-container">
+    <button type="button" id="quick-weekday-filter-button" on:click={() => toggleQuickWeekdayFilter()}
+      >Quick/weekday</button
+    >
   </div>
 </section>
 
 <div>
-  {#if searchTerm}
+  {#if searchTerm || onlyQuickWeekday}
     {#each filteredRecipes as recipe}
-      <div>
-        <a href={getRecipeHref(recipe.id)} class="no-underline content-center align-middle text-blue-300">
-          <div class={`flex mb-4`}>
-            <div class="w-1/12 text-xl content-top">{recipe.metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
-            <div class="w-6/12 grow align-middle">{recipe.title}</div>
-            <div class="w-4/12 align-middle">{recipe.metadata.tags}</div>
-          </div>
-        </a>
-      </div>
+      <RecipeListItem
+        href={getRecipeHref(recipe.id)}
+        title={recipe.title}
+        lang={recipe.metadata.lang ?? 'fi'}
+        tags={recipe.metadata.tags}
+      />
     {/each}
   {:else}
     {#each data.recipes as recipe}
-      <div>
-        <a href={getRecipeHref(recipe.id)} class="no-underline content-center align-middle text-blue-300">
-          <div class={`flex mb-4`}>
-            <div class="w-1/12 text-xl content-top">{recipe.metadata.lang?.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
-            <div class="w-6/12 grow align-middle">{recipe.title}</div>
-            <div class="w-4/12 align-middle">{recipe.metadata.tags}</div>
-          </div>
-        </a>
-      </div>
+      <RecipeListItem
+        href={getRecipeHref(recipe.id)}
+        title={recipe.title}
+        lang={recipe.metadata.lang ?? 'fi'}
+        tags={recipe.metadata.tags}
+      />
     {/each}
   {/if}
 </div>

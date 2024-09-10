@@ -1,7 +1,13 @@
 import path from 'node:path'
 import { parse } from 'yaml'
 import { promises as fs } from 'node:fs'
-import { type MarkdownRecipe, type Recipe, RecipeContentFormat, type RecipeMetadata } from './recipeModel'
+import {
+  type MarkdownRecipe,
+  type Recipe,
+  RecipeContentFormat,
+  type RecipeLanguage,
+  type RecipeMetadata,
+} from './recipeModel'
 
 const postsContainer: Record<string, Recipe[]> = {}
 
@@ -56,7 +62,13 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
   }
 }
 
-const tagStrToList = (tags: string): string[] => tags.split(',').map((s) => s.trim())
+const tagStrToList = (tags: string): string[] => {
+  const splitTags = tags.split(',').map((s) => s.trim())
+  if (typeof splitTags === 'string') {
+    return [tags]
+  }
+  return splitTags
+}
 
 const getRecipeMarkdownWithoutMetadataHeader = (content: string): string => {
   if (!content.startsWith('---')) {
@@ -88,7 +100,14 @@ const getMetadataFromMarkdownRecipe = (content: string): RecipeMetadata => {
   if (!parsed.title || !Array.isArray(tags) || tags.length === 0) {
     throw new Error(`Title or tags not found in parsed yaml-section: ${parsed}`)
   }
-  return { title: parsed.title, tags, ...parsed }
+  let lang = parsed.lang?.toLowerCase()
+  if (lang === 'fi' || lang === 'en') {
+    lang = lang as RecipeLanguage
+  } else {
+    throw new Error(`Unknown language: ${lang}`)
+  }
+  const result = { ...parsed, title: parsed.title, lang, tags }
+  return result
 }
 
 const getRecipeFormat = (fileSuffix: string): RecipeContentFormat => {
