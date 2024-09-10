@@ -107,7 +107,7 @@
   }
 
   #quick-weekday-filter-button-toggled {
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 7px;
     background-color: #a78bfa;
     color: #ffffff;
