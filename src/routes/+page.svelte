@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { MarkdownRecipe, RecipeLanguage } from '$lib/server/recipeModel'
+  import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import type { PageServerData } from './$types'
   import { base } from '$app/paths'
   import RecipeListItem from './RecipeListItem.svelte'
