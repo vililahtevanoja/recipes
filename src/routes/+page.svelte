@@ -26,7 +26,7 @@
   }
 </script>
 
-<section id="query-section">
+<section class="flex flex-row" id="query-section">
   <div id="search-input-div">
     <input
       type="text"
@@ -39,8 +39,10 @@
     />
   </div>
   <div id="quick-weekday-button-container">
-    <button type="button" id="quick-weekday-filter-button" on:click={() => toggleQuickWeekdayFilter()}
-      >Quick/weekday</button
+    <button
+      type="button"
+      id={onlyQuickWeekday ? 'quick-weekday-filter-button-toggled' : 'quick-weekday-filter-button-untoggled'}
+      on:click={() => toggleQuickWeekdayFilter()}>Quick/weekday</button
     >
   </div>
 </section>
@@ -68,6 +70,10 @@
 </div>
 
 <style>
+  #query-section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
   #search-input-div {
     width: 40%;
     display: flex;
@@ -83,5 +89,28 @@
     border-radius: 5px;
     padding: 8px;
     margin: 0 10px 0;
+  }
+
+  #quick-weekday-button-container {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+  }
+
+  #quick-weekday-filter-button-untoggled {
+    font-size: 1.5rem;
+    border-radius: 7px;
+    background-color: black;
+    color: #a78bfa;
+    border-color: #a78bfa;
+  }
+
+  #quick-weekday-filter-button-toggled {
+    font-size: 2rem;
+    border-radius: 7px;
+    background-color: #a78bfa;
+    color: #ffffff;
+    border-color: #a78bfa;
   }
 </style>
