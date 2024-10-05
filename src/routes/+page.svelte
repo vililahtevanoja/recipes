@@ -17,7 +17,11 @@
   const handleRoutingForOldLinks = () => {
     if (browser && $page.url.hostname.includes('github')) {
       // running in GitHub Pages
-      const pathComponents = $page.url.pathname.split('/')
+      const pathComponents = $page.url.pathname.split('/').filter((pc) => pc.length > 0)
+      if (pathComponents.length <= 1) {
+        // noop
+        return
+      }
       const hasOnlyOneRecipesComponentInPath = pathComponents.filter((pc) => pc === 'recipes').length === 1
       const recipesPathComponentIndex = pathComponents.indexOf('recipes')
       const notInRecipesRoot = recipesPathComponentIndex !== pathComponents.length - 1
