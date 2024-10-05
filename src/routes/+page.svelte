@@ -14,6 +14,7 @@
   // ...github.io/recipes/<recipe-slug> but with SvelteKit (for now at least) it is
   // ...github.io/recipes/recipes/<recipe-slug>
   // this function attempts to redirect old links to the correct path with containing two recipes-components in path
+  // TODO: does not work, e.g. /recipes/juustosampylat
   const handleRoutingForOldLinks = () => {
     if (browser && $page.url.hostname.includes('github')) {
       // running in GitHub Pages
