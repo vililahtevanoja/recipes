@@ -2,12 +2,34 @@
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import type { PageServerData } from './$types'
   import { base } from '$app/paths'
+  import { page } from '$app/stores'
   import RecipeListItem from './RecipeListItem.svelte'
+  import { browser } from '$app/environment'
 
   export let data: PageServerData
   let searchTerm: string = ''
   let filteredRecipes: MarkdownRecipe[] = []
   let onlyQuickWeekday: boolean = false
+  // with old Next.js-based frontend the routing for recipes in GitHub Pages was
+  // ...github.io/recipes/<recipe-slug> but with SvelteKit (for now at least) it is
+  // ...github.io/recipes/recipes/<recipe-slug>
+  // this function attempts to redirect old links to the correct path with containing two recipes-components in path
+  const handleRoutingForOldLinks = () => {
+    if (browser && $page.url.hostname.includes('github')) {
+      // running in GitHub Pages
+      const pathComponents = $page.url.pathname.split('/')
+      const hasOnlyOneRecipesComponentInPath = pathComponents.filter((pc) => pc === 'recipes').length === 1
+      const recipesPathComponentIndex = pathComponents.indexOf('recipes')
+      const notInRecipesRoot = recipesPathComponentIndex !== pathComponents.length - 1
+      if (hasOnlyOneRecipesComponentInPath && notInRecipesRoot) {
+        const newComponents = pathComponents.splice(recipesPathComponentIndex, 0, 'recipes')
+        const newPath = `/${newComponents.join('/')}`
+        console.log(`Redirecting ${$page.url.pathname} to ${newPath}`)
+        window.location.href = newPath
+      }
+    }
+  }
+  handleRoutingForOldLinks()
   const filterRecipes = () => {
     const filtered = data.recipes
       .filter((r) => `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()))
