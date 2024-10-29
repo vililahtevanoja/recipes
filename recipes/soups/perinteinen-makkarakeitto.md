@@ -18,6 +18,7 @@ lang: fi
 - `1 kpl` lihafondi
 - `1 tl` suolaa
 - `2 - 3 kpl` laakerinlehteä
+- `8 - 10 kpl` maustepippureita
 - mustapippuria (maun mukaan)
 - `1 pkt (n. 400g)` makkaraa
 - `1 rkl` öljyä
