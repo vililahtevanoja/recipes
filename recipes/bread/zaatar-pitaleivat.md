@@ -17,7 +17,7 @@ lang: fi
 
 ### Päälle
 
-- n. ´1 dl` vehnäjauhoja
+- n. `1 dl` vehnäjauhoja
 
 ### Zaatar-öljy
 
