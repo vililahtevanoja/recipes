@@ -10,7 +10,7 @@ lang: en
 
 ## Ingredients
 
-- 1 recipe Basic Dry Pancake Mix (above)
+- 1 recipe Basic Dry Pancake Mix (see [Basic Dry Pancake Mix](./basic-dry-pancake-mix))
 - 2 large eggs, separated
 - `355 ml` buttermilk (1½ cups)
 - `240 ml` sour cream or buttermilk (1 cup)
