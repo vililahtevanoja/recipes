@@ -10,7 +10,7 @@ lang: fi
 
 ## Ainekset
 
-- `1` annos taikinaa (ks. perusleipätaikina-ohje)
+- `1` annos taikinaa (kts. [perusleipätaikina-ohje](./perusleipataikina))
 - `1 kpl` kananmunia (voiteluun)
 - `15` viipaletta raclettejuustoa (täytteeksi)
 

@@ -3,6 +3,16 @@
   import type { PageServerData } from './$types'
   import { base } from '$app/paths'
 
+  marked.use({
+    extensions: [
+      {
+        name: 'link',
+        renderer({ href, text }) {
+          return `<a data-sveltekit-reload href="${href}">${text}</a>`
+        },
+      },
+    ],
+  })
   export let data: PageServerData
   export let markdownHtml = marked.parse(data.content)
 </script>
