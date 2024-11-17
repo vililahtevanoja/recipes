@@ -10,7 +10,7 @@ lang: fi
 
 ## Ainekset
 
-- `1` annos taikinaa (ks. Perusleipätaikina)
+- `1` annos taikinaa (kts. [perusleipätaikina-ohje](./perusleipataikina))
 - `2 kiekkoa` (à 250 g) camembert-juustoa puukorissa
 
 ### Voiteluun
