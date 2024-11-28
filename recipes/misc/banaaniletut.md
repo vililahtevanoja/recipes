@@ -21,4 +21,4 @@ lang: fi
 ## Valmistusohjeet
 
 1. Hienonna banaani haarukalla. Sekoita munat sekaan. Vatkaa joukkoon muut aineet. Anna taikinan turvota vähintään 30min.
-1. Paista pieniksi letuiksi miedolla lämmöllä. Tarjoile esimerkikwi kermavaahdon, jäätelön ja mansikkahillon kanssa.
+1. Paista pieniksi letuiksi miedolla lämmöllä. Tarjoile esimerkiksi kermavaahdon, jäätelön ja mansikkahillon kanssa.
