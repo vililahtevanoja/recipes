@@ -1,7 +1,7 @@
 ---
 title: Mallaslimppu
 servings: 4
-tags: bread
+tags: bread,tested
 source: Kuva vanhasta Aamulehdestä
 lang: fi
 ---
