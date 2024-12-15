@@ -1,7 +1,7 @@
 ---
 title: Banaaniletut
 servings: 4
-tags: breakfast, dessert
+tags: breakfast, dessert, tested
 source: https://www.myllynparas.fi/reseptit/banaaniletut
 lang: fi
 ---
