@@ -2,7 +2,7 @@
 title: Toffee
 source: \@bellatable @ Instagram
 servings: 40
-tags: dessert
+tags: dessert,tested
 lang: fi
 ---
 
