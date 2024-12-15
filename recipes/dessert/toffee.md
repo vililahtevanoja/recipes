@@ -23,7 +23,7 @@ lang: fi
 
 Esimerkkejä, valitse mitä haluat.
 
-- `1rkl` piparkakkumaustetta
+- `1 rkl` piparkakkumaustetta
 - `1-2 rkl` lakritsijauhetta
 
 ## Ohjeet
