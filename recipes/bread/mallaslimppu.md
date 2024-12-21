@@ -28,4 +28,4 @@ lang: fi
 1. Anna taikinan kohota puolitoista tuntia. Taikinan pitää olla hyvin löysää.
 1. Voitele kolme pitkänomaista vuokaa ja jaa taikina niihin.
 1. Paista 175-asteisessa uunissa puolitoista tuntia.
-1. Kun leivät ovat olleet uunisa tunnin, voitele niiden pinta siirapilla. Voitelu sujuu hyvin, kun siirappia ohentaa vähän vedellä.
+1. Kun leivät ovat olleet uunissa tunnin, voitele niiden pinta siirapilla. Voitelu sujuu hyvin, kun siirappia ohentaa vähän vedellä.
