@@ -23,6 +23,7 @@ lang: fi
 ## Valmistusohjeet
 
 1. Hienonna maltaita hiukan survomalla.
+1. Lämmitä appelsiinimehu kädenlämpöiseksi.
 1. Murenna hiiva kädenlämpöiseen appelsiinimehuun.
 1. Lisää nesteeseen kaikki ainekset ja sekoita hyvin.
 1. Anna taikinan kohota puolitoista tuntia. Taikinan pitää olla hyvin löysää.
