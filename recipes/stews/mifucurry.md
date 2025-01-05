@@ -1,7 +1,7 @@
 ---
 title: Mifucurry
 servings: 4
-tags: vegetarian, quick, curry, easy, weekday
+tags: vegetarian, quick, curry, easy, weekday, tested
 source: Valio
 lang: fi
 ---
