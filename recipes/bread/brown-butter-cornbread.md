@@ -2,7 +2,7 @@
 title: Brown Butter Cornbread
 source: https://www.seriouseats.com/moist-and-tender-brown-butter-cornbread-recipe
 servings: 8
-tags: bread
+tags: bread, tested
 lang: en
 ---
 
