@@ -1,7 +1,7 @@
 ---
 title: Kurpitsapasta
 servings: 4-6
-tags: pasta
+tags: pasta, tested
 lang: fi
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Linssi-tomaattikeitto
 servings: 4
-tags: gluten-free, lactose-free, vegan, vegetarian, soup, quick, weekday
+tags: gluten-free, lactose-free, vegan, vegetarian, soup, quick, weekday, tested
 source: Glorian Ruoka&Viini
 lang: fi
 ---

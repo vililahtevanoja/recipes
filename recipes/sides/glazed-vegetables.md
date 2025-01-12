@@ -2,7 +2,7 @@
 title: Glazed Vegetables
 source: The Food Lab by J. Kenji López-Alt
 servings: 4-6
-tags: sides, vegetables
+tags: sides, vegetables, tested
 lang: en
 ---
 

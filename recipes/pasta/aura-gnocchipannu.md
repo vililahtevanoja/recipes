@@ -1,7 +1,7 @@
 ---
 title: Aura-gnocchipannu
 servings: 4
-tags: pasta, quick, weekday
+tags: pasta, quick, weekday, tested
 source: https://www.valio.fi/reseptit/aura-gnocchipannu/
 lang: fi
 ---

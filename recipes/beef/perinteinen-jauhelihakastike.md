@@ -1,7 +1,7 @@
 ---
 title: Perinteinen jauhelihakastike
 servings: 4
-tags: finnish, beef, easy, quick
+tags: finnish, beef, easy, quick, tested
 source: Kotiruoka - Kaisa Isotalo & Raija Kuittinen
 lang: fi
 ---

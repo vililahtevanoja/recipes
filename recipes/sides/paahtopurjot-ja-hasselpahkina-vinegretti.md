@@ -1,7 +1,7 @@
 ---
 title: Paahdetut purjot ja hasselpähkinä-vinegretti
 servings: 4
-tags: vegetarian
+tags: vegetarian, tested
 source: Glorian Ruoka&Viini
 lang: fi
 ---

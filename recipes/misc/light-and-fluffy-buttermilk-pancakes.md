@@ -1,7 +1,7 @@
 ---
 title: Light and Fluffy Buttermilk Pancakes
 servings: 4
-tags: breakfast
+tags: breakfast, tested
 source: The Food Lab by J. Kenji López-Alt
 lang: en
 ---
