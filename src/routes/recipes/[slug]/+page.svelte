@@ -15,7 +15,12 @@
   })
   export let data: PageServerData
   export let markdownHtml = marked.parse(data.content)
+  export let title = data.title
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+</svelte:head>
 
 <nav>
   <a href={`${base}/`}>Home</a>

@@ -53,6 +53,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Recipes</title>
+</svelte:head>
+
 <section class="flex flex-row" id="query-section">
   <div id="search-input-div">
     <input
