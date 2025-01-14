@@ -16,7 +16,7 @@ lang: fi
 - `3 dl` maltaita
 - `3 dl` siirappia
 - `1 rkl` suolaa
-- `10-13 dl` vehnäjauhoja
+- `10 dl` vehnäjauhoja
 - voita vuuan voiteluun
 - siirappia pinnan sivelyyn
 
