@@ -13,7 +13,23 @@
       },
     ],
   })
+  let wakeLock: WakeLockSentinel | undefined
+  const toggleWakeLock = async () => {
+    const wakeLockAvailable = 'wakeLock' in navigator
+    if (!wakeLockAvailable) {
+      return
+    }
+    if (wakeLock === undefined) {
+      wakeLock = await navigator.wakeLock.request('screen')
+    } else {
+      await wakeLock.release()
+      wakeLock = undefined
+    }
+  }
   export let data: PageServerData
+   export let markdownHtml = marked.parse(data.content)
+   export let title = data.title
++  export let wakeLockEnabled = wakeLock !== undefined
 </script>
 
 <svelte:head>
