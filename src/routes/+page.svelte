@@ -5,7 +5,6 @@
   import { page } from '$app/stores'
   import RecipeListItem from './RecipeListItem.svelte'
   import { browser } from '$app/environment'
-
   export let data: PageServerData
   let searchTerm: string = ''
   let filteredRecipes: MarkdownRecipe[] = []
@@ -39,6 +38,15 @@
     const filtered = data.recipes
       .filter((r) => `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()))
       .filter((r) => (onlyQuickWeekday ? r.metadata.tags.some((t) => t === 'quick' || t === 'weekday') : true))
+      .filter((r) => {
+        const isTested = r.metadata.tags.some((t) => t.toLowerCase() === 'tested')
+        if (testedFilter === 'Tested') {
+          return isTested
+        } else if (testedFilter === 'Untested') {
+          return !isTested
+        }
+        return true
+      })
     console.log(`Was: ${data.recipes.length} is: ${filtered.length}`)
     return (filteredRecipes = filtered)
   }
@@ -50,6 +58,31 @@
     console.log(`onlyQuickWeekday=${onlyQuickWeekday}`)
     filterRecipes()
     return (onlyQuickWeekday = onlyQuickWeekday)
+  }
+  export let testedFilter = 'All'
+
+  const toggleTestedFilter = () => {
+    console.log(`TestedFilter old: ${testedFilter}`)
+    switch (testedFilter) {
+      case 'All': {
+        testedFilter = 'Tested'
+        break
+      }
+      case 'Tested': {
+        testedFilter = 'Untested'
+        break
+      }
+      case 'Untested': {
+        testedFilter = 'All'
+        break
+      }
+      default: {
+        testedFilter = 'All'
+      }
+    }
+    console.log(`TestedFilter new: ${testedFilter}`)
+    filterRecipes()
+    return (testedFilter = testedFilter)
   }
 </script>
 
@@ -74,6 +107,10 @@
       type="button"
       id={onlyQuickWeekday ? 'quick-weekday-filter-button-toggled' : 'quick-weekday-filter-button-untoggled'}
       on:click={() => toggleQuickWeekdayFilter()}>Quick/weekday</button
+    >
+  </div>
+  <div id="tested-button-container">
+    <button type="button" id={'tested-button'} on:click={() => toggleTestedFilter()}>{`Showing ${testedFilter}`}</button
     >
   </div>
 </section>
@@ -120,6 +157,21 @@
     border-radius: 5px;
     padding: 8px;
     margin: 0 10px 0;
+  }
+
+  #tested-button-container {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+  }
+
+  #tested-button {
+    font-size: 1.5rem;
+    border-radius: 7px;
+    background-color: black;
+    color: #a78bfa;
+    border-color: #a78bfa;
   }
 
   #quick-weekday-button-container {
