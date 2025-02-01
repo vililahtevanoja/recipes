@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+/* @tailwind base; */ /* including this erases default html-element stylings */
+@tailwind components;
+@tailwind utilities;
 
 :root {
   font-family: Arial, Helvetica, sans-serif;
