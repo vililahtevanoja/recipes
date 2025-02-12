@@ -27,5 +27,5 @@ lang: fi
 
 1. Laita uuni lämpiämään 225-asteiseksi.
 1. Halkaise ja kuori kurpitsa. Poista siemenet ja viipaloi isoon kulhoon. Kuori valkosipulinkynnet ja lisää ne kulhoon kurpitsan kanssa. Lisää oliiviöljy, vaahterasiirappi, suola ja mustapippuri päälle. Heittele aineksia kulhossa kunnes ne ovat hyvin sekoittuneet. Siirrä kulhon sisältö uunipellille. Paahda uunissa n. 30min.
-1. Laita pastavesi kiehumaan ja suolaa huvin. Kaada kurpitsa ja valkosipulit pelliltä tehosekoittimeen tai kulhoon ja lisää maito, kerma tai vesi. Sekoita tehosekoittimella tai sauvasekoittimella tasaiseksi.
+1. Laita pastavesi kiehumaan ja suolaa hyvin. Kaada kurpitsa ja valkosipulit pelliltä tehosekoittimeen tai kulhoon ja lisää maito, kerma tai vesi. Sekoita tehosekoittimella tai sauvasekoittimella tasaiseksi.
 1. Laita pasta kiehumaan. Lisää voi pannulle ja ruskista. Lisää oregano ja timjami, ja paista hetki. Kaada kurpitsasose pannulle ja lisää joukkoon mascarpone, parmesaaniraaste ja 1 dl pastan keitinvettä. Sekoita kunnes juusto on sulanut. Nosta al denteksi keitetty spagetti kastikkeen joukkoon pannulle ja sekoita hyvin. Lisää samalla keitinvettä ja sekoita kunnes pasta on kiiltävää ja kermaista.
