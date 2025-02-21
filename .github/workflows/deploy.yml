@@ -38,6 +38,8 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Enable corepack
         run: corepack enable
+      - name: Install package manager
+        run: corepack install
       - name: Install dependencies
         run: pnpm install
       # verify
