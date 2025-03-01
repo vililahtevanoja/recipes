@@ -14,7 +14,7 @@ lang: fi
 - `0.5 dl` korppujauhoja
 - `1` kananmunan
 - `1 tl` suolaa
-- `¼ tl` mustapippuria
+- `0.25 tl` mustapippuria
 - `400 g` naudan jauhelihaa
 - `170 g` pekonia
 - `2` salottisipulia
