@@ -12,7 +12,7 @@ lang: fi
 
 - `1 dl` kermaa
 - `0.5 dl` korppujauhoja
-- `1` kananmunan
+- `1` kananmuna
 - `1 tl` suolaa
 - `0.25 tl` mustapippuria
 - `400 g` naudan jauhelihaa
@@ -22,23 +22,15 @@ lang: fi
 - `2` porkkanaa
 - `1 rkl` tomaattipyreetä
 - `2 tl` sokeria
-- `1 dl` punaviiniä
+- `3` timjaminoksaa
 - `3 dl` lihalientä (fondista)
-- `1` laakerinlehti
 - `0.5 tl` kuivattua timjamia
-- `1 rkl` vehnäjauhoja
+- `2 dl` punaviiniä
+- `1` laakerinlehti
 
 ## Valmistusohjeet
 
-1. Yhdistä kerma, korppujauhot, muna, suola ja pippuri kulhossa. Anna seoksen turvota noin 5 minuuttia.
-1. Sekoita jauheliha joukkoon ja pyöritä taikinasta kostutetuin käsin 12 lihapullaa.
-1. Paloittele pekoni ja laita paistinpannulle. Paista kunnes rasva irtoaa.
-1. Siirrä pannulle lihapullat ja paista niitä keskilämmöllä 5–10 minuuttia, kunnes ne saavat kauniin värin. Siirrä pekoni ja lihapullat pataan.
-1. Kuori ja hienonna salottisipulit sekä valkosipulit.
-1. Halkaise herkkusienet ja paloittele porkkanat.
-1. Lisää pannulle sipulit, sienet ja porkkanat. Kuullota hetki.
-1. Lisää tomaattipyree ja sokeri, paista hetki.
-1. Kaada pannulle punaviini, anna kiehahtaa.
-1. Kaada pannun sisältö pataan. Lisää lihaliemi, laakerinlehti ja timjami.
-1. Hauduta kannen alla miedolla lämmöllä noin 1,5 tuntia.
-1. Tarjoa burgundin lihapullapata perunamuusin kanssa!
+1. Yhdistä kerma, korppujauhot, muna, suola ja pippuri kulhossa. Anna seoksen turvota noin 5 minuuttia. Sekoita jauheliha joukkoon ja pyöritä taikinasta kostutetuin käsin 12 lihapullaa.
+1. Paloittele pekoni ja laita palat laakeaan pataan tai kannelliseen paistokasariin. Siirr' pata liedelle, säädä lämpö keskilämmölle ja paista 5-10 minuuttai muutaman kerran sekoittaen, kunnes pekoni ruskistuu.
+1. Kuori ja leikkaa salottisipulit muutamaan osaan. Kuori ja hienonna valkosipulit. Puhdista herkkusienet ja puolita isoimmat tarvittaessa. Leikkaan porkkanat 1 cm:n paksuisiksi viipaleiksi.
+1. Ota pekonit padasta, jätä irronnut rasva pataan. Nosta lieden lämpöä ja ruskista lihapullia pekonirasvassa 5 minuuttia. Laske keskilämmölle, lisää kasvikset, pekoni, tomaattipyree ja sokeri. Paista pari minuuttia. Lisää loput ainekset ja hauduta pataa miedolla lämmöllä noin 1,5 tuntia. Tarjoa ruoka perunamuusin kanssa.
