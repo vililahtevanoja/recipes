@@ -14,12 +14,10 @@
     ],
   })
   export let data: PageServerData
-  export let markdownHtml = marked.parse(data.content)
-  export let title = data.title
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{data.title}</title>
 </svelte:head>
 
 <nav>
@@ -27,4 +25,4 @@
 </nav>
 
 <!-- Safe @html as we are rendering static content from our own Markdown files -->
-<div>{@html markdownHtml}</div>
+<div>{@html marked.parse(data.content)}</div>

@@ -80,7 +80,7 @@
 
 <div>
   {#if searchTerm || onlyQuickWeekday}
-    {#each filteredRecipes as recipe}
+    {#each filteredRecipes as recipe (recipe.id)}
       <RecipeListItem
         href={getRecipeHref(recipe.id)}
         title={recipe.title}
@@ -89,7 +89,7 @@
       />
     {/each}
   {:else}
-    {#each data.recipes as recipe}
+    {#each data.recipes as recipe (recipe.id)}
       <RecipeListItem
         href={getRecipeHref(recipe.id)}
         title={recipe.title}
