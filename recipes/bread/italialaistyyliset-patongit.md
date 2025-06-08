@@ -14,7 +14,7 @@ lang: fi
 - `25 g` tuorehiivaa tai `11 g` kuivahiivaa
 - `2 rkl` oliiviöljyä
 - `1 rkl` suolaa
-- `720 g` (~`11 dl`) vehnäjauhoja
+- `720 g` (`~11 dl`) vehnäjauhoja
 
 ## Valmistusohjeet
 
