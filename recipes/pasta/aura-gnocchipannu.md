@@ -24,4 +24,4 @@ lang: fi
 
 1. Suikaloi pekoni saksilla ja hienonna sipulit. Paista kuumalla pannulla.
 1. Huuhdo ja suikaloi lehtikaali. Lisää pannulle ja jatka hetki paistamista.
-1. Lisää pannulle gnocchit, AURA ja kerma. Huuhtele kermatölkki vedellä ja kaada pannulle. Anna hautua hetki. Mausta mustapippurilla ja suolalla maun mukaan. Tarjoile raikaan salaatin kanssa.
+1. Lisää pannulle gnocchit, AURA ja kerma. Huuhtele kermatölkki vedellä ja kaada pannulle. Anna hautua hetki. Mausta mustapippurilla ja suolalla maun mukaan. Tarjoile raikkaan salaatin kanssa.
