@@ -6,7 +6,7 @@ source: Ruokaboksi
 lang: fi
 ---
 
-# Perinteinen makkarakeitto & ruisleipää
+# Perinteinen makkarakeitto
 
 ## Ainesosat
 
