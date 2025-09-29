@@ -50,6 +50,11 @@ lang: fi
 - `600 g` imeruli-juustoa
 - `200 g` sulguni-juustoa
 
+  tai
+
+- `560 g` fetaa
+- `240 g` mozzarellaa
+
 ### Tarjoiluun
 
 - voita
