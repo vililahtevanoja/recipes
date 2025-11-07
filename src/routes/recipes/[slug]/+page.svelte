@@ -2,7 +2,7 @@
   import { marked } from 'marked'
   import type { PageServerData } from './$types'
   import { resolve } from '$app/paths'
-  
+
   marked.use({
     extensions: [
       {

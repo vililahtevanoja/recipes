@@ -41,7 +41,7 @@
     console.log(`Was: ${data.recipes.length} is: ${filtered.length}`)
     return (filteredRecipes = filtered)
   }
-  
+
   const toggleQuickWeekdayFilter = () => {
     onlyQuickWeekday = !onlyQuickWeekday
     console.log(`onlyQuickWeekday=${onlyQuickWeekday}`)
