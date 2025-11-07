@@ -1,10 +1,9 @@
 <script lang="ts">
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import type { PageServerData } from './$types'
-  import { base } from '$app/paths'
-  import { page } from '$app/stores'
   import RecipeListItem from './RecipeListItem.svelte'
   import { browser } from '$app/environment'
+  import { page } from '$app/state'
 
   export let data: PageServerData
   let searchTerm: string = ''
@@ -16,9 +15,9 @@
   // this function attempts to redirect old links to the correct path with containing two recipes-components in path
   // TODO: does not work, e.g. /recipes/juustosampylat
   const handleRoutingForOldLinks = () => {
-    if (browser && $page.url.hostname.includes('github')) {
+    if (browser && page.url.hostname.includes('github')) {
       // running in GitHub Pages
-      const pathComponents = $page.url.pathname.split('/').filter((pc) => pc.length > 0)
+      const pathComponents = page.url.pathname.split('/').filter((pc) => pc.length > 0)
       if (pathComponents.length <= 1) {
         // noop
         return
@@ -29,7 +28,7 @@
       if (hasOnlyOneRecipesComponentInPath && notInRecipesRoot) {
         const newComponents = pathComponents.splice(recipesPathComponentIndex, 0, 'recipes')
         const newPath = `/${newComponents.join('/')}`
-        console.log(`Redirecting ${$page.url.pathname} to ${newPath}`)
+        console.log(`Redirecting ${page.url.pathname} to ${newPath}`)
         window.location.href = newPath
       }
     }
@@ -42,9 +41,7 @@
     console.log(`Was: ${data.recipes.length} is: ${filtered.length}`)
     return (filteredRecipes = filtered)
   }
-  const getRecipeHref = (recipeId: string): string => {
-    return `${base}/recipes/${recipeId}`
-  }
+  
   const toggleQuickWeekdayFilter = () => {
     onlyQuickWeekday = !onlyQuickWeekday
     console.log(`onlyQuickWeekday=${onlyQuickWeekday}`)
@@ -82,7 +79,7 @@
   {#if searchTerm || onlyQuickWeekday}
     {#each filteredRecipes as recipe (recipe.id)}
       <RecipeListItem
-        href={getRecipeHref(recipe.id)}
+        recipeId={recipe.id}
         title={recipe.title}
         lang={recipe.metadata.lang ?? 'fi'}
         tags={recipe.metadata.tags}
@@ -91,7 +88,7 @@
   {:else}
     {#each data.recipes as recipe (recipe.id)}
       <RecipeListItem
-        href={getRecipeHref(recipe.id)}
+        recipeId={recipe.id}
         title={recipe.title}
         lang={recipe.metadata.lang ?? 'fi'}
         tags={recipe.metadata.tags}

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { marked } from 'marked'
   import type { PageServerData } from './$types'
-  import { base } from '$app/paths'
-
+  import { resolve } from '$app/paths'
+  
   marked.use({
     extensions: [
       {
@@ -21,7 +21,7 @@
 </svelte:head>
 
 <nav>
-  <a href={`${base}/`}>Home</a>
+  <a href={resolve('/')}>Home</a>
 </nav>
 
 <!-- Safe @html as we are rendering static content from our own Markdown files -->
