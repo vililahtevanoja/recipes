@@ -22,7 +22,7 @@
         pkgsStable = import nixpkgs-stable {
           inherit system;
         };
-        nodeVersion = "22.19.0";
+        nodeVersion = "24.11.0";
 
         # map Nix system strings (e.g. aarch64-darwin) to Node.js architecture strings (e.g. darwin-arm64)
         nixSystemStringsToNodeArchitectureStrings =
@@ -53,7 +53,7 @@
                 url = "https://nodejs.org/download/release/v${nodeVersion}/SHASUMS256.txt";
                 sha256 = builtins.convertHash {
                   hashAlgo = "sha256";
-                  hash = "de2602986573174f8815e5c66a157950132166113edddd9124c30784303ede31"; # This is a hash for the SHASSUMS256.txt file, not the binary
+                  hash = "ee1afe484a32496fd72c22f02acc80e28e6af559491b46cdfbd1c7a3922c42bd"; # This is a hash for the SHASSUMS256.txt file, not the binary
                   toHashFormat = "sri";
                 };
               }
