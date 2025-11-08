@@ -110,7 +110,7 @@
           # add things you want in your shell here
           buildInputs = with pkgs; [
             nodejs
-            corepack_22
+            corepack_24
             awscli2
             jq
             fzf
@@ -120,7 +120,7 @@
             duf
           ];
           shellHook = ''
-            export PATH="$PATH:${pkgs.corepack_22}/bin"
+            export PATH="$PATH:${pkgs.corepack_24}/bin"
           '';
         };
       }
