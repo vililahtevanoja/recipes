@@ -29,7 +29,7 @@
   export let data: PageServerData
    export let markdownHtml = marked.parse(data.content)
    export let title = data.title
-+  export let wakeLockEnabled = wakeLock !== undefined
+   export let wakeLockEnabled = wakeLock !== undefined
 </script>
 
 <svelte:head>
