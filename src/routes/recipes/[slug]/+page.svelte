@@ -2,6 +2,8 @@
   import { marked } from 'marked'
   import type { PageServerData } from './$types'
   import { resolve } from '$app/paths'
+  import { onMount } from 'svelte'
+  export let data: PageServerData
 
   marked.use({
     extensions: [
@@ -14,8 +16,11 @@
     ],
   })
   let wakeLock: WakeLockSentinel | undefined
-  export const wakeLockAvailable = 'wakeLock' in navigator
+  let wakeLockAvailable = 'wakeLock' in navigator
 
+  onMount(() => {
+    wakeLockAvailable = typeof navigator !== 'undefined' && 'wakeLock' in navigator
+  })
   const toggleWakeLock = async () => {
     if (!wakeLockAvailable) {
       return
@@ -27,10 +32,10 @@
       wakeLock = undefined
     }
   }
-  export let data: PageServerData
-  export let markdownHtml = marked.parse(data.content)
-  export let title = data.title
-  export let lockButtonText = wakeLock?.released ? '🔒' : '🔓'
+
+  $: markdownHtml = marked.parse(data.content)
+  $: title = data.title
+  $: lockButtonText = wakeLock === undefined ? '🔒' : '🔓'
 </script>
 
 <svelte:head>
@@ -40,7 +45,7 @@
 <nav>
   <a href={resolve('/')}>Home</a>
   {#if wakeLockAvailable}
-    <button id={'lockButton'} on:click={toggleWakeLock}>{lockButtonText}</button>
+    <button id="lockButton" on:click={toggleWakeLock}>{lockButtonText}</button>
   {/if}
 </nav>
 
