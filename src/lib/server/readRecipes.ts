@@ -9,9 +9,28 @@ import {
   type RecipeMetadata,
 } from './recipeModel'
 
+enum InitializingStatus {
+  Initializing,
+  Initialized,
+}
+
 const postsContainer: Record<string, Recipe[]> = {}
+const dirInitStatus: Record<string, InitializingStatus> = {}
 
 export const readRecipes = async (dir: string): Promise<Recipe[]> => {
+  switch (dirInitStatus[dir]) {
+    case InitializingStatus.Initialized:
+      return postsContainer[dir] || []
+    case InitializingStatus.Initializing:
+      while (dirInitStatus[dir] === InitializingStatus.Initializing) {
+        await new Promise((resolve) => setTimeout(resolve, 100))
+      }
+      return postsContainer[dir] || []
+    default:
+      dirInitStatus[dir] = InitializingStatus.Initializing
+  }
+
+  const start = Date.now()
   const readRecipesInner = async (dir: string): Promise<Recipe[]> => {
     const files = await fs.readdir(dir, { encoding: 'utf-8' })
     const recipes = await Promise.all(
@@ -37,7 +56,8 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   if (!postsContainer[dir]) {
     postsContainer[dir] = [...recipes]
   }
-  console.log(`Recipes found: ${recipes.length}`)
+  dirInitStatus[dir] = InitializingStatus.Initialized
+  console.log(`${recipes.length} recipes found in ${dir} in ${Date.now() - start}ms`)
   return recipes
 }
 
