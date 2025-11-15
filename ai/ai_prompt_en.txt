@@ -6,7 +6,11 @@ title: <Recipe name>
 servings: <How many servings does the recipe make>
 tags: <Appropriate tags for the recipe>
 source: <Where the recipe is from>
-lang: fi
+lang: en
+nutrition:
+  protein: <estimated grams of protein in 100g of finished dish>
+  fat: <estimated grams of fat in 100g of finished dish>
+  carbs: <estimated grams of carbohydrates in 100g of finished dish>
 ---
 
 # <Recipe name>

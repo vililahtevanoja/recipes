@@ -6,6 +6,10 @@ servings: <Kuinka monta annosta reseptistä tulee>
 tags: <Reseptille sopivat tagit englanniksi, pilkuin eroteltuna ilman hakasulkuja>
 source: <Mistä resepti on>
 lang: fi
+nutrition:
+  protein: <estimated grams of protein in 100g of finished dish>
+  fat: <estimated grams of fat in 100g of finished dish>
+  carbs: <estimated grams of carbohydrates in 100g of finished dish>
 ---
 
 # <Reseptin nimi>
