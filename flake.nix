@@ -111,13 +111,8 @@
           buildInputs = with pkgs; [
             nodejs
             corepack_24
-            awscli2
             jq
             fzf
-            postgresql_16
-            pgcli
-            valkey
-            duf
           ];
           shellHook = ''
             export PATH="$PATH:${pkgs.corepack_24}/bin"
