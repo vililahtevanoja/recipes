@@ -4,6 +4,10 @@ source: \@bellatable @ Instagram
 servings: 4
 tags: pasta, weekday, tested
 lang: fi
+nutrition:
+  protein: 4.7
+  fat: 4.6
+  carbs: 13.1
 ---
 
 # Gnocchivuoka

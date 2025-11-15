@@ -5,8 +5,8 @@ import {
   type MarkdownRecipe,
   type Recipe,
   RecipeContentFormat,
-  type RecipeLanguage,
   type RecipeMetadata,
+  RecipeMetaDataSchema,
 } from './recipeModel'
 
 enum InitializingStatus {
@@ -82,14 +82,6 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
   }
 }
 
-const tagStrToList = (tags: string): string[] => {
-  const splitTags = tags.split(',').map((s) => s.trim())
-  if (typeof splitTags === 'string') {
-    return [tags]
-  }
-  return splitTags
-}
-
 const getRecipeMarkdownWithoutMetadataHeader = (content: string): string => {
   if (!content.startsWith('---')) {
     throw new Error(
@@ -116,18 +108,8 @@ const getMetadataFromMarkdownRecipe = (content: string): RecipeMetadata => {
   }
   const yamlSection = content.slice(3, yamlCloserIdx)
   const parsed = parse(yamlSection)
-  const tags = tagStrToList(parsed.tags)
-  if (!parsed.title || !Array.isArray(tags) || tags.length === 0) {
-    throw new Error(`Title or tags not found in parsed yaml-section: ${parsed}`)
-  }
-  let lang = parsed.lang?.toLowerCase()
-  if (lang === 'fi' || lang === 'en') {
-    lang = lang as RecipeLanguage
-  } else {
-    throw new Error(`Unknown language: ${lang}`)
-  }
-  const result = { ...parsed, title: parsed.title, lang, tags }
-  return result
+  const metadata = RecipeMetaDataSchema.parse(parsed)
+  return metadata
 }
 
 const getRecipeFormat = (fileSuffix: string): RecipeContentFormat => {
