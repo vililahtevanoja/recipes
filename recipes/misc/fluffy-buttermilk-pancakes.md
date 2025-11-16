@@ -22,9 +22,9 @@ lang: en
 
 ## Instructions
 
-1. Place butter into a pan over low heat and melt.  Set aside.
+1. Place butter into a pan over low heat and melt. Set aside.
 1. In a medium bowl, combine flour, salt,sugar, baking soda, and baking powder. Whisk the dry ingredients until the salt and leaveners are evenly mixed throughout.
-1. In a second bowl, combine buttermilk and eggs. Whisk  until well blended. If you can’t find buttermilk, combine 500 grams of sour cream with 400 grams of water as a substitute.
+1. In a second bowl, combine buttermilk and eggs. Whisk until well blended. If you can’t find buttermilk, combine 500 grams of sour cream with 400 grams of water as a substitute.
 1. Pour the buttermilk mixture into the dry ingredients and carefully fold to combine. Start with 10 gentle stirs.
 1. Stream in half of the melted butter and fold gently. Then, add the remaining butter and fold for another 30 seconds. Be careful not to overmix the batter; it should remain lumpy.
 1. Heat a griddle or non-stick pan to 175-190°C. Use a about `1 dl` of batter per pancake.
