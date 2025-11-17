@@ -10,13 +10,12 @@ lang: fi
 
 ## Ainekset
 
-- `2 dl`  vehnähapanjuurta
+- `2 dl` vehnähapanjuurta
 - `5 dl` vettä
 - `3 tl` suolaa
 - `1 dl` speltti-, vehnä- tai kauraleseitä
 - `2 dl` ruissihtijauhoja
 - `9-10 dl` vehnäjauhoja
-
 
 ## Valmistusohjeet
 
