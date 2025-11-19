@@ -15,7 +15,7 @@ lang: fi
 - `3 tl` suolaa
 - `1 dl` speltti-, vehnä- tai kauraleseitä
 - `2 dl (~110 g)` ruissihtijauhoja
-- `9-10 dl (585-650 g)`  vehnäjauhoja
+- `9-10 dl (585-650 g)` vehnäjauhoja
 
 ## Valmistusohjeet
 
