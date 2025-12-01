@@ -19,10 +19,10 @@ lang: fi
 
 ## Valmistusohjeet
 
-1.  Sekoita vehnäjuuri, vesi, suola, kauraleseet ja ruisjauhot kulhossa. 
+1.  Sekoita vehnäjuuri, vesi, suola, kauraleseet ja ruisjauhot kulhossa.
 1.  Lisää vehnäjauhot ensin lusikalla ja lopulta alustaen. Alusta taikinaa muutama minuutti, niin että ainekset sekoittuvat hyvin ja sormiesi väliin aikaa muodostua verkko.
 1.  Peitä kulho kelmulla ja anna taikinan olla huoneenlämmössä kunnes se on kohonnut reilusti (1-5h). Nosta sitten kulho jääkaapin ylähyllylle. Anna taikinan olla jääkaapissa yön yli, noin 10 tuntia, kunnes se on kohonnut ainakin kaksinkertaiseksi.
-1.  Kun taikina on kohonnut, laita uuniin kaksi peltiä: se jolla paistat sämpylät ja sen alle syvä pelti.  Kuumenna uuni tasalämmöllä 250-asteiseksi.
+1.  Kun taikina on kohonnut, laita uuniin kaksi peltiä: se jolla paistat sämpylät ja sen alle syvä pelti. Kuumenna uuni tasalämmöllä 250-asteiseksi.
 1.  Jauhota työtaso. Ota taikina jääkaapista ja kumoa siitä puolet työtasolle. Peitä loppu taikina kelmulla ja nosta jääkaappiin.
 1.  Muotoile taikinasta mahdollisimman vähin liikkein, vaivaamatta pötkö ja leikkaa kahdeksaan osaan. Jos haluat sämpylöistä nättejä ja pyöreitä, voit muotoilla palat: ota taikinapala käteen ja vedä sen reunat alas vekeiksi, tämäkin turhia vaivaamatta. Tämä ei ole millään lailla pakollista.
 1.  Ota kuuma pelti uunista ja laita sämpylät suoraan pellille, et tarvitse leivinpaperia. Varmista, että jokaisen pohjassa on jauhoa, niin ne eivät takerru peltiin. Jos sinulla on suihkepullo, voit suihkuttaa sämpylöiden pinnan vedellä. Myös tämä vaihe on täysin vapaaehtoista.
