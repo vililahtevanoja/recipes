@@ -13,6 +13,7 @@ lang: fi
 - `400 g` strong white flour (plus extra for dusting)
 - `1 tsp` caster sugar
 - `5 g` fast-action yeast
+- `1 tsp` salt
 - `250 ml` whole milk (warmed)
 - fine semolina (for dusting)
 
