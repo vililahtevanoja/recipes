@@ -1,5 +1,5 @@
 ---
-title: Kenji's Garlic Noodles
+title: Garlic Noodles
 source: https://www.youtube.com/watch?v=wK9OHVxB_Z8
 servings: 3
 tags: pasta, noodles, weekday, tested
