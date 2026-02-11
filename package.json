@@ -16,7 +16,8 @@
     "test": "vitest",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format-check": "prettier --check ."
+    "format-check": "prettier --check .",
+    "verify": "pnpm format-check && pnpm check && pnpm lint && pnpm build"
   },
   "devDependencies": {
     "@eslint/js": "9.39.2",
