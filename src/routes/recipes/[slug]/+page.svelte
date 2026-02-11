@@ -16,13 +16,19 @@
     ],
   })
   let wakeLock: WakeLockSentinel | undefined
-  let wakeLockAvailable = 'wakeLock' in navigator
+  let wakeLockAvailable = false
 
   onMount(() => {
     wakeLockAvailable = typeof navigator !== 'undefined' && 'wakeLock' in navigator
+    return () => {
+      if (wakeLock) {
+        wakeLock.release().catch(() => {})
+        wakeLock = undefined
+      }
+    }
   })
   const toggleWakeLock = async () => {
-    if (!wakeLockAvailable) {
+    if (typeof navigator === 'undefined' || !wakeLockAvailable) {
       return
     }
     if (wakeLock === undefined) {
