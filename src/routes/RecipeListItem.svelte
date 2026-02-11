@@ -1,9 +1,12 @@
 <script lang="ts">
   import { resolve } from '$app/paths'
-  export let recipeId: string
-  export let lang: string
-  export let title: string
-  export let tags: string[]
+
+  let { recipeId, lang, title, tags } = $props<{
+    recipeId: string
+    lang: string
+    title: string
+    tags: string[]
+  }>()
 </script>
 
 <div class="recipe-list-item-container">

@@ -3,7 +3,7 @@
   import type { PageServerData } from './$types'
   import { asset, resolve } from '$app/paths'
   import { onMount } from 'svelte'
-  export let data: PageServerData
+  let { data } = $props<{ data: PageServerData }>()
 
   marked.use({
     extensions: [
@@ -15,8 +15,8 @@
       },
     ],
   })
-  let wakeLock: WakeLockSentinel | undefined
-  let wakeLockAvailable = false
+  let wakeLock = $state<WakeLockSentinel | undefined>(undefined)
+  let wakeLockAvailable = $state(false)
 
   onMount(() => {
     wakeLockAvailable = typeof navigator !== 'undefined' && 'wakeLock' in navigator
@@ -41,9 +41,9 @@
     }
   }
 
-  $: markdownHtml = marked.parse(data.content)
-  $: title = data.title
-  $: lockIcon = wakeLock === undefined ? asset('/toggle_off.svg') : asset('/toggle_on.svg')
+  const markdownHtml = $derived(marked.parse(data.content))
+  const title = $derived(data.title)
+  const lockIcon = $derived(wakeLock === undefined ? asset('/toggle_off.svg') : asset('/toggle_on.svg'))
 </script>
 
 <svelte:head>
@@ -53,7 +53,7 @@
 <nav>
   <a href={resolve('/')}>Home</a>
   {#if wakeLockAvailable}
-    <button id="lockButton" on:click={toggleWakeLock}>
+    <button id="lockButton" onclick={toggleWakeLock}>
       <img src={lockIcon} alt="Wake Lock Toggle" width="24" height="24" />
     </button>
   {/if}

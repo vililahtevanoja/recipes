@@ -5,10 +5,10 @@
   import { browser } from '$app/environment'
   import { page } from '$app/state'
 
-  export let data: PageServerData
-  let searchTerm: string = ''
-  let filteredRecipes: MarkdownRecipe[] = []
-  let onlyQuickWeekday: boolean = false
+  let { data } = $props<{ data: PageServerData }>()
+  let searchTerm = $state('')
+  let filteredRecipes = $state<MarkdownRecipe[]>([])
+  let onlyQuickWeekday = $state(false)
   // with old Next.js-based frontend the routing for recipes in GitHub Pages was
   // ...github.io/recipes/<recipe-slug> but with SvelteKit (for now at least) it is
   // ...github.io/recipes/recipes/<recipe-slug>
@@ -36,17 +36,22 @@
   handleRoutingForOldLinks()
   const filterRecipes = () => {
     const filtered = data.recipes
-      .filter((r) => `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()))
-      .filter((r) => (onlyQuickWeekday ? r.metadata.tags.some((t) => t === 'quick' || t === 'weekday') : true))
+      .filter((r: MarkdownRecipe) =>
+        `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+      .filter((r: MarkdownRecipe) =>
+        onlyQuickWeekday ? r.metadata.tags.some((t: string) => t === 'quick' || t === 'weekday') : true,
+      )
     console.log(`Was: ${data.recipes.length} is: ${filtered.length}`)
-    return (filteredRecipes = filtered)
+    filteredRecipes = filtered
+    return filteredRecipes
   }
 
   const toggleQuickWeekdayFilter = () => {
     onlyQuickWeekday = !onlyQuickWeekday
     console.log(`onlyQuickWeekday=${onlyQuickWeekday}`)
     filterRecipes()
-    return (onlyQuickWeekday = onlyQuickWeekday)
+    return onlyQuickWeekday
   }
 </script>
 
@@ -62,15 +67,15 @@
       placeholder="Search recipe names and tags"
       autocomplete="off"
       bind:value={searchTerm}
-      on:change={() => filterRecipes()}
-      on:input={() => filterRecipes()}
+      onchange={filterRecipes}
+      oninput={filterRecipes}
     />
   </div>
   <div id="quick-weekday-button-container">
     <button
       type="button"
       id={onlyQuickWeekday ? 'quick-weekday-filter-button-toggled' : 'quick-weekday-filter-button-untoggled'}
-      on:click={() => toggleQuickWeekdayFilter()}>Quick/weekday</button
+      onclick={toggleQuickWeekdayFilter}>Quick/weekday</button
     >
   </div>
 </section>
