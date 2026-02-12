@@ -3,7 +3,7 @@ title: Crumpets
 servings: 6 crumpets
 tags: breakfast, bread, baking, yeast, british
 source: https://www.recipetineats.com/crumpet-recipe/
-lang: fi
+lang: en
 ---
 
 # Crumpets

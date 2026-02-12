@@ -3,7 +3,7 @@ title: English Muffins
 servings: 8 muffins
 tags: breakfast, bread, baking, yeast, british
 source: BBC Good Food
-lang: fi
+lang: en
 ---
 
 # English Muffins

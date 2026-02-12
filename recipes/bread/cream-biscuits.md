@@ -3,7 +3,7 @@ title: Easy Cream Biscuits
 servings: 8 biscuits
 tags: bread, baking, american
 source: The Food Lab by J. Kenji López-Alt
-lang: fi
+lang: en
 ---
 
 # Easy Cream Biscuits

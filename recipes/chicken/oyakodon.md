@@ -3,7 +3,7 @@ title: Oyakodon
 servings: 1
 tags: Japanese, rice, chicken, quick, easy
 source: Unknown
-lang: fi
+lang: en
 ---
 
 # Oyakodon

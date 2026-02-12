@@ -2,7 +2,7 @@
 title: American Breakfast Sausage
 tags: pork, sausage, american
 source: J. Kenji López-Alt
-lang: fi
+lang: en
 ---
 
 # American Breakfast Sausage

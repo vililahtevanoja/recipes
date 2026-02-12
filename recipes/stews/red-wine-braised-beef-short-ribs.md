@@ -3,7 +3,7 @@ title: Red Wine-Braised Beef Short Ribs
 source: https://www.seriouseats.com/red-wine-braised-beef-short-ribs-recipe
 servings: 4
 tags: oven, baking, beef, tested
-lang: fi
+lang: en
 ---
 
 # Red Wine-Braised Beef Short Ribs

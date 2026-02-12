@@ -3,7 +3,7 @@ title: Basic Dry Pancake Mix
 servings: About 16 pancakes
 tags: breakfast, tested
 source: The Food Lab by J. Kenji López-Alt
-lang: fi
+lang: en
 ---
 
 # Basic Dry Pancake Mix
