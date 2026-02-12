@@ -8,13 +8,14 @@
     tags: string[]
   }>()
 
+  const languageCode = $derived(lang.toLowerCase() === 'fi' ? 'fi' : 'en')
   const languageLabel = $derived(lang.toLowerCase() === 'fi' ? 'Finnish' : 'English')
 </script>
 
 <article class="recipe-card">
   <a href={resolve(`/recipes/${recipeId}`)} class="recipe-link">
     <div class="recipe-card-top">
-      <span class="language-pill">{languageLabel}</span>
+      <span class="language-flag" data-lang={languageCode} role="img" aria-label={languageLabel}></span>
       <span class="open-recipe-label">Open recipe</span>
     </div>
 

@@ -264,8 +264,27 @@ a {
   @apply flex items-center justify-between gap-2;
 }
 
-.language-pill {
-  @apply rounded-full bg-[#f7e6d6] px-[0.62rem] py-[0.2rem] text-[0.76rem] font-bold uppercase tracking-[0.04em] text-[#8d462e];
+.language-flag {
+  @apply inline-block h-[1rem] w-[1.5rem] overflow-hidden rounded-[5px] border border-[#cbb8a2];
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.language-flag[data-lang='fi'] {
+  background:
+    linear-gradient(90deg, transparent 0 32%, #1f63bb 32% 46%, transparent 46% 100%),
+    linear-gradient(180deg, transparent 0 38%, #1f63bb 38% 56%, transparent 56% 100%), #fff;
+}
+
+.language-flag[data-lang='en'] {
+  background:
+    linear-gradient(90deg, transparent 0 41%, #c8102e 41% 59%, transparent 59% 100%),
+    linear-gradient(180deg, transparent 0 41%, #c8102e 41% 59%, transparent 59% 100%),
+    linear-gradient(27deg, transparent 0 44%, #c8102e 44% 50%, transparent 50% 100%),
+    linear-gradient(-27deg, transparent 0 44%, #c8102e 44% 50%, transparent 50% 100%),
+    linear-gradient(27deg, transparent 0 38%, #fff 38% 56%, transparent 56% 100%),
+    linear-gradient(-27deg, transparent 0 38%, #fff 38% 56%, transparent 56% 100%),
+    linear-gradient(90deg, transparent 0 34%, #fff 34% 66%, transparent 66% 100%),
+    linear-gradient(180deg, transparent 0 34%, #fff 34% 66%, transparent 66% 100%), #012169;
 }
 
 .open-recipe-label {
@@ -418,8 +437,9 @@ a {
   @apply border-[#5b6d63] shadow-[0_10px_24px_rgba(0,0,0,0.38)];
 }
 
-:root[data-theme='dark'] .language-pill {
-  @apply bg-[#3a2f27] text-[#e8b595];
+:root[data-theme='dark'] .language-flag {
+  @apply border-[#5a4d43];
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.24);
 }
 
 :root[data-theme='dark'] .tag-list li {
