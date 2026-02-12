@@ -14,11 +14,6 @@
 
 <article class="recipe-card">
   <a href={resolve(`/recipes/${recipeId}`)} class="recipe-link">
-    <div class="recipe-card-top">
-      <span class="language-flag" data-lang={languageCode} role="img" aria-label={languageLabel}></span>
-      <span class="open-recipe-label">Open recipe</span>
-    </div>
-
     <h3>{title}</h3>
 
     {#if tags.length > 0}
@@ -28,5 +23,8 @@
         {/each}
       </ul>
     {/if}
+
+    <span class="language-flag language-flag-corner" data-lang={languageCode} role="img" aria-label={languageLabel}
+    ></span>
   </a>
 </article>

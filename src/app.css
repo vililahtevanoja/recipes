@@ -253,20 +253,20 @@ a {
 }
 
 .recipe-link {
-  @apply grid h-full gap-3 p-[0.85rem] no-underline;
+  @apply grid h-full gap-3 px-[0.85rem] pb-[0.85rem] pt-[1.25rem] no-underline;
 }
 
 .recipe-card:hover {
   @apply border-[#cda98d] shadow-[0_10px_24px_rgba(63,43,26,0.12)];
 }
 
-.recipe-card-top {
-  @apply flex items-center justify-between gap-2;
+.language-flag {
+  @apply inline-block h-[0.95rem] w-[1.5rem] overflow-hidden rounded-[5px] border border-[#cbb8a2];
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-.language-flag {
-  @apply inline-block h-[1rem] w-[1.5rem] overflow-hidden rounded-[5px] border border-[#cbb8a2];
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+.language-flag-corner {
+  @apply pointer-events-none absolute left-0 top-0;
 }
 
 .language-flag[data-lang='fi'] {
@@ -285,10 +285,6 @@ a {
     linear-gradient(-27deg, transparent 0 38%, #fff 38% 56%, transparent 56% 100%),
     linear-gradient(90deg, transparent 0 34%, #fff 34% 66%, transparent 66% 100%),
     linear-gradient(180deg, transparent 0 34%, #fff 34% 66%, transparent 66% 100%), #012169;
-}
-
-.open-recipe-label {
-  @apply text-[0.82rem] text-[var(--muted)];
 }
 
 .recipe-card h3 {
