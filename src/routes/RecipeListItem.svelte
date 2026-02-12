@@ -7,17 +7,25 @@
     title: string
     tags: string[]
   }>()
+
+  const languageLabel = $derived(lang.toLowerCase() === 'fi' ? 'Finnish' : 'English')
 </script>
 
-<div class="recipe-list-item-container">
-  <a
-    href={resolve(`/recipes/${recipeId}`)}
-    class="no-underline content-center align-middle text-blue-300 hover:text-sky-700"
-  >
-    <div class="flex mb-4">
-      <div class="w-1/12 text-xl content-top">{lang.toLowerCase() === 'fi' ? '🇫🇮' : '🇬🇧'}</div>
-      <div class="w-6/12 grow align-middle">{title}</div>
-      <div class="w-4/12 align-middle">{tags.join(', ')}</div>
+<article class="recipe-card">
+  <a href={resolve(`/recipes/${recipeId}`)} class="recipe-link">
+    <div class="recipe-card-top">
+      <span class="language-pill">{languageLabel}</span>
+      <span class="open-recipe-label">Open recipe</span>
     </div>
+
+    <h3>{title}</h3>
+
+    {#if tags.length > 0}
+      <ul class="tag-list" aria-label="Recipe tags">
+        {#each tags as tag, index (`${tag}-${index}`)}
+          <li>{tag}</li>
+        {/each}
+      </ul>
+    {/if}
   </a>
-</div>
+</article>

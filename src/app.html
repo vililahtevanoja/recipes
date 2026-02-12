@@ -4,6 +4,21 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      ;(() => {
+        const getSystemTheme = () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+
+        let storedTheme = null
+        try {
+          storedTheme = localStorage.getItem('theme')
+        } catch {
+          storedTheme = null
+        }
+
+        const resolvedTheme = storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : getSystemTheme()
+        document.documentElement.dataset.theme = resolvedTheme
+      })()
+    </script>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">

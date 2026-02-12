@@ -1,28 +1,531 @@
 /* @tailwind base; */ /* including this erases default html-element stylings */
+@import 'tailwindcss/theme' layer(theme);
 @import 'tailwindcss/utilities' layer(utilities);
 
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  color-scheme: light;
+  --font-body: 'Avenir Next', 'Segoe UI', 'Candara', 'Trebuchet MS', sans-serif;
+  --font-heading: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'Georgia', serif;
+
+  --ink-strong: #1f3028;
+  --ink: #2d3d35;
+  --muted: #5d6b62;
+
+  --accent: #c35532;
+  --accent-strong: #993d22;
+  --accent-soft: #ffe8da;
+
+  --paper: #f7f2ea;
+  --surface: #fffdfa;
+  --surface-alt: #f9f3e8;
+  --line: #e4d9c8;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow-soft: 0 10px 30px rgba(47, 34, 20, 0.08);
+
+  --page-background:
+    radial-gradient(circle at 8% 10%, rgba(227, 142, 83, 0.26), transparent 34%),
+    radial-gradient(circle at 92% 8%, rgba(109, 158, 126, 0.2), transparent 37%),
+    linear-gradient(180deg, #fdf8f0 0%, var(--paper) 100%);
+  --glow-left: rgba(219, 118, 66, 0.42);
+  --glow-right: rgba(95, 150, 122, 0.38);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 18, 18, 18;
-    --background-end-rgb: 18, 18, 18;
-  }
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ink-strong: #e8f1eb;
+  --ink: #cfddd4;
+  --muted: #9aaea2;
+
+  --accent: #d97852;
+  --accent-strong: #efb08f;
+
+  --paper: #131816;
+  --surface: #1a211d;
+  --surface-alt: #202924;
+  --line: #36443d;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --page-background:
+    radial-gradient(circle at 8% 10%, rgba(188, 98, 56, 0.2), transparent 36%),
+    radial-gradient(circle at 92% 8%, rgba(82, 125, 102, 0.16), transparent 36%),
+    linear-gradient(180deg, #111513 0%, #131816 100%);
+  --glow-left: rgba(188, 98, 56, 0.26);
+  --glow-right: rgba(82, 125, 102, 0.22);
+}
+
+* {
+  @apply box-border;
+}
+
+html,
+body {
+  @apply m-0 min-h-full;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+  @apply font-[var(--font-body)] leading-6 text-[var(--ink)] antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--page-background);
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  @apply fixed left-3 top-3 z-[100] -translate-y-[180%] rounded-[10px] bg-[#993d22] px-[0.85rem] py-2 text-sm text-white no-underline transition-transform duration-200 ease-out;
+}
+
+.skip-link:focus {
+  @apply translate-y-0;
+}
+
+.site-shell {
+  @apply relative min-h-screen;
+}
+
+.site-main {
+  @apply relative z-[2] mx-auto w-full max-w-[1100px] px-5 pb-12 pt-8;
+}
+
+.site-glow {
+  @apply pointer-events-none fixed z-[1] h-[260px] w-[260px] rounded-full opacity-45 blur-[28px];
+}
+
+.site-glow-left {
+  @apply -left-20 -top-20;
+  background: var(--glow-left);
+}
+
+.site-glow-right {
+  @apply right-[-120px] top-[190px];
+  background: var(--glow-right);
+}
+
+.theme-switcher {
+  @apply fixed right-3 top-3 z-50 flex items-center gap-2;
+}
+
+.theme-toggle,
+.theme-reset {
+  @apply cursor-pointer rounded-full border border-[var(--line)] bg-[var(--surface)] px-3 py-1.5 text-[0.82rem] font-semibold text-[var(--ink-strong)] shadow-[var(--shadow-soft)] transition duration-200 hover:-translate-y-px;
+}
+
+.theme-toggle:focus-visible,
+.theme-reset:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-[#d36a45];
+}
+
+.page-wrap {
+  @apply grid gap-4;
+}
+
+.hero-card,
+.panel,
+.recipe-header,
+.recipe-content,
+.recipe-card {
+  @apply animate-[rise-in_0.5s_ease_both];
+}
+
+.hero-card {
+  @apply grid gap-4 rounded-[var(--radius-lg)] border border-[var(--line)] p-[1.4rem] shadow-[var(--shadow-soft)];
+  @apply bg-[linear-gradient(145deg,rgba(255,255,255,0.95),rgba(255,248,239,0.9)),radial-gradient(circle_at_15%_10%,rgba(209,126,76,0.18),transparent_40%)];
+}
+
+.hero-kicker {
+  @apply m-0 w-fit rounded-full bg-[#f8e8d9] px-[0.65rem] py-[0.2rem] text-[0.8rem] font-semibold uppercase tracking-[0.04em] text-[#8a452d];
+}
+
+.hero-card h1 {
+  @apply m-0 max-w-[22ch] font-[var(--font-heading)] leading-[1.08] text-[var(--ink-strong)];
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+}
+
+.hero-copy {
+  @apply m-0 max-w-[64ch] text-[var(--muted)];
+}
+
+.hero-stats {
+  @apply flex flex-wrap gap-3;
+}
+
+.hero-stat {
+  @apply min-w-[140px] rounded-[var(--radius-md)] border border-[var(--line)] bg-[rgba(255,255,255,0.75)] px-[0.85rem] py-[0.7rem];
+}
+
+.hero-stat span {
+  @apply block font-[var(--font-heading)] text-[1.7rem] font-bold leading-none text-[var(--ink-strong)];
+}
+
+.hero-stat p {
+  @apply mb-0 mt-[0.32rem] text-[0.88rem] text-[var(--muted)];
+}
+
+.panel {
+  @apply rounded-[var(--radius-lg)] border border-[var(--line)] bg-[var(--surface)] p-4 shadow-[var(--shadow-soft)];
+}
+
+.filter-panel {
+  @apply grid gap-4;
+}
+
+.search-block {
+  @apply grid gap-1.5;
+}
+
+.search-block label {
+  @apply font-semibold text-[var(--ink-strong)];
+}
+
+.search-block input {
+  @apply w-full rounded-[var(--radius-md)] border border-[#d6c8b4] bg-[#fffefb] px-[0.9rem] py-[0.72rem] text-base text-[var(--ink-strong)];
+}
+
+.search-block input:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-[#d36a45];
+}
+
+.filter-controls {
+  @apply flex flex-wrap items-center gap-3;
+}
+
+.button-group {
+  @apply inline-flex flex-wrap gap-2;
+}
+
+.filter-button,
+.text-button,
+.wake-lock-button {
+  @apply cursor-pointer rounded-full border border-[#cfbea9] bg-[#fffaf4] px-[0.78rem] py-[0.45rem] text-[0.94rem] font-semibold text-[var(--ink-strong)] transition duration-200;
+}
+
+.filter-button:hover,
+.text-button:hover,
+.wake-lock-button:hover {
+  @apply -translate-y-px;
+}
+
+.filter-button.is-active,
+.wake-lock-button.is-active {
+  @apply border-[var(--accent)] bg-[linear-gradient(180deg,#d3633f,#be4f2b)] text-white;
+}
+
+.filter-button:focus-visible,
+.text-button:focus-visible,
+.wake-lock-button:focus-visible,
+.back-link:focus-visible,
+.recipe-link:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-[#d36a45];
+}
+
+.results-panel {
+  @apply grid gap-4;
+}
+
+.results-header {
+  @apply flex flex-wrap items-baseline justify-between gap-2;
+}
+
+.results-header h2 {
+  @apply m-0 font-[var(--font-heading)] text-[var(--ink-strong)];
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.results-header p {
+  @apply m-0 text-[0.92rem] text-[var(--muted)];
+}
+
+.empty-state {
+  @apply m-0 rounded-[var(--radius-md)] border border-dashed border-[#dbc9b5] bg-[var(--surface-alt)] p-4 text-[var(--muted)];
+}
+
+.recipe-grid {
+  @apply m-0 grid list-none gap-[0.8rem] p-0 [grid-template-columns:repeat(auto-fit,minmax(250px,1fr))];
+}
+
+.recipe-card {
+  @apply rounded-[14px] border border-[#decebb] bg-[linear-gradient(180deg,#ffffff,#fffaf3)] shadow-[0_6px_20px_rgba(63,43,26,0.08)];
+  @apply [animation-delay:0.07s];
+}
+
+.recipe-link {
+  @apply grid h-full gap-3 p-[0.85rem] no-underline;
+}
+
+.recipe-card:hover {
+  @apply border-[#cda98d] shadow-[0_10px_24px_rgba(63,43,26,0.12)];
+}
+
+.recipe-card-top {
+  @apply flex items-center justify-between gap-2;
+}
+
+.language-pill {
+  @apply rounded-full bg-[#f7e6d6] px-[0.62rem] py-[0.2rem] text-[0.76rem] font-bold uppercase tracking-[0.04em] text-[#8d462e];
+}
+
+.open-recipe-label {
+  @apply text-[0.82rem] text-[var(--muted)];
+}
+
+.recipe-card h3 {
+  @apply m-0 text-[1.06rem] leading-[1.3] text-[var(--ink-strong)];
+}
+
+.tag-list {
+  @apply m-0 flex list-none flex-wrap gap-[0.4rem] p-0;
+}
+
+.tag-list li {
+  @apply rounded-full bg-[#f0f4f0] px-[0.55rem] py-[0.2rem] text-[0.78rem] text-[#40524a];
+}
+
+.recipe-page {
+  @apply gap-4;
+}
+
+.recipe-header {
+  @apply grid gap-3 rounded-[var(--radius-lg)] border border-[#ddceb9] bg-[linear-gradient(165deg,#fffdf8_0%,#fff5ea_100%)] p-4 shadow-[var(--shadow-soft)];
+}
+
+.back-link {
+  @apply w-fit rounded-full border border-[#d6c4af] bg-[#fffaf2] px-[0.72rem] py-[0.35rem] text-[0.9rem] font-semibold text-[var(--ink-strong)] no-underline;
+}
+
+.recipe-toolbar {
+  @apply flex flex-wrap items-start justify-between gap-3;
+}
+
+.recipe-toolbar h1 {
+  @apply m-0 max-w-[18ch] font-[var(--font-heading)] leading-[1.08] text-[var(--ink-strong)];
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+}
+
+.wake-lock-button {
+  @apply inline-flex items-center gap-[0.45rem] px-[0.78rem] py-[0.42rem];
+}
+
+.recipe-content {
+  @apply rounded-[var(--radius-lg)] border border-[#e4d8c7] bg-[var(--surface)] p-[clamp(1rem,2.4vw,1.5rem)] shadow-[var(--shadow-soft)];
+}
+
+.recipe-content > :first-child {
+  @apply mt-0;
+}
+
+.recipe-content > :last-child {
+  @apply mb-0;
+}
+
+.recipe-content h1,
+.recipe-content h2,
+.recipe-content h3,
+.recipe-content h4 {
+  @apply mb-[0.45rem] mt-[1.2rem] font-[var(--font-heading)] leading-[1.2] text-[var(--ink-strong)];
+}
+
+.recipe-content h1 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.recipe-content h2 {
+  @apply pt-[0.2rem];
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+}
+
+.recipe-content p,
+.recipe-content li {
+  @apply text-base text-[#30433a];
+}
+
+.recipe-content p {
+  @apply my-[0.65rem];
+}
+
+.recipe-content ul,
+.recipe-content ol {
+  @apply mb-[0.8rem] mt-[0.6rem] pl-[1.2rem];
+}
+
+.recipe-content li {
+  @apply my-[0.25rem];
+}
+
+.recipe-content hr {
+  @apply my-[1.05rem] border-0 border-t border-[#e2d3bf];
+}
+
+.recipe-content blockquote {
+  @apply my-[0.85rem] rounded-[8px] border-l-4 border-[#d8b292] bg-[#fff7ee] px-[0.8rem] py-[0.1rem] text-[#6e4c36];
+}
+
+.recipe-content a {
+  @apply decoration-2 text-[var(--accent-strong)];
+}
+
+.recipe-content code {
+  @apply rounded-[6px] border border-[#e2d7c6] bg-[#f8f3e9] px-[0.36rem] py-[0.1rem] font-mono text-[0.9em] text-[#3f3329];
+}
+
+.recipe-content pre {
+  @apply overflow-x-auto rounded-[10px] border border-[#e1d5c4] bg-[#fbf5ec] p-[0.72rem];
+}
+
+.recipe-content pre code {
+  @apply border-0 bg-transparent p-0;
+}
+
+:root[data-theme='dark'] .hero-card {
+  @apply bg-[linear-gradient(145deg,rgba(31,39,35,0.96),rgba(24,31,28,0.94)),radial-gradient(circle_at_15%_10%,rgba(170,90,55,0.22),transparent_42%)];
+}
+
+:root[data-theme='dark'] .hero-kicker {
+  @apply bg-[#3d3127] text-[#e8b595];
+}
+
+:root[data-theme='dark'] .hero-stat {
+  @apply border-[#425049] bg-[rgba(26,33,29,0.92)];
+}
+
+:root[data-theme='dark'] .search-block input {
+  @apply border-[#46534c] bg-[#1a211d] text-[#e8f1eb];
+}
+
+:root[data-theme='dark'] .filter-button,
+:root[data-theme='dark'] .text-button,
+:root[data-theme='dark'] .wake-lock-button {
+  @apply border-[#4c5952] bg-[#1d2521] text-[#e8f1eb];
+}
+
+:root[data-theme='dark'] .filter-button.is-active,
+:root[data-theme='dark'] .wake-lock-button.is-active {
+  @apply border-[#d97852] bg-[linear-gradient(180deg,#cf6a44,#b65231)] text-white;
+}
+
+:root[data-theme='dark'] .empty-state {
+  @apply border-[#4d5b54] bg-[#1e2722] text-[#afc0b6];
+}
+
+:root[data-theme='dark'] .recipe-card {
+  @apply border-[#44524b] bg-[linear-gradient(180deg,#1a211d,#18201c)] shadow-[0_6px_20px_rgba(0,0,0,0.3)];
+}
+
+:root[data-theme='dark'] .recipe-card:hover {
+  @apply border-[#5b6d63] shadow-[0_10px_24px_rgba(0,0,0,0.38)];
+}
+
+:root[data-theme='dark'] .language-pill {
+  @apply bg-[#3a2f27] text-[#e8b595];
+}
+
+:root[data-theme='dark'] .tag-list li {
+  @apply bg-[#27332d] text-[#b8c9bf];
+}
+
+:root[data-theme='dark'] .recipe-header {
+  @apply border-[#3f4d46] bg-[linear-gradient(165deg,#1e2521_0%,#171d1a_100%)];
+}
+
+:root[data-theme='dark'] .back-link {
+  @apply border-[#4d5c54] bg-[#202924] text-[#dbe9e1];
+}
+
+:root[data-theme='dark'] .recipe-content {
+  @apply border-[#3f4d46] bg-[#1a211d];
+}
+
+:root[data-theme='dark'] .recipe-content p,
+:root[data-theme='dark'] .recipe-content li {
+  @apply text-[#d7e6de];
+}
+
+:root[data-theme='dark'] .recipe-content h1,
+:root[data-theme='dark'] .recipe-content h2,
+:root[data-theme='dark'] .recipe-content h3,
+:root[data-theme='dark'] .recipe-content h4 {
+  @apply text-[#edf6f0];
+}
+
+:root[data-theme='dark'] .recipe-content hr {
+  @apply border-[#3f4d46];
+}
+
+:root[data-theme='dark'] .recipe-content blockquote {
+  @apply border-[#876149] bg-[#2a221d] text-[#d2b09c];
+}
+
+:root[data-theme='dark'] .recipe-content a {
+  @apply text-[#ffb994];
+}
+
+:root[data-theme='dark'] .recipe-content code {
+  @apply border-[#4a5951] bg-[#202a25] text-[#d5e3db];
+}
+
+:root[data-theme='dark'] .recipe-content pre {
+  @apply border-[#435148] bg-[#171d1a];
+}
+
+@media (max-width: 800px) {
+  .site-main {
+    @apply px-[0.85rem] pb-8 pt-4;
+  }
+
+  .hero-card,
+  .panel,
+  .recipe-header,
+  .recipe-content {
+    @apply rounded-[14px];
+  }
+
+  .hero-stats {
+    @apply w-full;
+  }
+
+  .hero-stat {
+    @apply flex-[1_1_130px];
+  }
+
+  .filter-controls {
+    @apply flex-col items-stretch;
+  }
+
+  .button-group {
+    @apply w-full;
+  }
+
+  .filter-button,
+  .text-button {
+    @apply w-full justify-center;
+  }
+
+  .recipe-toolbar {
+    @apply flex-col items-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,149 +1,185 @@
 <script lang="ts">
-  import type { MarkdownRecipe } from '$lib/server/recipeModel'
-  import type { PageServerData } from './$types'
-  import RecipeListItem from './RecipeListItem.svelte'
   import { browser } from '$app/environment'
   import { page } from '$app/state'
+  import type { MarkdownRecipe } from '$lib/server/recipeModel'
+  import { onMount } from 'svelte'
+  import type { PageServerData } from './$types'
+  import RecipeListItem from './RecipeListItem.svelte'
+
+  type LanguageFilter = 'all' | 'fi' | 'en'
 
   let { data } = $props<{ data: PageServerData }>()
   let searchTerm = $state('')
-  let filteredRecipes = $state<MarkdownRecipe[]>([])
   let onlyQuickWeekday = $state(false)
-  // with old Next.js-based frontend the routing for recipes in GitHub Pages was
-  // ...github.io/recipes/<recipe-slug> but with SvelteKit (for now at least) it is
-  // ...github.io/recipes/recipes/<recipe-slug>
-  // this function attempts to redirect old links to the correct path with containing two recipes-components in path
-  // TODO: does not work, e.g. /recipes/juustosampylat
+  let languageFilter = $state<LanguageFilter>('all')
+
   const handleRoutingForOldLinks = () => {
-    if (browser && page.url.hostname.includes('github')) {
-      // running in GitHub Pages
-      const pathComponents = page.url.pathname.split('/').filter((pc) => pc.length > 0)
-      if (pathComponents.length <= 1) {
-        // noop
-        return
-      }
-      const hasOnlyOneRecipesComponentInPath = pathComponents.filter((pc) => pc === 'recipes').length === 1
-      const recipesPathComponentIndex = pathComponents.indexOf('recipes')
-      const notInRecipesRoot = recipesPathComponentIndex !== pathComponents.length - 1
-      if (hasOnlyOneRecipesComponentInPath && notInRecipesRoot) {
-        const newComponents = pathComponents.splice(recipesPathComponentIndex, 0, 'recipes')
-        const newPath = `/${newComponents.join('/')}`
-        console.log(`Redirecting ${page.url.pathname} to ${newPath}`)
-        window.location.href = newPath
+    if (!browser || !page.url.hostname.includes('github')) {
+      return
+    }
+
+    const pathComponents = page.url.pathname.split('/').filter((component) => component.length > 0)
+    if (pathComponents.length <= 1) {
+      return
+    }
+
+    const recipesPathCount = pathComponents.filter((component) => component === 'recipes').length
+    const recipesPathIndex = pathComponents.indexOf('recipes')
+    const notInRecipesRoot = recipesPathIndex !== pathComponents.length - 1
+
+    if (recipesPathCount === 1 && recipesPathIndex >= 0 && notInRecipesRoot) {
+      const updatedPathComponents = [...pathComponents]
+      updatedPathComponents.splice(recipesPathIndex, 0, 'recipes')
+      const newPath = `/${updatedPathComponents.join('/')}`
+
+      if (newPath !== page.url.pathname) {
+        window.location.replace(newPath)
       }
     }
   }
-  handleRoutingForOldLinks()
-  const filterRecipes = () => {
-    const filtered = data.recipes
-      .filter((r: MarkdownRecipe) =>
-        `${r.title} ${JSON.stringify(r.metadata.tags)}`.toLowerCase().includes(searchTerm.toLowerCase()),
-      )
-      .filter((r: MarkdownRecipe) =>
-        onlyQuickWeekday ? r.metadata.tags.some((t: string) => t === 'quick' || t === 'weekday') : true,
-      )
-    console.log(`Was: ${data.recipes.length} is: ${filtered.length}`)
-    filteredRecipes = filtered
-    return filteredRecipes
-  }
 
-  const toggleQuickWeekdayFilter = () => {
-    onlyQuickWeekday = !onlyQuickWeekday
-    console.log(`onlyQuickWeekday=${onlyQuickWeekday}`)
-    filterRecipes()
-    return onlyQuickWeekday
+  onMount(() => {
+    handleRoutingForOldLinks()
+  })
+
+  const isQuickOrWeekdayRecipe = (recipe: MarkdownRecipe) =>
+    recipe.metadata.tags.some((tag) => {
+      const normalizedTag = tag.toLowerCase()
+      return normalizedTag === 'quick' || normalizedTag === 'weekday'
+    })
+
+  const recipes = $derived.by(() => [...data.recipes].sort((a, b) => a.title.localeCompare(b.title, 'fi')))
+
+  const filteredRecipes = $derived.by(() => {
+    const query = searchTerm.trim().toLowerCase()
+
+    return recipes.filter((recipe) => {
+      const recipeText = `${recipe.title} ${recipe.metadata.tags.join(' ')}`.toLowerCase()
+      const matchesQuery = query.length === 0 || recipeText.includes(query)
+      const matchesQuickWeekday = !onlyQuickWeekday || isQuickOrWeekdayRecipe(recipe)
+      const matchesLanguage = languageFilter === 'all' || recipe.metadata.lang === languageFilter
+
+      return matchesQuery && matchesQuickWeekday && matchesLanguage
+    })
+  })
+
+  const quickWeekdayCount = $derived(recipes.filter(isQuickOrWeekdayRecipe).length)
+  const hasActiveFilters = $derived(searchTerm.trim().length > 0 || onlyQuickWeekday || languageFilter !== 'all')
+
+  const clearFilters = () => {
+    searchTerm = ''
+    onlyQuickWeekday = false
+    languageFilter = 'all'
   }
 </script>
 
 <svelte:head>
-  <title>Recipes</title>
+  <title>Recipes | Personal Recipes</title>
+  <meta
+    name="description"
+    content="Search and browse a personal recipe collection by title, tags, speed, and language."
+  />
 </svelte:head>
 
-<section class="flex flex-row" id="query-section">
-  <div id="search-input-div">
-    <input
-      type="text"
-      id="search-field"
-      placeholder="Search recipe names and tags"
-      autocomplete="off"
-      bind:value={searchTerm}
-      onchange={filterRecipes}
-      oninput={filterRecipes}
-    />
-  </div>
-  <div id="quick-weekday-button-container">
-    <button
-      type="button"
-      id={onlyQuickWeekday ? 'quick-weekday-filter-button-toggled' : 'quick-weekday-filter-button-untoggled'}
-      onclick={toggleQuickWeekdayFilter}>Quick/weekday</button
-    >
-  </div>
-</section>
+<div class="page-wrap home-page">
+  <header class="hero-card">
+    <p class="hero-kicker">Personal recipe collection</p>
+    <h1>Find the right recipe faster</h1>
+    <p class="hero-copy">
+      Search by title or tag, focus on quick weekday options, and switch languages without scrolling through everything.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span>{recipes.length}</span>
+        <p>recipes</p>
+      </div>
+      <div class="hero-stat">
+        <span>{quickWeekdayCount}</span>
+        <p>quick or weekday</p>
+      </div>
+    </div>
+  </header>
 
-<div>
-  {#if searchTerm || onlyQuickWeekday}
-    {#each filteredRecipes as recipe (recipe.id)}
-      <RecipeListItem
-        recipeId={recipe.id}
-        title={recipe.title}
-        lang={recipe.metadata.lang ?? 'fi'}
-        tags={recipe.metadata.tags}
+  <section class="panel filter-panel" aria-label="Recipe filters">
+    <div class="search-block">
+      <label for="search-field">Search by title or tag</label>
+      <input
+        type="search"
+        id="search-field"
+        placeholder="Try: soup, chicken, pasta, quick"
+        autocomplete="off"
+        spellcheck="false"
+        bind:value={searchTerm}
       />
-    {/each}
-  {:else}
-    {#each data.recipes as recipe (recipe.id)}
-      <RecipeListItem
-        recipeId={recipe.id}
-        title={recipe.title}
-        lang={recipe.metadata.lang ?? 'fi'}
-        tags={recipe.metadata.tags}
-      />
-    {/each}
-  {/if}
+    </div>
+
+    <div class="filter-controls">
+      <div class="button-group" role="group" aria-label="Filter by language">
+        <button
+          type="button"
+          class="filter-button"
+          class:is-active={languageFilter === 'all'}
+          onclick={() => (languageFilter = 'all')}
+        >
+          All
+        </button>
+        <button
+          type="button"
+          class="filter-button"
+          class:is-active={languageFilter === 'fi'}
+          onclick={() => (languageFilter = 'fi')}
+        >
+          Finnish
+        </button>
+        <button
+          type="button"
+          class="filter-button"
+          class:is-active={languageFilter === 'en'}
+          onclick={() => (languageFilter = 'en')}
+        >
+          English
+        </button>
+      </div>
+
+      <button
+        type="button"
+        class="filter-button"
+        class:is-active={onlyQuickWeekday}
+        aria-pressed={onlyQuickWeekday}
+        onclick={() => (onlyQuickWeekday = !onlyQuickWeekday)}
+      >
+        Quick and weekday
+      </button>
+
+      {#if hasActiveFilters}
+        <button type="button" class="text-button" onclick={clearFilters}>Clear filters</button>
+      {/if}
+    </div>
+  </section>
+
+  <section class="panel results-panel" aria-live="polite">
+    <div class="results-header">
+      <h2>Recipes</h2>
+      <p>
+        Showing {filteredRecipes.length} of {recipes.length}
+      </p>
+    </div>
+
+    {#if filteredRecipes.length === 0}
+      <p class="empty-state">No recipes matched your filters. Try broadening the search.</p>
+    {:else}
+      <ul class="recipe-grid">
+        {#each filteredRecipes as recipe (recipe.id)}
+          <li>
+            <RecipeListItem
+              recipeId={recipe.id}
+              title={recipe.title}
+              lang={recipe.metadata.lang ?? 'fi'}
+              tags={recipe.metadata.tags}
+            />
+          </li>
+        {/each}
+      </ul>
+    {/if}
+  </section>
 </div>
-
-<style>
-  #query-section {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-  #search-input-div {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    margin: 0 0 0 10px;
-    margin-bottom: 15px;
-  }
-
-  #search-field {
-    width: 100%;
-    font-size: 1rem;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 8px;
-    margin: 0 10px 0;
-  }
-
-  #quick-weekday-button-container {
-    height: 100%;
-    width: 40%;
-    display: flex;
-    align-items: center;
-  }
-
-  #quick-weekday-filter-button-untoggled {
-    font-size: 1.5rem;
-    border-radius: 7px;
-    background-color: black;
-    color: #a78bfa;
-    border-color: #a78bfa;
-  }
-
-  #quick-weekday-filter-button-toggled {
-    font-size: 1.5rem;
-    border-radius: 7px;
-    background-color: #a78bfa;
-    color: #ffffff;
-    border-color: #a78bfa;
-  }
-</style>

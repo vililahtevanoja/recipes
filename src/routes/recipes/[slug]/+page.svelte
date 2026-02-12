@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { marked } from 'marked'
-  import type { PageServerData } from './$types'
   import { asset, resolve } from '$app/paths'
+  import { marked } from 'marked'
   import { onMount } from 'svelte'
+  import type { PageServerData } from './$types'
+
   let { data } = $props<{ data: PageServerData }>()
 
   marked.use({
@@ -15,6 +16,7 @@
       },
     ],
   })
+
   let wakeLock = $state<WakeLockSentinel | undefined>(undefined)
   let wakeLockAvailable = $state(false)
 
@@ -27,54 +29,54 @@
       }
     }
   })
+
   const toggleWakeLock = async () => {
     if (typeof navigator === 'undefined' || !wakeLockAvailable) {
       return
     }
+
     if (wakeLock === undefined) {
       wakeLock = await navigator.wakeLock.request('screen')
-      console.log('Wake Lock activated')
     } else {
       await wakeLock.release()
       wakeLock = undefined
-      console.log('Wake Lock deactivated')
     }
   }
 
   const markdownHtml = $derived(marked.parse(data.content))
   const title = $derived(data.title)
-  const lockIcon = $derived(wakeLock === undefined ? asset('/toggle_off.svg') : asset('/toggle_on.svg'))
+  const wakeLockEnabled = $derived(wakeLock !== undefined)
+  const lockIcon = $derived(wakeLockEnabled ? asset('/toggle_on.svg') : asset('/toggle_off.svg'))
+  const wakeLockLabel = $derived(wakeLockEnabled ? 'Screen awake' : 'Keep screen awake')
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{title} | Personal Recipes</title>
 </svelte:head>
 
-<nav>
-  <a href={resolve('/')}>Home</a>
-  {#if wakeLockAvailable}
-    <button id="lockButton" onclick={toggleWakeLock}>
-      <img src={lockIcon} alt="Wake Lock Toggle" width="24" height="24" />
-    </button>
-  {/if}
-</nav>
+<div class="page-wrap recipe-page">
+  <header class="recipe-header">
+    <a href={resolve('/')} class="back-link">Back to all recipes</a>
 
-<!-- Safe @html as we are rendering static content from our own Markdown files -->
-<div>{@html markdownHtml}</div>
+    <div class="recipe-toolbar">
+      <h1>{title}</h1>
 
-<style>
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  nav a {
-    font-size: 32px;
-    text-decoration: none;
-    outline: none;
-  }
-  #lockButton {
-    background-color: transparent;
-    border: none;
-  }
-</style>
+      {#if wakeLockAvailable}
+        <button
+          type="button"
+          class="wake-lock-button"
+          class:is-active={wakeLockEnabled}
+          aria-pressed={wakeLockEnabled}
+          title={wakeLockLabel}
+          onclick={toggleWakeLock}
+        >
+          <img src={lockIcon} alt="" width="24" height="24" aria-hidden="true" />
+          <span>{wakeLockLabel}</span>
+        </button>
+      {/if}
+    </div>
+  </header>
+
+  <!-- Safe @html as we are rendering static content from our own Markdown files -->
+  <article class="recipe-content">{@html markdownHtml}</article>
+</div>
