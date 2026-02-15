@@ -3,15 +3,29 @@
   import { page } from '$app/state'
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import { onMount } from 'svelte'
-  import type { PageServerData } from './$types'
+  import type { PageServerData, Snapshot } from './$types'
   import RecipeListItem from './RecipeListItem.svelte'
 
   type LanguageFilter = 'all' | 'fi' | 'en'
+  type SearchSnapshot = {
+    searchTerm: string
+    onlyQuickWeekday: boolean
+    languageFilter: LanguageFilter
+  }
 
   let { data } = $props<{ data: PageServerData }>()
   let searchTerm = $state('')
   let onlyQuickWeekday = $state(false)
   let languageFilter = $state<LanguageFilter>('all')
+
+  export const snapshot: Snapshot<SearchSnapshot> = {
+    capture: () => ({ searchTerm, onlyQuickWeekday, languageFilter }),
+    restore: (value) => {
+      searchTerm = value.searchTerm
+      onlyQuickWeekday = value.onlyQuickWeekday
+      languageFilter = value.languageFilter
+    },
+  }
 
   const handleRoutingForOldLinks = () => {
     if (!browser || !page.url.hostname.includes('github')) {
