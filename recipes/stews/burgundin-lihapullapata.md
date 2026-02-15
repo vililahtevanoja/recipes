@@ -1,7 +1,7 @@
 ---
 title: Burgundin lihapullapata
 servings: 4 annosta
-tags: french, meatballs, stew, comfort food, mashed potatoes
+tags: french, stew
 source: Glorian Ruoka & Viini
 lang: fi
 ---

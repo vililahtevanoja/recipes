@@ -1,7 +1,7 @@
 ---
 title: All-American Pot Roast with Gravy
 servings: 6 to 8
-tags: pot roast, beef, gravy, American cuisine, main course
+tags: pot-roast, beef, gravy, american
 source: Soups, Stews, and the Science of Stock
 lang: en
 ---

@@ -1,7 +1,7 @@
 ---
 title: Omuraisu
 servings: 2
-tags: japanese, omelette, rice, comfort-food, easy
+tags: japanese, omelette, rice
 source: Tuntematon
 lang: fi
 ---
