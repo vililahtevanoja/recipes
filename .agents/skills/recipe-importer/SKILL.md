@@ -1,0 +1,94 @@
+---
+name: recipe-importer
+description: Extract recipes from webpages, documents, images and text. Detect language, suggest tags and save the recipe in the appropriate location in the given form.
+---
+
+# Recipe Importer
+
+## When to use this skill
+
+Use this skill when the user wants to import a recipe from a webpage, image, document or text.
+
+## What to pay attention when extracting
+
+- Recipe name
+- Serving count
+- source (where the recipe is from)
+- language (english or finnish)
+- nutrition
+  - protein, fat and carbs. grams per 100g of finished dish
+- ingredients and their amounts
+- Step-by-step instructions
+- Any additional tips or variations
+
+## Format
+
+### Finnish language recipes
+
+```markdown
+--
+title: <Reseptin nimi>
+servings: <Kuinka monta annosta reseptistä tulee>
+tags: <Reseptille sopivat tagit englanniksi, pilkuin eroteltuna ilman hakasulkuja>
+source: <Mistä resepti on>
+lang: fi
+nutrition:
+protein: <estimated grams of protein in 100g of finished dish>
+fat: <estimated grams of fat in 100g of finished dish>
+carbs: <estimated grams of carbohydrates in 100g of finished dish>
+
+---
+
+# <Reseptin nimi>
+
+## Ainekset
+
+- <ainesosa 1 muodossa esim: '`1 kg` perunoita'>
+- <ainesosa 2 muodossa esim: '`1 l` maitoa'>
+- <ainesosa 3 muoossa esim: '`2 tl` mustapippuria'>
+- <jne>
+
+## Valmistusohjeet
+
+1. <Reseptin askel 1>
+1. <Reseptin askel 2>
+1. <Reseptin askel 3>
+1. <jne>
+
+<Loppuun voi lisätä vinkkejä ja muita hyödyllisiä asioita>
+```
+
+### English recipes
+
+Use this format for English language recipes.
+
+```markdown
+---
+title: <Recipe name>
+servings: <How many servings does the recipe make>
+tags: <Appropriate tags for the recipe>
+source: <Where the recipe is from>
+lang: en
+nutrition:
+  protein: <estimated grams of protein in 100g of finished dish>
+  fat: <estimated grams of fat in 100g of finished dish>
+  carbs: <estimated grams of carbohydrates in 100g of finished dish>
+---
+
+# <Recipe name>
+
+## Ingredients
+
+- <ingredient 1 in metric units (except for tablespoons and teaspoons), e.g.: '`1 kg` potatoes'>
+- <ingredient 2 in metric units (except for tablespoons and teaspoons), e.g. '`1 tbsp` honey'>
+- <ingredient 3 in metric units (except for tablespoons and teaspoons), e.g. '`1 tsp` salt'>
+- <jne>
+
+## Instructions
+
+1. <Instruction step 1>
+1. <Instruction step 2>
+1. <etc.>
+
+<At the end you can add tips and other useful additions from the recipe>
+```
