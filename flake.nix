@@ -22,22 +22,22 @@
         pkgsStable = import nixpkgs-stable {
           inherit system;
         };
-        nodeVersion = "24.11.0";
+        nodeVersion = "24.13.1";
 
         # map Nix system strings (e.g. aarch64-darwin) to Node.js architecture strings (e.g. darwin-arm64)
         nixSystemStringsToNodeArchitectureStrings =
           input:
           builtins.replaceStrings
-            [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ]
-            [ "linux-x64" "linux-arm64" "darwin-arm64" ]
+            [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ]
+            [ "linux-x64" "linux-arm64" "darwin-arm64" "darwin-x64" ]
             input;
 
         # map Node.js architecture strings (e.g. darwin-arm64) to Nix system strings (e.g. aarch64-darwin)
         nodeArchitectureStringsToNixSystemStrings =
           input:
           builtins.replaceStrings
-            [ "linux-x64" "linux-arm64" "darwin-arm64" ]
-            [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ]
+            [ "linux-x64" "linux-arm64" "darwin-arm64" "darwin-x64"]
+            [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ]
             input;
 
         stringHasSuffix = suffix: s: (builtins.match ".*${pkgs.lib.strings.escapeRegex suffix}$" s) != null;
@@ -51,11 +51,7 @@
             hashList = builtins.readFile (
               pkgs.fetchurl {
                 url = "https://nodejs.org/download/release/v${nodeVersion}/SHASUMS256.txt";
-                sha256 = builtins.convertHash {
-                  hashAlgo = "sha256";
-                  hash = "ee1afe484a32496fd72c22f02acc80e28e6af559491b46cdfbd1c7a3922c42bd"; # This is a hash for the SHASSUMS256.txt file, not the binary
-                  toHashFormat = "sri";
-                };
+                hash = "sha256-SWtmL884/KWW+NHdLpUkWsFZfdSeDDxgI1sLbywHKQA=";
               }
             );
             lines = nixpkgs.lib.strings.splitString "\n" (hashList);
@@ -97,6 +93,7 @@
               "x86_64-linux"
               "aarch64-linux"
               "aarch64-darwin"
+              "x86_64-darwin"
             ];
             homepage = "https://nodejs.org/";
           };
