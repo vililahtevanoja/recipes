@@ -49,7 +49,7 @@ Tip: `ai/ai_prompt_en.txt` and `ai/ai_prompt_fi.txt` contain the preferred Markd
 - Prefer small, focused diffs; do not add new dependencies or change build tooling without asking first.
 - Keep the site static-friendly (no runtime server requirements beyond what prerender/build-time can do).
 - After any file changes, run `pnpm format`.
-- To use all available tool checks, run `pnpm verify`. It can be ran after any changes but at the latest run it when finished with a process involving file changes.
+- To use all available tool checks, run `pnpm verify`. IMPORTANT: verify can be ran at any point but you _must_ run it before considering any process involving file changes to be done.
 
 ## Frontend code
 
