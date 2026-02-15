@@ -61,6 +61,14 @@
 
   const formatNutritionValue = (value: number) =>
     new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value)
+
+  const navigateBackToRecipes = (event: MouseEvent) => {
+    if (window.history.length <= 1) {
+      return
+    }
+    event.preventDefault()
+    window.history.back()
+  }
 </script>
 
 <svelte:head>
@@ -69,7 +77,7 @@
 
 <div class="page-wrap recipe-page">
   <header class="recipe-header">
-    <a href={resolve('/')} class="back-link">Back to all recipes</a>
+    <a href={resolve('/')} class="back-link" onclick={navigateBackToRecipes}>Back to all recipes</a>
 
     <div class="recipe-toolbar">
       <h1>{title}</h1>
