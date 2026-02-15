@@ -21,6 +21,13 @@ Use this skill when the user wants to import a recipe from a webpage, image, doc
 - Step-by-step instructions
 - Any additional tips or variations
 
+## Tags
+
+- should be lowercase camel-case, e.g. `pot-roast`
+- when referring to cuisines, refer only to the country/area, e.g. `french`
+
+To find out 
+
 ## Format
 
 ### Finnish language recipes
@@ -92,3 +99,7 @@ nutrition:
 
 <At the end you can add tips and other useful additions from the recipe>
 ```
+
+## Post-run operations
+
+Run `pnpm format` to enforce formatting, and `pnpm verify` to verify everything still works as expected.
