@@ -26,7 +26,7 @@ Use this skill when the user wants to import a recipe from a webpage, image, doc
 - should be lowercase camel-case, e.g. `pot-roast`
 - when referring to cuisines, refer only to the country/area, e.g. `french`
 
-To find out 
+To find out
 
 ## Format
 
