@@ -12,6 +12,7 @@ lang: fi
 - `1` mango
 - `1` limen mehu
 - `0,5 dl` hienonnettua korianteria
+- `0.5 kpl` punasipulia
 - tabascoa maun mukaan
 - ripaus suolaa
 
