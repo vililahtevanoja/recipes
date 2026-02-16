@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from '$app/paths'
   import { browser } from '$app/environment'
   import { page } from '$app/state'
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
@@ -97,7 +98,10 @@
 
 <div class="page-wrap home-page">
   <header class="list-summary" aria-label="Recipe collection summary">
-    <h1 class="list-summary-title">Recipes</h1>
+    <div class="list-summary-main">
+      <h1 class="list-summary-title">Recipes</h1>
+      <a href={resolve('/seasonal')} class="summary-link-button">Seasonal ingredients</a>
+    </div>
     <div class="list-summary-stats">
       <p class="list-summary-stat">
         <span>{recipes.length}</span>
