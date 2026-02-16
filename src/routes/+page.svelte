@@ -96,21 +96,17 @@
 </svelte:head>
 
 <div class="page-wrap home-page">
-  <header class="hero-card">
-    <p class="hero-kicker">Personal recipe collection</p>
-    <h1>Find the right recipe faster</h1>
-    <p class="hero-copy">
-      Search by title or tag, focus on quick weekday options, and switch languages without scrolling through everything.
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
+  <header class="list-summary" aria-label="Recipe collection summary">
+    <h1 class="list-summary-title">Recipes</h1>
+    <div class="list-summary-stats">
+      <p class="list-summary-stat">
         <span>{recipes.length}</span>
-        <p>recipes</p>
-      </div>
-      <div class="hero-stat">
+        recipes
+      </p>
+      <p class="list-summary-stat">
         <span>{quickWeekdayCount}</span>
-        <p>quick or weekday</p>
-      </div>
+        quick or weekday
+      </p>
     </div>
   </header>
 

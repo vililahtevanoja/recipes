@@ -54,3 +54,4 @@ Tip: `ai/ai_prompt_en.txt` and `ai/ai_prompt_fi.txt` contain the preferred Markd
 ## Frontend code
 
 - Prefer applying Tailwind CSS styling classes directly to html-elements
+- Avoid @apply Tailwind CSS directdive
