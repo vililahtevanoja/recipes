@@ -211,6 +211,21 @@ a {
   outline-offset: 2px;
 }
 
+.seasonal-title-lockup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+}
+
+.seasonal-title-text {
+  display: inline-block;
+}
+
+.seasonal-title-icon {
+  flex: 0 0 auto;
+}
+
 .panel {
   @apply rounded-[var(--radius-lg)] border border-[var(--line)] bg-[var(--surface)] p-4 shadow-[var(--shadow-soft)];
 }

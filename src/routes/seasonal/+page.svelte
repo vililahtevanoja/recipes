@@ -3,7 +3,8 @@
   import { goto } from '$app/navigation'
   import { resolve } from '$app/paths'
   import { page } from '$app/state'
-  import { getSeasonalMonth, seasonalByMonth, type SeasonalCategory } from '$lib/seasonal'
+  import SeasonalTitle from '$lib/SeasonalTitle.svelte'
+  import { getSeasonForMonth, getSeasonalMonth, seasonalByMonth, type SeasonalCategory } from '$lib/seasonal'
 
   const categoryLabels: Record<SeasonalCategory, string> = {
     highlights: 'Kuukauden suositukset',
@@ -46,6 +47,7 @@
   const currentMonth = $derived(browser ? new Date().getMonth() + 1 : 1)
   const activeMonth = $derived(monthFromQuery ?? currentMonth)
   const monthData = $derived(getSeasonalMonth(activeMonth) ?? fallbackMonthData)
+  const seasonalSeason = $derived(getSeasonForMonth(activeMonth))
   const previousMonth = $derived(activeMonth === 1 ? 12 : activeMonth - 1)
   const nextMonth = $derived(activeMonth === 12 ? 1 : activeMonth + 1)
   const previousMonthName = $derived((getSeasonalMonth(previousMonth) ?? fallbackMonthData).monthNameFi)
@@ -75,7 +77,7 @@
     <a href={resolve('/')} class="back-link">Back to all recipes</a>
 
     <div class="seasonal-header-main">
-      <h1>Seasonal ingredients</h1>
+      <h1><SeasonalTitle season={seasonalSeason}>Seasonal ingredients</SeasonalTitle></h1>
     </div>
 
     <nav class="seasonal-nav" aria-label="Seasonal month navigation">

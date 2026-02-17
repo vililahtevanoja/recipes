@@ -2,6 +2,8 @@
   import { resolve } from '$app/paths'
   import { browser } from '$app/environment'
   import { page } from '$app/state'
+  import SeasonalTitle from '$lib/SeasonalTitle.svelte'
+  import { getSeasonForMonth } from '$lib/seasonal'
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import { onMount } from 'svelte'
   import type { PageServerData, Snapshot } from './$types'
@@ -80,6 +82,8 @@
 
   const quickWeekdayCount = $derived(recipes.filter(isQuickOrWeekdayRecipe).length)
   const hasActiveFilters = $derived(searchTerm.trim().length > 0 || onlyQuickWeekday || languageFilter !== 'all')
+  const currentMonth = $derived(browser ? new Date().getMonth() + 1 : 1)
+  const seasonalSeason = $derived(getSeasonForMonth(currentMonth))
 
   const clearFilters = () => {
     searchTerm = ''
@@ -100,7 +104,9 @@
   <header class="list-summary" aria-label="Recipe collection summary">
     <div class="list-summary-main">
       <h1 class="list-summary-title">Recipes</h1>
-      <a href={resolve('/seasonal')} class="summary-link-button">Seasonal ingredients</a>
+      <a href={resolve('/seasonal')} class="summary-link-button">
+        <SeasonalTitle season={seasonalSeason}>Seasonal ingredients</SeasonalTitle>
+      </a>
     </div>
     <div class="list-summary-stats">
       <p class="list-summary-stat">

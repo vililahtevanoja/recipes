@@ -26,6 +26,8 @@ export type IngredientSeasonality = {
   domesticMonths: number[]
 }
 
+export type SeasonKey = 'winter' | 'spring' | 'summer' | 'autumn'
+
 const monthNameFiByNumber: Record<number, string> = {
   1: 'Tammikuu',
   2: 'Helmikuu',
@@ -546,6 +548,22 @@ validateSeasonalData(seasonalByMonth)
 
 export const getSeasonalMonth = (month: number): SeasonalMonthData | undefined =>
   seasonalByMonth.find((entry) => entry.month === month)
+
+export const getSeasonForMonth = (month: number): SeasonKey => {
+  if (month >= 6 && month <= 8) {
+    return 'summer'
+  }
+
+  if (month >= 9 && month <= 11) {
+    return 'autumn'
+  }
+
+  if (month >= 4 && month <= 5) {
+    return 'spring'
+  }
+
+  return 'winter'
+}
 
 export const getIngredientSeasonality = (slug: string): IngredientSeasonality | undefined => {
   const normalizedSlug = toSlug(slug)
