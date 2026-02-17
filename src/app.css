@@ -695,11 +695,12 @@ a {
   }
 
   .seasonal-nav {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 0.45rem;
   }
 
   .seasonal-current-month {
-    justify-self: start;
+    justify-self: center;
   }
 
   .seasonal-month-link {
