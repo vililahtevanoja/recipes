@@ -70,13 +70,22 @@ const dedupeIngredients = (items: SeasonalIngredient[]): SeasonalIngredient[] =>
   return [...bySlug.values()]
 }
 
+const prioritizeDomesticIngredients = (items: SeasonalIngredient[]): SeasonalIngredient[] => {
+  const domestic = items.filter((item) => item.domestic)
+  const nonDomestic = items.filter((item) => !item.domestic)
+
+  return [...domestic, ...nonDomestic]
+}
+
 const mapIngredients = (items: IngredientInput[]): SeasonalIngredient[] =>
-  dedupeIngredients(
-    items.map(([labelFi, domestic = false]) => ({
-      labelFi,
-      slug: toSlug(labelFi),
-      domestic,
-    })),
+  prioritizeDomesticIngredients(
+    dedupeIngredients(
+      items.map(([labelFi, domestic = false]) => ({
+        labelFi,
+        slug: toSlug(labelFi),
+        domestic,
+      })),
+    ),
   )
 
 const createMonthData = (month: number, categories: SeasonalCategoryInput): SeasonalMonthData => ({
