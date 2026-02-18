@@ -35,7 +35,7 @@ lang: fi
 1. Kostuta pala leivinpaperia ja rypistä se. Vuoraa irtopohjavuoka (⌀ n. 20cm) paperilla.
 1. Laita tuorejuusto ja sokeri kulhoon. Vatkaa sähkövatkaimella, kunnes sokeri on liuennut juustoon. Pese appelsiini ja raasta sen oranssi kuoriosa hienoksi. Lisää munat, smetana, jauhot, vaniljatahna tai vaniljasokeri, suola ja appelsiinikuori kulhoon. Vatkaa tasaikseksi.
 1. Kaada tuorejuustoseos vuokaan. Kypsennä 250-asteisen unin keskitasolla noin 30 minuuttia, kunnes kakku on pinnasta tumma ja keskeltä vielä aavistuksen hyllyvää.
-1. Anna kakun jäähtyä vuoassaan huoneenlämmössä 30 minuuttia. Nosta se vuoassaan viileään vähintään tunniksi. Maku jakoostumus paranevat, jos kakku saa vetäytyä viileässä useamman tunnin ajan.
+1. Anna kakun jäähtyä vuoassaan huoneenlämmössä 30 minuuttia. Nosta se vuoassaan viileään vähintään tunniksi. Maku ja koostumus paranevat, jos kakku saa vetäytyä viileässä useamman tunnin ajan.
 1. Purista appelsiinimehu ja kaada se pieneen kattilaan. Lisää sokeri. Kuumenna
    kiehuvaksi ja keitä keskilämmöllä 5-10 minuuttia, kunnes seos paksuuntuu. Huomioi, että siirappi jähmettyy myös jäähtyessään. Jäähdytä huoneenlämpöiseksi.
 1. Nosta kakku tarjoiluvadille. Koristele se marjoilla tai hedelmillä. Valuta päälle appelsiinisiirappia. Viimeistele halutessasi kukilla.
