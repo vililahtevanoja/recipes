@@ -26,8 +26,6 @@ Use this skill when the user wants to import a recipe from a webpage, image, doc
 - should be lowercase camel-case, e.g. `pot-roast`
 - when referring to cuisines, refer only to the country/area, e.g. `french`
 
-To find out
-
 ## Format
 
 ### Finnish language recipes
@@ -99,6 +97,11 @@ nutrition:
 
 <At the end you can add tips and other useful additions from the recipe>
 ```
+
+## Notes
+
+- If you notice any discrepancies or information missing from the recipe, raise those up for review and deciding on.
+- If there is no nutritional information present, you can deduce them from the recipe contents.
 
 ## Post-run operations
 
