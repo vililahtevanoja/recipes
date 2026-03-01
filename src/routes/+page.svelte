@@ -6,6 +6,7 @@
   import { getSeasonForMonth } from '$lib/seasonal'
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import { onMount } from 'svelte'
+  import { SvelteURLSearchParams } from 'svelte/reactivity'
   import type { PageServerData, Snapshot } from './$types'
   import PillButton from '$lib/ui/PillButton.svelte'
   import RecipeListItem from './RecipeListItem.svelte'
@@ -58,6 +59,19 @@
 
   onMount(() => {
     handleRoutingForOldLinks()
+    const q = page.url.searchParams.get('q')
+    const quick = page.url.searchParams.get('quick')
+    const lang = page.url.searchParams.get('lang')
+
+    if (q !== null) {
+      searchTerm = q
+    }
+    if (quick !== null) {
+      onlyQuickWeekday = quick === '1' || quick.toLowerCase() === 'true'
+    }
+    if (lang === 'fi' || lang === 'en' || lang === 'all') {
+      languageFilter = lang
+    }
   })
 
   const isQuickOrWeekdayRecipe = (recipe: MarkdownRecipe) =>
@@ -91,6 +105,21 @@
     onlyQuickWeekday = false
     languageFilter = 'all'
   }
+
+  const recipesListQuery = $derived.by(() => {
+    const params = new SvelteURLSearchParams()
+    const trimmedSearch = searchTerm.trim()
+    if (trimmedSearch.length > 0) {
+      params.set('q', trimmedSearch)
+    }
+    if (onlyQuickWeekday) {
+      params.set('quick', '1')
+    }
+    if (languageFilter !== 'all') {
+      params.set('lang', languageFilter)
+    }
+    return params.toString()
+  })
 </script>
 
 <svelte:head>
@@ -181,6 +210,7 @@
               title={recipe.title}
               lang={recipe.metadata.lang ?? 'fi'}
               tags={recipe.metadata.tags}
+              backQuery={recipesListQuery}
             />
           </li>
         {/each}

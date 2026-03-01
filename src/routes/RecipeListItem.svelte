@@ -1,11 +1,14 @@
 <script lang="ts">
   import { resolve } from '$app/paths'
+  import { goto } from '$app/navigation'
+  import { isPlainLeftClick } from '$lib/isPlainLeftClick'
 
-  let { recipeId, lang, title, tags } = $props<{
+  let { recipeId, lang, title, tags, backQuery } = $props<{
     recipeId: string
     lang: string
     title: string
     tags: string[]
+    backQuery?: string
   }>()
 
   const isTestedTag = (tag: string) => tag.trim().toLowerCase() === 'tested'
@@ -15,10 +18,28 @@
   const denseTags = $derived(displayTags.length >= 8)
   const languageCode = $derived(lang.toLowerCase() === 'fi' ? 'fi' : 'en')
   const languageLabel = $derived(lang.toLowerCase() === 'fi' ? 'Finnish' : 'English')
+
+  const handleLinkClick = async (event: MouseEvent) => {
+    if (!isPlainLeftClick(event)) {
+      return
+    }
+
+    event.preventDefault()
+    await goto(
+      resolve((backQuery ? `/recipes/${recipeId}?${backQuery}` : `/recipes/${recipeId}`) as `/recipes/${string}`),
+      {
+        state: { fromRecipesList: true },
+      },
+    )
+  }
 </script>
 
 <article class="recipe-card">
-  <a href={resolve(`/recipes/${recipeId}`)} class="recipe-link">
+  <a
+    href={resolve((backQuery ? `/recipes/${recipeId}?${backQuery}` : `/recipes/${recipeId}`) as `/recipes/${string}`)}
+    class="recipe-link"
+    onclick={handleLinkClick}
+  >
     <h3>{title}</h3>
 
     {#if displayTags.length > 0}

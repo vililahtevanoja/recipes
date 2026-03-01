@@ -1,9 +1,12 @@
 <script lang="ts">
-  import { asset } from '$app/paths'
-  import BackLink from '$lib/ui/BackLink.svelte'
+  import { asset, resolve } from '$app/paths'
   import PillButton from '$lib/ui/PillButton.svelte'
+  import { browser } from '$app/environment'
+  import { page } from '$app/state'
   import { marked } from 'marked'
   import { onMount } from 'svelte'
+  import { isPlainLeftClick } from '$lib/isPlainLeftClick'
+  import { SvelteURLSearchParams } from 'svelte/reactivity'
   import type { PageServerData } from './$types'
 
   let { data } = $props<{ data: PageServerData }>()
@@ -65,12 +68,42 @@
     new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value)
 
   const navigateBackToRecipes = (event: MouseEvent) => {
-    if (window.history.length <= 1) {
+    if (!isPlainLeftClick(event)) {
       return
     }
+
+    const cameFromRecipesList = !!page.state?.fromRecipesList
+    if (!cameFromRecipesList || window.history.length <= 1) {
+      return
+    }
+
     event.preventDefault()
     window.history.back()
   }
+
+  const backToListPath = $derived.by(() => {
+    if (!browser) {
+      return '/'
+    }
+
+    const params = new SvelteURLSearchParams()
+    const q = page.url.searchParams.get('q')
+    const quick = page.url.searchParams.get('quick')
+    const lang = page.url.searchParams.get('lang')
+
+    if (q) {
+      params.set('q', q)
+    }
+    if (quick) {
+      params.set('quick', quick)
+    }
+    if (lang) {
+      params.set('lang', lang)
+    }
+
+    const query = params.toString()
+    return query.length > 0 ? `/?${query}` : '/'
+  })
 </script>
 
 <svelte:head>
@@ -79,7 +112,7 @@
 
 <div class="page-wrap recipe-page">
   <header class="recipe-header">
-    <BackLink href="/" onclick={navigateBackToRecipes}>Back to all recipes</BackLink>
+    <a href={resolve(backToListPath as '/')} class="back-link" onclick={navigateBackToRecipes}>Back to all recipes</a>
 
     <div class="recipe-toolbar">
       <h1>{title}</h1>
