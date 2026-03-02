@@ -1,6 +1,6 @@
 ---
 name: recipe-importer
-description: Extract recipes from webpages, documents, images and text. Detect language, suggest tags and save the recipe in the appropriate location in the given form.
+description: Use when asked to extract or import recipes from webpages, documents, images and text. Detect language, suggest tags and save the recipe in the appropriate location in the given form.
 ---
 
 # Recipe Importer
@@ -8,6 +8,12 @@ description: Extract recipes from webpages, documents, images and text. Detect l
 ## When to use this skill
 
 Use this skill when the user wants to import a recipe from a webpage, image, document or text.
+
+## Steps
+
+1. Extract the recipe content
+1. Transform the recipe to the given Markdown format.
+1. Review the resulting recipe and raise any issues.
 
 ## What to pay attention when extracting
 
@@ -100,7 +106,8 @@ nutrition:
 
 ## Notes
 
-- If you notice any discrepancies or information missing from the recipe, raise those up for review and deciding on.
+- *IMPORTANT*: Do not take creative license on the ingredients or steps, but rather follow them _exactly_.
+- *IMPORTANT*: If you notice any discrepancies, things that do not make sense, or information missing from the recipe, raise those up for review and deciding on.
 - If there is no nutritional information present, you can deduce them from the recipe contents.
 
 ## Post-run operations
