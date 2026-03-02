@@ -106,8 +106,8 @@ nutrition:
 
 ## Notes
 
-- *IMPORTANT*: Do not take creative license on the ingredients or steps, but rather follow them _exactly_.
-- *IMPORTANT*: If you notice any discrepancies, things that do not make sense, or information missing from the recipe, raise those up for review and deciding on.
+- _IMPORTANT_: Do not take creative license on the ingredients or steps, but rather follow them _exactly_.
+- _IMPORTANT_: If you notice any discrepancies, things that do not make sense, or information missing from the recipe, raise those up for review and deciding on.
 - If there is no nutritional information present, you can deduce them from the recipe contents.
 
 ## Post-run operations
