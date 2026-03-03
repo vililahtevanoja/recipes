@@ -7,6 +7,7 @@
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import { onMount } from 'svelte'
   import type { PageServerData, Snapshot } from './$types'
+  import PillButton from '$lib/ui/PillButton.svelte'
   import RecipeListItem from './RecipeListItem.svelte'
 
   type LanguageFilter = 'all' | 'fi' | 'en'
@@ -135,44 +136,28 @@
 
     <div class="filter-controls">
       <div class="button-group" role="group" aria-label="Filter by language">
-        <button
-          type="button"
-          class="filter-button"
-          class:is-active={languageFilter === 'all'}
-          onclick={() => (languageFilter = 'all')}
-        >
+        <PillButton class="filter-button" active={languageFilter === 'all'} onclick={() => (languageFilter = 'all')}>
           All
-        </button>
-        <button
-          type="button"
-          class="filter-button"
-          class:is-active={languageFilter === 'fi'}
-          onclick={() => (languageFilter = 'fi')}
-        >
+        </PillButton>
+        <PillButton class="filter-button" active={languageFilter === 'fi'} onclick={() => (languageFilter = 'fi')}>
           Finnish
-        </button>
-        <button
-          type="button"
-          class="filter-button"
-          class:is-active={languageFilter === 'en'}
-          onclick={() => (languageFilter = 'en')}
-        >
+        </PillButton>
+        <PillButton class="filter-button" active={languageFilter === 'en'} onclick={() => (languageFilter = 'en')}>
           English
-        </button>
+        </PillButton>
       </div>
 
-      <button
-        type="button"
+      <PillButton
         class="filter-button"
-        class:is-active={onlyQuickWeekday}
+        active={onlyQuickWeekday}
         aria-pressed={onlyQuickWeekday}
         onclick={() => (onlyQuickWeekday = !onlyQuickWeekday)}
       >
         Quick and weekday
-      </button>
+      </PillButton>
 
       {#if hasActiveFilters}
-        <button type="button" class="text-button" onclick={clearFilters}>Clear filters</button>
+        <PillButton class="text-button" onclick={clearFilters}>Clear filters</PillButton>
       {/if}
     </div>
   </section>

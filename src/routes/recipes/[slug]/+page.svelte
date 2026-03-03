@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { asset, resolve } from '$app/paths'
+  import { asset } from '$app/paths'
+  import BackLink from '$lib/ui/BackLink.svelte'
+  import PillButton from '$lib/ui/PillButton.svelte'
   import { marked } from 'marked'
   import { onMount } from 'svelte'
   import type { PageServerData } from './$types'
@@ -77,23 +79,22 @@
 
 <div class="page-wrap recipe-page">
   <header class="recipe-header">
-    <a href={resolve('/')} class="back-link" onclick={navigateBackToRecipes}>Back to all recipes</a>
+    <BackLink href="/" onclick={navigateBackToRecipes}>Back to all recipes</BackLink>
 
     <div class="recipe-toolbar">
       <h1>{title}</h1>
 
       {#if wakeLockAvailable}
-        <button
-          type="button"
+        <PillButton
           class="wake-lock-button"
-          class:is-active={wakeLockEnabled}
+          active={wakeLockEnabled}
           aria-pressed={wakeLockEnabled}
           title={wakeLockLabel}
           onclick={toggleWakeLock}
         >
           <img src={lockIcon} alt="" width="24" height="24" aria-hidden="true" />
           <span>{wakeLockLabel}</span>
-        </button>
+        </PillButton>
       {/if}
     </div>
   </header>

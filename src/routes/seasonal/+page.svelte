@@ -4,6 +4,8 @@
   import { resolve } from '$app/paths'
   import { page } from '$app/state'
   import SeasonalTitle from '$lib/SeasonalTitle.svelte'
+  import BackLink from '$lib/ui/BackLink.svelte'
+  import PillButton from '$lib/ui/PillButton.svelte'
   import { getSeasonForMonth, getSeasonalMonth, seasonalByMonth, type SeasonalCategory } from '$lib/seasonal'
 
   const categoryLabels: Record<SeasonalCategory, string> = {
@@ -74,7 +76,7 @@
 
 <div class="page-wrap seasonal-page">
   <header class="panel seasonal-header">
-    <a href={resolve('/')} class="back-link">Back to all recipes</a>
+    <BackLink href="/">Back to all recipes</BackLink>
 
     <div class="seasonal-header-main">
       <h1><SeasonalTitle season={seasonalSeason}>Seasonal ingredients</SeasonalTitle></h1>
@@ -83,16 +85,16 @@
     <nav class="seasonal-nav" aria-label="Seasonal month navigation">
       <form method="GET" action={seasonalRoot} class="seasonal-nav-form">
         <input type="hidden" name="month" value={previousMonth} />
-        <button type="submit" class="seasonal-month-link" aria-label={`Go to ${previousMonthName}`}>
+        <PillButton type="submit" class="seasonal-month-link" aria-label={`Go to ${previousMonthName}`}>
           ← {previousMonthName}
-        </button>
+        </PillButton>
       </form>
       <p class="seasonal-current-month">{monthData.monthNameFi}</p>
       <form method="GET" action={seasonalRoot} class="seasonal-nav-form">
         <input type="hidden" name="month" value={nextMonth} />
-        <button type="submit" class="seasonal-month-link" aria-label={`Go to ${nextMonthName}`}>
+        <PillButton type="submit" class="seasonal-month-link" aria-label={`Go to ${nextMonthName}`}>
           {nextMonthName} →
-        </button>
+        </PillButton>
       </form>
     </nav>
   </header>
