@@ -1,4 +1,4 @@
 packages:
   - .
-enableGlobalVirtualStore: true
+enableGlobalVirtualStore: false # does not work with vite
 minimumReleaseAge: 4320 # 72 hours
