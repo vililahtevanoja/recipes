@@ -10,7 +10,7 @@ lang: en
 ## Ingredients
 
 - `180 g` unsalted butter, divided
-- `135 g`  (~`1.8 dl`) packed dark brown sugar
+- `135 g` (~`1.8 dl`) packed dark brown sugar
 - `100 g` (~`1.2 dl`) granulated sugar
 - `2 tsp` vanilla extract
 - `1 tsp` salt
