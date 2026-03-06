@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+
+  // Oxfmt should handle everything except Svelte files.
+  "ignorePatterns": ["**/*.svelte", "pnpm-lock.yaml"],
+}

@@ -1,6 +1,12 @@
-out/
+# Prettier is only responsible for formatting Svelte files.
+*
+!*/
+!*.svelte
+!**/*.svelte
+
+# Keep dependency/build trees pruned from traversal.
+node_modules/
 .pnpm-store/
 .svelte-kit/
 build/
-node_modules/
-pnpm-lock.yaml
+out/

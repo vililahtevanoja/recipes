@@ -1,12 +1,8 @@
 {
   "name": "personal-recipes",
-  "packageManager": "pnpm@10.30.0+sha512.2b5753de015d480eeb88f5b5b61e0051f05b4301808a82ec8b840c9d2adf7748eb352c83f5c1593ca703ff1017295bc3fdd3119abb9686efc96b9fcb18200937",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": "24"
-  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -16,9 +12,14 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "vitest",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "format-check": "prettier --check .",
+    "format": "concurrently -g 'oxfmt --config .oxfmtrc.jsonc --ignore-path .gitignore .' 'prettier --write .'",
+    "format-check": "concurrently -g 'oxfmt --check --config .oxfmtrc.jsonc --ignore-path .gitignore .' 'prettier --check .'",
     "verify": "pnpm format-check && pnpm check:no-apply && pnpm check && pnpm lint && pnpm build"
+  },
+  "dependencies": {
+    "marked": "17.0.2",
+    "mdsvex": "0.12.6",
+    "yaml": "2.8.2"
   },
   "devDependencies": {
     "@eslint/js": "9.39.2",
@@ -31,10 +32,12 @@
     "@types/eslint": "9.6.1",
     "@types/node": "24.10.1",
     "autoprefixer": "10.4.24",
+    "concurrently": "9.2.1",
     "eslint": "9.39.2",
     "eslint-config-prettier": "9.1.2",
     "eslint-plugin-svelte": "3.15.0",
     "globals": "16.5.0",
+    "oxfmt": "0.36.0",
     "prettier": "3.8.1",
     "prettier-plugin-svelte": "3.4.1",
     "svelte": "5.51.1",
@@ -46,11 +49,10 @@
     "vitest": "4.0.18",
     "zod": "4.3.6"
   },
-  "dependencies": {
-    "marked": "17.0.2",
-    "mdsvex": "0.12.6",
-    "yaml": "2.8.2"
+  "engines": {
+    "node": "24"
   },
+  "packageManager": "pnpm@10.30.0+sha512.2b5753de015d480eeb88f5b5b61e0051f05b4301808a82ec8b840c9d2adf7748eb352c83f5c1593ca703ff1017295bc3fdd3119abb9686efc96b9fcb18200937",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@tailwindcss/oxide",
