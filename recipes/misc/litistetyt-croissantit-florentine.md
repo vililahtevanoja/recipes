@@ -45,4 +45,4 @@ lang: fi
 1. Kuumenna nokare voita pannulla ja paista pinaattia noin minuutti.
 1. Laita croissantit lautasille ja levitä pinaattia päälle. Nosta lohiviipaleet ja uppomunat päälle. Mausta sormisuolalla. Lusikoi hollandaisekastiketta croissantseille. Viimeistele versoilla ja mustapippurilla.
 
-> **Vinkki**: Litistetty croissant sopii erityisesti hieman nahkea edellisen päivän croissanteille, jotka eivät muuten enää ole rapeita tai murtuvat herkästi kaulittaessa.
+> **Vinkki**: Litistetty croissant sopii erityisesti hieman nahkeille edellisen päivän croissanteille, jotka eivät muuten enää ole rapeita tai murtuvat herkästi kaulittaessa.
