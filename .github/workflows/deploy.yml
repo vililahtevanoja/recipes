@@ -36,10 +36,6 @@ jobs:
           check-latest: true
       - name: Setup Pages
         uses: actions/configure-pages@v6
-      - name: Enable corepack
-        run: corepack enable
-      - name: Install package manager
-        run: corepack install
       - name: Install dependencies
         run: pnpm install
       # verify
