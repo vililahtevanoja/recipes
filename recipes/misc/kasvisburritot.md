@@ -22,7 +22,7 @@ nutrition:
 - `150 g` crème fraîchea
 - `0.5 tl` suolaa
 - `8` vehnätortillaa, medium koko
-- `150 g`raastettua mozzarellaa 
+- `150 g`raastettua mozzarellaa
 - ripaus chilihiutaleita
 
 ## Valmistusohjeet
