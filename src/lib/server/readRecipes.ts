@@ -17,6 +17,13 @@ enum InitializingStatus {
 const postsContainer: Record<string, Recipe[]> = {}
 const dirInitStatus: Record<string, InitializingStatus> = {}
 
+class DuplicateRecipeTagsError extends Error {
+  constructor(filePath: string, duplicateTags: string[]) {
+    super(`Duplicate tags found in ${filePath}: ${duplicateTags.join(', ')}`)
+    this.name = 'DuplicateRecipeTagsError'
+  }
+}
+
 export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   switch (dirInitStatus[dir]) {
     case InitializingStatus.Initialized:
@@ -40,7 +47,10 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
         if (isDir) {
           return readRecipesInner(filePath)
         }
-        return readRecipeFile(filePath).catch((err) => {
+        return readRecipeFile(filePath).catch((err: unknown) => {
+          if (err instanceof DuplicateRecipeTagsError) {
+            throw err
+          }
           console.error(`Error while reading ${filePath}: `, err)
           return undefined
         })
@@ -68,6 +78,7 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
   const format = getRecipeFormat(fileType ?? '')
   if (format === RecipeContentFormat.Markdown) {
     const metadata = getMetadataFromMarkdownRecipe(fileContent)
+    assertUniqueTags(filePath, metadata.tags)
     const recipeContent = getRecipeMarkdownWithoutMetadataHeader(fileContent)
     return {
       id: name,
@@ -79,6 +90,24 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
     } as MarkdownRecipe
   } else {
     throw new Error(`Unknown file format for ${filePath}`)
+  }
+}
+
+const assertUniqueTags = (filePath: string, tags: string[]) => {
+  const normalizedSeen = new Set<string>()
+  const duplicateTags = new Set<string>()
+
+  for (const tag of tags) {
+    const normalizedTag = tag.trim().toLocaleLowerCase('en-US')
+    if (normalizedSeen.has(normalizedTag)) {
+      duplicateTags.add(tag)
+      continue
+    }
+    normalizedSeen.add(normalizedTag)
+  }
+
+  if (duplicateTags.size > 0) {
+    throw new DuplicateRecipeTagsError(filePath, [...duplicateTags])
   }
 }
 

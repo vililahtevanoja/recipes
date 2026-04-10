@@ -1,9 +1,6 @@
 <script lang="ts">
-  import { resolve } from '$app/paths'
   import { browser } from '$app/environment'
   import { page } from '$app/state'
-  import SeasonalTitle from '$lib/SeasonalTitle.svelte'
-  import { getSeasonForMonth } from '$lib/seasonal'
   import type { MarkdownRecipe } from '$lib/server/recipeModel'
   import { onMount } from 'svelte'
   import { SvelteURLSearchParams } from 'svelte/reactivity'
@@ -11,24 +8,20 @@
   import PillButton from '$lib/ui/PillButton.svelte'
   import RecipeListItem from './RecipeListItem.svelte'
 
-  type LanguageFilter = 'all' | 'fi' | 'en'
   type SearchSnapshot = {
     searchTerm: string
     onlyQuickWeekday: boolean
-    languageFilter: LanguageFilter
   }
 
   let { data } = $props<{ data: PageServerData }>()
   let searchTerm = $state('')
   let onlyQuickWeekday = $state(false)
-  let languageFilter = $state<LanguageFilter>('all')
 
   export const snapshot: Snapshot<SearchSnapshot> = {
-    capture: () => ({ searchTerm, onlyQuickWeekday, languageFilter }),
+    capture: () => ({ searchTerm, onlyQuickWeekday }),
     restore: (value) => {
       searchTerm = value.searchTerm
       onlyQuickWeekday = value.onlyQuickWeekday
-      languageFilter = value.languageFilter
     },
   }
 
@@ -61,16 +54,12 @@
     handleRoutingForOldLinks()
     const q = page.url.searchParams.get('q')
     const quick = page.url.searchParams.get('quick')
-    const lang = page.url.searchParams.get('lang')
 
     if (q !== null) {
       searchTerm = q
     }
     if (quick !== null) {
       onlyQuickWeekday = quick === '1' || quick.toLowerCase() === 'true'
-    }
-    if (lang === 'fi' || lang === 'en' || lang === 'all') {
-      languageFilter = lang
     }
   })
 
@@ -89,21 +78,17 @@
       const recipeText = `${recipe.title} ${recipe.metadata.tags.join(' ')}`.toLowerCase()
       const matchesQuery = query.length === 0 || recipeText.includes(query)
       const matchesQuickWeekday = !onlyQuickWeekday || isQuickOrWeekdayRecipe(recipe)
-      const matchesLanguage = languageFilter === 'all' || recipe.metadata.lang === languageFilter
 
-      return matchesQuery && matchesQuickWeekday && matchesLanguage
+      return matchesQuery && matchesQuickWeekday
     })
   })
 
   const quickWeekdayCount = $derived(recipes.filter(isQuickOrWeekdayRecipe).length)
-  const hasActiveFilters = $derived(searchTerm.trim().length > 0 || onlyQuickWeekday || languageFilter !== 'all')
-  const currentMonth = $derived(browser ? new Date().getMonth() + 1 : 1)
-  const seasonalSeason = $derived(getSeasonForMonth(currentMonth))
+  const hasActiveFilters = $derived(searchTerm.trim().length > 0 || onlyQuickWeekday)
 
   const clearFilters = () => {
     searchTerm = ''
     onlyQuickWeekday = false
-    languageFilter = 'all'
   }
 
   const recipesListQuery = $derived.by(() => {
@@ -114,9 +99,6 @@
     }
     if (onlyQuickWeekday) {
       params.set('quick', '1')
-    }
-    if (languageFilter !== 'all') {
-      params.set('lang', languageFilter)
     }
     return params.toString()
   })
@@ -131,78 +113,71 @@
 </svelte:head>
 
 <div class="page-wrap home-page">
-  <header class="list-summary" aria-label="Recipe collection summary">
-    <div class="list-summary-main">
-      <h1 class="list-summary-title">Recipes</h1>
-      <a href={resolve('/seasonal')} class="summary-link-button">
-        <SeasonalTitle season={seasonalSeason}>Seasonal ingredients</SeasonalTitle>
-      </a>
+  <header class="list-hero" aria-label="Recipe collection summary">
+    <div class="hero-content">
+      <h1 class="hero-title">Recipes</h1>
     </div>
-    <div class="list-summary-stats">
-      <p class="list-summary-stat">
-        <span>{recipes.length}</span>
-        recipes
-      </p>
-      <p class="list-summary-stat">
-        <span>{quickWeekdayCount}</span>
-        quick or weekday
-      </p>
+    <div class="hero-stats">
+      <div class="stat-badge">
+        <span class="stat-value">{recipes.length}</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-value">{quickWeekdayCount}</span>
+        <span class="stat-label">Quick</span>
+      </div>
     </div>
   </header>
 
-  <section class="panel filter-panel" aria-label="Recipe filters">
-    <div class="search-block">
-      <label for="search-field">Search by title or tag</label>
-      <input
-        type="search"
-        id="search-field"
-        placeholder="Try: soup, chicken, pasta, quick"
-        autocomplete="off"
-        spellcheck="false"
-        bind:value={searchTerm}
-      />
+  <section class="filter-section" aria-label="Recipe filters">
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="search"
+          id="search-field"
+          aria-label="Search recipes by title, ingredient or tag"
+          placeholder="Search by title, ingredient or tag..."
+          autocomplete="off"
+          spellcheck="false"
+          bind:value={searchTerm}
+        />
+      </div>
     </div>
 
-    <div class="filter-controls">
-      <div class="button-group" role="group" aria-label="Filter by language">
-        <PillButton class="filter-button" active={languageFilter === 'all'} onclick={() => (languageFilter = 'all')}>
-          All
-        </PillButton>
-        <PillButton class="filter-button" active={languageFilter === 'fi'} onclick={() => (languageFilter = 'fi')}>
-          Finnish
-        </PillButton>
-        <PillButton class="filter-button" active={languageFilter === 'en'} onclick={() => (languageFilter = 'en')}>
-          English
+    <div class="filter-bar">
+      <div class="filter-group">
+        <PillButton
+          class="filter-button"
+          active={onlyQuickWeekday}
+          onclick={() => (onlyQuickWeekday = !onlyQuickWeekday)}
+        >
+          {onlyQuickWeekday ? '🌟 Quick & Weekday' : '⚡ Quick & Weekday'}
         </PillButton>
       </div>
-
-      <PillButton
-        class="filter-button"
-        active={onlyQuickWeekday}
-        aria-pressed={onlyQuickWeekday}
-        onclick={() => (onlyQuickWeekday = !onlyQuickWeekday)}
-      >
-        Quick and weekday
-      </PillButton>
-
-      {#if hasActiveFilters}
-        <PillButton class="text-button" onclick={clearFilters}>Clear filters</PillButton>
-      {/if}
     </div>
   </section>
 
-  <section class="panel results-panel" aria-live="polite">
-    <div class="results-header">
-      <h2>Recipes</h2>
-      <p>
-        Showing {filteredRecipes.length} of {recipes.length}
-      </p>
+  <section class="results-section" aria-live="polite">
+    <div class="results-info">
+      <h2 class="results-title">
+        {#if hasActiveFilters}
+          Found {filteredRecipes.length} recipes
+        {:else}
+          All Recipes
+        {/if}
+      </h2>
     </div>
 
     {#if filteredRecipes.length === 0}
-      <p class="empty-state">No recipes matched your filters. Try broadening the search.</p>
+      <div class="empty-state-card">
+        <span class="empty-icon">🍳</span>
+        <h3>No recipes found</h3>
+        <p>Try adjusting your search or filters to find what you're looking for.</p>
+        <button class="primary-button" onclick={clearFilters}>View all recipes</button>
+      </div>
     {:else}
-      <ul class="recipe-grid">
+      <ul class="recipe-grid" class:is-searching={searchTerm.trim().length > 0}>
         {#each filteredRecipes as recipe (recipe.id)}
           <li>
             <RecipeListItem
@@ -211,6 +186,7 @@
               lang={recipe.metadata.lang ?? 'fi'}
               tags={recipe.metadata.tags}
               backQuery={recipesListQuery}
+              compact={searchTerm.trim().length > 0}
             />
           </li>
         {/each}
@@ -218,3 +194,140 @@
     {/if}
   </section>
 </div>
+
+<style>
+  .home-page {
+    gap: 0.75rem;
+  }
+
+  .recipe-grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .recipe-grid.is-searching {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .recipe-grid.is-searching {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .list-hero {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    color: var(--ink-strong);
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .stat-badge {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 0.75rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-input-wrapper input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background: var(--surface-alt);
+    transition: all 0.2s;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .results-info {
+    margin-bottom: 0.75rem;
+  }
+
+  .results-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--ink-strong);
+    margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    .list-hero {
+      justify-content: space-between;
+      padding: 0.25rem 0 0.5rem 0;
+      gap: 0.75rem;
+    }
+
+    .hero-stats {
+      margin-left: 0;
+    }
+
+    .stat-badge {
+      padding: 0.3rem 0.6rem;
+    }
+
+    .filter-section {
+      padding: 0.75rem;
+    }
+
+    .filter-bar {
+      gap: 0.75rem;
+    }
+  }
+</style>
