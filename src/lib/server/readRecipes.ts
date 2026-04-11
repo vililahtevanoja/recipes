@@ -17,13 +17,6 @@ enum InitializingStatus {
 const postsContainer: Record<string, Recipe[]> = {}
 const dirInitStatus: Record<string, InitializingStatus> = {}
 
-class DuplicateRecipeTagsError extends Error {
-  constructor(filePath: string, duplicateTags: string[]) {
-    super(`Duplicate tags found in ${filePath}: ${duplicateTags.join(', ')}`)
-    this.name = 'DuplicateRecipeTagsError'
-  }
-}
-
 export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   switch (dirInitStatus[dir]) {
     case InitializingStatus.Initialized:
@@ -48,15 +41,12 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
           return readRecipesInner(filePath)
         }
         return readRecipeFile(filePath).catch((err: unknown) => {
-          if (err instanceof DuplicateRecipeTagsError) {
-            throw err
-          }
           console.error(`Error while reading ${filePath}: `, err)
-          return undefined
+          throw err
         })
       }),
     )
-    const allRecipes = recipes.flat().filter((item): item is Recipe => !!item)
+    const allRecipes = recipes.flat()
     return allRecipes
   }
   if (postsContainer[dir]) {
@@ -71,7 +61,7 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   return recipes
 }
 
-export const readRecipeFile = async (filePath: string): Promise<Recipe | undefined> => {
+export const readRecipeFile = async (filePath: string): Promise<Recipe> => {
   const fileContent = await fs.readFile(filePath, 'utf-8')
   const name = path.basename(filePath).split('.')[0]
   const fileType = filePath.split('.').at(-1)
@@ -94,20 +84,8 @@ export const readRecipeFile = async (filePath: string): Promise<Recipe | undefin
 }
 
 const assertUniqueTags = (filePath: string, tags: string[]) => {
-  const normalizedSeen = new Set<string>()
-  const duplicateTags = new Set<string>()
-
-  for (const tag of tags) {
-    const normalizedTag = tag.trim().toLocaleLowerCase('en-US')
-    if (normalizedSeen.has(normalizedTag)) {
-      duplicateTags.add(tag)
-      continue
-    }
-    normalizedSeen.add(normalizedTag)
-  }
-
-  if (duplicateTags.size > 0) {
-    throw new DuplicateRecipeTagsError(filePath, [...duplicateTags])
+  if (new Set(tags).size < tags.length) {
+    throw Error(`Duplicate tags found for ${filePath} in tag set: ${tags} `)
   }
 }
 
