@@ -10,11 +10,11 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:no-apply": "if rg -n --fixed-strings '@apply' src; then echo 'Error: @apply is not allowed'; exit 1; fi",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "test": "vitest",
+    "test": "vitest --run",
     "lint": "eslint .",
     "format": "concurrently -g 'oxfmt --config .oxfmtrc.jsonc --ignore-path .gitignore .' 'prettier --write .'",
     "format-check": "concurrently -g 'oxfmt --check --config .oxfmtrc.jsonc --ignore-path .gitignore .' 'prettier --check .'",
-    "verify": "pnpm format-check && pnpm check:no-apply && pnpm check && pnpm lint && pnpm test --run && pnpm build"
+    "verify": "pnpm format-check && pnpm check:no-apply && pnpm check && pnpm lint && pnpm test && pnpm build"
   },
   "dependencies": {
     "marked": "18.0.0",
