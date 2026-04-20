@@ -17,6 +17,15 @@ enum InitializingStatus {
 const postsContainer: Record<string, Recipe[]> = {}
 const dirInitStatus: Record<string, InitializingStatus> = {}
 
+export const clearRecipeCache = (): void => {
+  for (const key of Object.keys(postsContainer)) {
+    delete postsContainer[key]
+  }
+  for (const key of Object.keys(dirInitStatus)) {
+    delete dirInitStatus[key]
+  }
+}
+
 export const readRecipes = async (dir: string): Promise<Recipe[]> => {
   switch (dirInitStatus[dir]) {
     case InitializingStatus.Initialized:
@@ -46,9 +55,9 @@ export const readRecipes = async (dir: string): Promise<Recipe[]> => {
         })
       }),
     )
-    const allRecipes = recipes.flat()
-    return allRecipes
+    return recipes.flat()
   }
+
   if (postsContainer[dir]) {
     return postsContainer[dir]
   }
