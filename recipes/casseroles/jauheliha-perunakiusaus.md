@@ -14,7 +14,7 @@ nutrition:
 ## Ainekset
 
 - `400 g` vähärasvaista naudan jauhelihaa
-- `1 rkl` rasvaa tai öljyä 
+- `1 rkl` rasvaa tai öljyä
 - `1-2 (175 g)` porkkanaa
 - `1 tl` suolaa
 - `1 tl` pippurisekoitusta
