@@ -26,6 +26,7 @@ Use this skill when the user wants to import a recipe from a webpage, image, doc
 - ingredients and their amounts
 - Step-by-step instructions
 - Any additional tips or variations
+- if there are units like 'can', 'bottle', etc. associated with actual measurable units (e.g. '400 g', '2 dl', etc.) then use just the measurable units
 
 ## Tags
 
