@@ -1,9 +1,14 @@
 import { sveltekit } from '@sveltejs/kit/vite'
-import { defineConfig, type Plugin, type ViteDevServer } from 'vite'
+import { defineConfig, searchForWorkspaceRoot, type Plugin, type ViteDevServer } from 'vite'
+import fs from 'node:fs'
+import { createRequire } from 'node:module'
 import path from 'node:path'
 import process from 'node:process'
 
 const recipeRoot = path.resolve('recipes')
+const require = createRequire(import.meta.url)
+const svelteKitPackageRoot = path.dirname(require.resolve('@sveltejs/kit/package.json'))
+const svelteKitRealPath = fs.realpathSync(svelteKitPackageRoot)
 
 const isRecipePath = (file: string): boolean => {
   const resolved = path.resolve(file)
@@ -46,6 +51,11 @@ const recipeHmrPlugin = (): Plugin => ({
 
 export default defineConfig({
   plugins: [recipeHmrPlugin(), sveltekit()],
+  server: {
+    fs: {
+      allow: [searchForWorkspaceRoot(process.cwd()), svelteKitRealPath],
+    },
+  },
   define: {
     __GH_PAGES__: process.env.GH_PAGES,
   },
