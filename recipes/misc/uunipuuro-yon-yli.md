@@ -2,7 +2,7 @@
 title: Uunipuuro yön yli
 source: https://satukoivisto.fi/uunipuuro-yon-yli/
 servings: 4
-tags: porridge, breakfast, oven, vegetarian
+tags: porridge, breakfast, oven, vegetarian, tested
 lang: fi
 nutrition:
   protein: 4

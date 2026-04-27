@@ -1,7 +1,7 @@
 ---
 title: Yhden pannun nakkistroganoffpasta
 servings: 4
-tags: pasta, sausage, one-pot, quick, weekday, cream
+tags: pasta, sausage, one-pot, quick, weekday, cream, tested
 source: Instagram @harrisyrjanen
 lang: fi
 nutrition:
