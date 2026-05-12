@@ -2,7 +2,7 @@ packages:
   - .
 enableGlobalVirtualStore: true # does not work with vite
 minimumReleaseAge: 4320 # 72 hours
-nodeVersion: '24'
+nodeVersion: '24.13.1'
 engineStrict: true
 savePrefix: ''
 allowBuilds:
