@@ -1,7 +1,7 @@
 ---
 title: Kaura-raejuustorieskat
 servings: 18
-tags: bread, oat, cottage-cheese
+tags: bread, oat, cottage-cheese, quick, tested
 lang: fi
 nutrition:
   protein: 13
