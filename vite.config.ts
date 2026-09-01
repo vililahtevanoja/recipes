@@ -1,5 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite'
-import { defineConfig, searchForWorkspaceRoot, type Plugin, type ViteDevServer } from 'vite'
+import { searchForWorkspaceRoot, type Plugin, type ViteDevServer } from 'vite'
+import { defineConfig } from 'vitest/config'
 import fs from 'node:fs'
 import { createRequire } from 'node:module'
 import path from 'node:path'
@@ -51,6 +52,9 @@ const recipeHmrPlugin = (): Plugin => ({
 
 export default defineConfig({
   plugins: [recipeHmrPlugin(), sveltekit()],
+  test: {
+    include: ['src/**/*.test.ts'],
+  },
   server: {
     fs: {
       allow: [searchForWorkspaceRoot(process.cwd()), svelteKitRealPath],
