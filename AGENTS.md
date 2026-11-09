@@ -4,7 +4,7 @@ This repo is a SvelteKit (Svelte 5) static site for browsing/searching a persona
 
 ## Key Commands
 
-- Install: `corepack enable && corepack install && pnpm install`
+- Install: `corepack enable && corepack install && pnpm install` (Node 25+ no longer bundles Corepack; the Nix shell provides it, otherwise `npm i -g corepack`)
 - Dev: `pnpm dev`
 - Typecheck: `pnpm check`
 - Lint: `pnpm lint`
@@ -14,7 +14,7 @@ This repo is a SvelteKit (Svelte 5) static site for browsing/searching a persona
 
 ## Dev Environment
 
-- Node: `24` (see `package.json` engines). CI uses Node 24.
+- Node: `26` (see `pnpm-workspace.yaml` `nodeVersion` and `.nvmrc`). CI uses Node 26.
 - Package manager: pnpm via Corepack (see `package.json#packageManager`).
 - Optional: Nix + direnv (`.envrc` uses `flake.nix`) provides Node and Corepack.
 

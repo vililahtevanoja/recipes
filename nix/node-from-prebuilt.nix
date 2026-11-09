@@ -22,8 +22,6 @@ let
       input;
 
   stringHasSuffix = suffix: s: (builtins.match ".*${pkgs.lib.strings.escapeRegex suffix}$" s) != null;
-  stringContains =
-    needle: haystack: (builtins.match ".*${pkgs.lib.strings.escapeRegex needle}.*" haystack) != null;
 
   relevantNodeHash =
     let
@@ -40,7 +38,7 @@ let
       lines = pkgs.lib.strings.splitString "\n" hashList;
       gzipsOnly = builtins.filter (stringHasSuffix ".tar.gz") lines;
       withNixSystemStrings = builtins.map nodeArchitectureStringsToNixSystemStrings gzipsOnly;
-      relevantArchitecture = builtins.elemAt (builtins.filter (stringContains system) withNixSystemStrings) 0;
+      relevantArchitecture = builtins.elemAt (builtins.filter (stringHasSuffix "-${system}.tar.gz") withNixSystemStrings) 0;
       relevantHash = builtins.elemAt (builtins.split "  " relevantArchitecture) 0;
     in
     relevantHash;

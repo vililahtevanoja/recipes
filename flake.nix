@@ -20,8 +20,8 @@
           pkgs = nixpkgs.legacyPackages.${system};
           nodejs = import ./nix/node-from-prebuilt.nix {
             inherit pkgs system;
-            nodeVersion = "24.13.1";
-            shasumsHash = "496b662fcf38fca596f8d1dd2e95245ac1597dd49e0c3c60235b0b6f2c072900";
+            nodeVersion = "26.13.0";
+            shasumsHash = "9b0d4aa4d20a4f1afaf2cdcf99175ad90d1856d24c7d31dc46f72369b73e2d35";
           };
         in
         {
@@ -29,7 +29,7 @@
             packages = with pkgs; [
               jujutsu
               nodejs
-              corepack_24
+              corepack
               jq
               fzf
             ];
