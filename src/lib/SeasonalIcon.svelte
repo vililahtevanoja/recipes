@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SeasonKey } from '$lib/seasonal'
+  import type { SeasonKey } from '#lib/seasonal.js'
 
   let { season, class: className = '' }: { season: SeasonKey; class?: string } = $props()
 </script>

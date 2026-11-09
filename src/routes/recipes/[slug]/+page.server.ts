@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
-import { readRecipes } from '$lib/server/readRecipes'
+import { readRecipes } from '#lib/server/readRecipes.js'
 
 export const load: PageServerLoad = async ({ params }) => {
   const recipes = await readRecipes('recipes')

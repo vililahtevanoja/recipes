@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { browser } from '$app/environment'
+  import { browser } from '$app/env'
   import { goto } from '$app/navigation'
   import { resolve } from '$app/paths'
   import { page } from '$app/state'
-  import SeasonalTitle from '$lib/SeasonalTitle.svelte'
-  import { getSeasonForMonth, getSeasonalMonth, seasonalByMonth, type SeasonalCategory } from '$lib/seasonal'
-  import FlagFI from '$lib/ui/FlagFI.svelte'
+  import SeasonalTitle from '#lib/SeasonalTitle.svelte'
+  import { getSeasonForMonth, getSeasonalMonth, seasonalByMonth, type SeasonalCategory } from '#lib/seasonal.js'
+  import FlagFI from '#lib/ui/FlagFI.svelte'
 
   const categoryLabels: Record<SeasonalCategory, string> = {
     highlights: 'Kuukauden suositukset',

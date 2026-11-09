@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Pathname } from '$app/types'
+  import type { Path } from '$app/types'
   import { resolve } from '$app/paths'
   import type { Snippet } from 'svelte'
   import type { HTMLAnchorAttributes } from 'svelte/elements'
@@ -10,7 +10,7 @@
     children,
     ...props
   }: {
-    href: Pathname
+    href: Path
     class?: string
     children?: Snippet
   } & Omit<HTMLAnchorAttributes, 'href' | 'class'> = $props()

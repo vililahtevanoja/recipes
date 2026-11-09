@@ -1,4 +1,6 @@
+import adapter from '@sveltejs/adapter-static'
 import { sveltekit } from '@sveltejs/kit/vite'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { searchForWorkspaceRoot, type Plugin, type ViteDevServer } from 'vite'
 import { defineConfig } from 'vitest/config'
 import fs from 'node:fs'
@@ -51,7 +53,22 @@ const recipeHmrPlugin = (): Plugin => ({
 })
 
 export default defineConfig({
-  plugins: [recipeHmrPlugin(), sveltekit()],
+  plugins: [
+    recipeHmrPlugin(),
+    sveltekit({
+      preprocess: vitePreprocess(),
+      paths: {
+        base: process.env.VITE_GH_PAGES === 'true' ? '/recipes' : '',
+      },
+      adapter: adapter({
+        pages: 'build',
+        assets: 'build',
+        fallback: undefined,
+        precompress: false,
+        strict: true,
+      }),
+    }),
+  ],
   test: {
     include: ['src/**/*.test.ts'],
   },

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { resolve } from '$app/paths'
   import { goto } from '$app/navigation'
-  import { isPlainLeftClick } from '$lib/isPlainLeftClick'
-  import FlagFI from '$lib/ui/FlagFI.svelte'
-  import FlagGB from '$lib/ui/FlagGB.svelte'
+  import { isPlainLeftClick } from '#lib/isPlainLeftClick.js'
+  import FlagFI from '#lib/ui/FlagFI.svelte'
+  import FlagGB from '#lib/ui/FlagGB.svelte'
 
   let {
     recipeId,
@@ -12,14 +12,14 @@
     tags,
     backQuery,
     compact = false,
-  } = $props<{
+  }: {
     recipeId: string
     lang: string
     title: string
     tags: string[]
     backQuery?: string
     compact?: boolean
-  }>()
+  } = $props()
 
   const isTestedTag = (tag: string) => tag.trim().toLowerCase() === 'tested'
   const hasTestedTag = $derived(tags.some((tag: string) => isTestedTag(tag)))
@@ -34,7 +34,9 @@
 
     event.preventDefault()
     await goto(
-      resolve((backQuery ? `/recipes/${recipeId}?${backQuery}` : `/recipes/${recipeId}`) as `/recipes/${string}`),
+      backQuery
+        ? resolve(`/recipes/[slug]?${backQuery}`, { slug: recipeId })
+        : resolve('/recipes/[slug]', { slug: recipeId }),
       {
         state: { fromRecipesList: true },
       },
@@ -44,7 +46,9 @@
 
 <article class="recipe-card-modern" class:is-compact={compact}>
   <a
-    href={resolve((backQuery ? `/recipes/${recipeId}?${backQuery}` : `/recipes/${recipeId}`) as `/recipes/${string}`)}
+    href={backQuery
+      ? resolve(`/recipes/[slug]?${backQuery}`, { slug: recipeId })
+      : resolve('/recipes/[slug]', { slug: recipeId })}
     class="recipe-link"
     onclick={handleLinkClick}
   >

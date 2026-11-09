@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
-  import SeasonalIcon from '$lib/SeasonalIcon.svelte'
-  import type { SeasonKey } from '$lib/seasonal'
+  import SeasonalIcon from '#lib/SeasonalIcon.svelte'
+  import type { SeasonKey } from '#lib/seasonal.js'
 
   let { season, children, class: className = '' }: { season: SeasonKey; children?: Snippet; class?: string } = $props()
 </script>

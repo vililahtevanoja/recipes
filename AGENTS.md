@@ -40,7 +40,7 @@ Tip: `ai/ai_prompt_en.txt` and `ai/ai_prompt_fi.txt` contain the preferred Markd
 
 ## Routing / GitHub Pages
 
-- Pages build uses a base path when `VITE_GH_PAGES=true` (see `svelte.config.js`).
+- Pages build uses a base path when `VITE_GH_PAGES=true` (see `vite.config.ts`).
 - In Svelte components, prefer `$app/paths` helpers (`resolve`, `asset`) over hard-coded absolute paths so links work both locally and on GitHub Pages.
 - Static prerendering is enabled (`src/routes/+layout.ts`).
 

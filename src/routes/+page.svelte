@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { browser } from '$app/environment'
+  import { browser } from '$app/env'
   import { page } from '$app/state'
-  import type { MarkdownRecipe } from '$lib/server/recipeModel'
+  import type { MarkdownRecipe } from '#lib/server/recipeModel.js'
   import { onMount } from 'svelte'
   import { SvelteURLSearchParams } from 'svelte/reactivity'
   import type { PageServerData, Snapshot } from './$types'
-  import PillButton from '$lib/ui/PillButton.svelte'
+  import PillButton from '#lib/ui/PillButton.svelte'
   import RecipeListItem from './RecipeListItem.svelte'
 
   type SearchSnapshot = {
@@ -13,7 +13,7 @@
     onlyQuickWeekday: boolean
   }
 
-  let { data } = $props<{ data: PageServerData }>()
+  let { data }: { data: PageServerData } = $props()
   let searchTerm = $state('')
   let onlyQuickWeekday = $state(false)
 

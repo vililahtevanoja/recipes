@@ -1,15 +1,15 @@
 <script lang="ts">
   import { asset, resolve } from '$app/paths'
-  import PillButton from '$lib/ui/PillButton.svelte'
-  import { browser } from '$app/environment'
+  import PillButton from '#lib/ui/PillButton.svelte'
+  import { browser } from '$app/env'
   import { page } from '$app/state'
   import { marked } from 'marked'
   import { onMount } from 'svelte'
-  import { isPlainLeftClick } from '$lib/isPlainLeftClick'
+  import { isPlainLeftClick } from '#lib/isPlainLeftClick.js'
   import { SvelteURLSearchParams } from 'svelte/reactivity'
   import type { PageServerData } from './$types'
 
-  let { data } = $props<{ data: PageServerData }>()
+  let { data }: { data: PageServerData } = $props()
 
   marked.use({
     extensions: [
@@ -52,7 +52,7 @@
   const title = $derived(data.title)
   const nutrition = $derived(data.metadata.nutrition)
   const wakeLockEnabled = $derived(wakeLock !== undefined)
-  const lockIcon = $derived(wakeLockEnabled ? asset('/toggle_on.svg') : asset('/toggle_off.svg'))
+  const lockIcon = $derived(wakeLockEnabled ? asset('toggle_on.svg') : asset('toggle_off.svg'))
   const wakeLockLabel = $derived(wakeLockEnabled ? 'Screen awake' : 'Keep screen awake')
   const nutritionWithCalories = $derived.by(() => {
     if (!nutrition) {
